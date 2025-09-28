@@ -4,9 +4,6 @@
 
 Реализация задачи [Gilded Rose](https://github.com/emilybache/GildedRose-Refactoring-Kata) с использованием PostgreSQL. Проект демонстрирует рефакторинг кода и управление товарами с особыми правилами обновления качества (Aged Brie, Backstage passes, Sulfuras и др.).
 
-Мой репозиторий: [vasiliy-mikhailov/gilded-rose-postgresql](https://github.com/vasiliy-mikhailov/gilded-rose-postgresql).  
-Оригинальный репозиторий: [emilybache/GildedRose-Refactoring-Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata).
-
 ## Требования
 
 - Docker и Docker Compose.
@@ -22,7 +19,7 @@
 
 2. Запустите проект:
    ```bash
-   ./start.sh
+   bash start.sh
    ```
    Откроется терминал контейнера с PostgreSQL.
 
