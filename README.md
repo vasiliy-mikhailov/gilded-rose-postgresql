@@ -1,12 +1,8 @@
-```markdown
 # Gilded Rose с PostgreSQL
 
 ## Описание
 
 Эта реализация [Gilded Rose Refactoring Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata) переносит логику управления товарами в PostgreSQL. Исходный код хранимой процедуры `update_quality` был адаптирован для совместимости с анализом покрытия кода в `piggly`. Проект включает поддержку Docker и PostgreSQL 17, а также юнит-тесты на `pgTAP` для проверки логики.
-
-Репозиторий: [vasiliy-mikhailov/gilded-rose-postgresql](https://github.com/vasiliy-mikhailov/gilded-rose-postgresql).  
-Оригинальный проект: [emilybache/GildedRose-Refactoring-Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata).
 
 ## Требования
 
@@ -84,4 +80,3 @@ Result: PASS
 ## Вклад в проект
 
 Хотите улучшить тесты или код? Создайте pull request или сообщите об ошибке в [issues](https://github.com/vasiliy-mikhailov/gilded-rose-postgresql/issues).
-```
