@@ -1,0 +1,89 @@
+DECLARE
+  l_item RECORD;
+  l_name item.name%TYPE;
+  l_sell_in item.sell_in%TYPE;
+  l_quality item.quality%TYPE;
+BEGIN
+  perform public.piggly_branch($PIGGLY$17accb9484936242$PIGGLY$);
+  FOR l_item IN
+    SELECT name, sell_in, quality, ctid FROM item FOR UPDATE
+  LOOP
+    perform public.piggly_cond($PIGGLY$0296384120efed66$PIGGLY$, true);
+    perform public.piggly_branch($PIGGLY$97cc5a1d21c2bdf5$PIGGLY$);
+    l_name    := l_item.name;
+    l_sell_in := l_item.sell_in;
+    l_quality := l_item.quality;
+
+    IF public.piggly_cond($PIGGLY$9cbaf7596a74b5cd$PIGGLY$, (l_name <> 'Aged Brie' AND l_name <> 'Backstage passes to a TAFKAL80ETC concert')) THEN
+      perform public.piggly_branch($PIGGLY$10528f019d2dbdec$PIGGLY$);
+      IF public.piggly_cond($PIGGLY$02faf1a1ccfb97e3$PIGGLY$, (l_quality > 0)) THEN
+        perform public.piggly_branch($PIGGLY$2eceb761bf38e8b0$PIGGLY$);
+        IF public.piggly_cond($PIGGLY$cc3a5ce78cf9e1e3$PIGGLY$, (l_name <> 'Sulfuras, Hand of Ragnaros')) THEN
+          perform public.piggly_branch($PIGGLY$65a204bebf9c47b2$PIGGLY$);
+          l_quality := l_quality - 1;
+        END IF;
+      END IF;
+    ELSE
+      perform public.piggly_branch($PIGGLY$d8217b3f03201c93$PIGGLY$);
+      IF (public.piggly_cond($PIGGLY$ce8e48059850c4b4$PIGGLY$, (l_quality < 50))) THEN
+        perform public.piggly_branch($PIGGLY$b3f202aff24a1a16$PIGGLY$);
+        l_quality := l_quality + 1;
+        IF public.piggly_cond($PIGGLY$910e0c2bc81e2677$PIGGLY$, (l_name = 'Backstage passes to a TAFKAL80ETC concert')) THEN
+          perform public.piggly_branch($PIGGLY$08e8b4e20945199f$PIGGLY$);
+          IF public.piggly_cond($PIGGLY$59b2aa5727606454$PIGGLY$, (l_sell_in < 11)) THEN
+            perform public.piggly_branch($PIGGLY$ad2b580505cc5443$PIGGLY$);
+            IF public.piggly_cond($PIGGLY$c12918bcd89df3ca$PIGGLY$, (l_quality < 50)) THEN
+              perform public.piggly_branch($PIGGLY$9be10f85292a3c3c$PIGGLY$);
+              l_quality := l_quality + 1;
+            END IF;
+          END IF;
+          IF public.piggly_cond($PIGGLY$ed7a3392a6183c66$PIGGLY$, (l_sell_in < 6)) THEN
+            perform public.piggly_branch($PIGGLY$4a156914958e7e79$PIGGLY$);
+            IF public.piggly_cond($PIGGLY$07447a6e26ee1bd5$PIGGLY$, (l_quality < 50)) THEN
+              perform public.piggly_branch($PIGGLY$8fc926b521d0ad03$PIGGLY$);
+              l_quality := l_quality + 1;
+            END IF;
+          END IF;
+        END IF;
+      END IF;
+    END IF;
+
+    IF public.piggly_cond($PIGGLY$ee4e2c66285ebedb$PIGGLY$, (l_name <> 'Sulfuras, Hand of Ragnaros')) THEN
+      perform public.piggly_branch($PIGGLY$afe83033204c775e$PIGGLY$);
+      l_sell_in := l_sell_in - 1;
+    END IF;
+
+    IF public.piggly_cond($PIGGLY$dbc70489af1c202b$PIGGLY$, (l_sell_in < 0)) THEN
+      perform public.piggly_branch($PIGGLY$9b3b440288f1d2dd$PIGGLY$);
+      IF public.piggly_cond($PIGGLY$ff8f53f1ea365cd9$PIGGLY$, (l_name <> 'Aged Brie')) THEN
+        perform public.piggly_branch($PIGGLY$f665d8a7ff669ba7$PIGGLY$);
+        IF public.piggly_cond($PIGGLY$7c6b137ea3be3cef$PIGGLY$, (l_name <> 'Backstage passes to a TAFKAL80ETC concert')) THEN
+          perform public.piggly_branch($PIGGLY$34ad87fb98cc5b75$PIGGLY$);
+          IF public.piggly_cond($PIGGLY$f9d8d165af9de820$PIGGLY$, (l_quality > 0)) THEN
+            perform public.piggly_branch($PIGGLY$42996a8cf41b6c3d$PIGGLY$);
+            IF public.piggly_cond($PIGGLY$2f1143c282a50739$PIGGLY$, (l_name <> 'Sulfuras, Hand of Ragnaros')) THEN
+              perform public.piggly_branch($PIGGLY$131e480bec981c3a$PIGGLY$);
+              l_quality := l_quality - 1;
+            END IF;
+          END IF;
+        ELSE
+          perform public.piggly_branch($PIGGLY$2adaee25da8ec775$PIGGLY$);
+          l_quality := 0;
+        END IF;
+      ELSE
+        perform public.piggly_branch($PIGGLY$8fc46545b867fb25$PIGGLY$);
+        IF public.piggly_cond($PIGGLY$a10bb0db30670ac5$PIGGLY$, (l_quality < 50)) THEN
+          perform public.piggly_branch($PIGGLY$537a3a05c6abe940$PIGGLY$);
+          l_quality := l_quality + 1;
+        END IF;
+      END IF;
+    END IF;
+
+    UPDATE item
+      SET name = l_name, sell_in = l_sell_in, quality = l_quality
+      WHERE ctid = l_item.ctid;
+  
+    perform public.piggly_signal($PIGGLY$0296384120efed66$PIGGLY$, $PIGGLY$@$PIGGLY$);
+  END LOOP;
+perform public.piggly_cond($PIGGLY$0296384120efed66$PIGGLY$, false);
+END;

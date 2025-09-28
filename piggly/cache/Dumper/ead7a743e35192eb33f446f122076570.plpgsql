@@ -1,0 +1,27 @@
+DECLARE
+    qcol CONSTANT text := quote_ident($1) || '.' || quote_ident($2) || '.' || quote_ident($3);
+    c_desc CONSTANT text := coalesce(
+        $4,
+        'Column ' || qcol || ' should '
+            || CASE WHEN $5 THEN 'be NOT' ELSE 'allow' END || ' NULL'
+    );
+BEGIN
+    IF NOT _cexists( $1, $2, $3 ) THEN
+        RETURN fail( c_desc ) || E'\n'
+            || diag ('    Column ' || qcol || ' does not exist' );
+    END IF;
+    RETURN ok(
+        EXISTS(
+            SELECT true
+              FROM pg_catalog.pg_namespace n
+              JOIN pg_catalog.pg_class c ON n.oid = c.relnamespace
+              JOIN pg_catalog.pg_attribute a ON c.oid = a.attrelid
+             WHERE n.nspname = $1
+               AND c.relname = $2
+               AND a.attnum  > 0
+               AND NOT a.attisdropped
+               AND a.attname    = $3
+               AND a.attnotnull = $5
+        ), c_desc
+    );
+END;

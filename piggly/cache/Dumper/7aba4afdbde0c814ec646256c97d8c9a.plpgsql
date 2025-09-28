@@ -1,0 +1,12 @@
+DECLARE
+    result BOOLEAN;
+    output TEXT;
+BEGIN
+    -- Would prefer $1 IS NOT DISTINCT FROM, but that's not supported by 8.1.
+    result := NOT $1 IS DISTINCT FROM $2;
+    output := ok( result, $3 );
+    RETURN output || CASE result WHEN TRUE THEN '' ELSE E'\n' || diag(
+           '        have: ' || CASE WHEN $1 IS NULL THEN 'NULL' ELSE $1::text END ||
+        E'\n        want: ' || CASE WHEN $2 IS NULL THEN 'NULL' ELSE $2::text END
+    ) END;
+END;

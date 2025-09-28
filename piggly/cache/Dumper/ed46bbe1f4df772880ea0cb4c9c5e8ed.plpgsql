@@ -1,0 +1,20 @@
+DECLARE
+    missing text[];
+BEGIN
+    SELECT ARRAY(
+        SELECT quote_ident($2[i])
+          FROM generate_series(1, array_upper($2, 1)) s(i)
+          LEFT JOIN tap_funky ON name = $2[i] AND schema = $1
+         WHERE oid IS NULL
+         GROUP BY $2[i], s.i
+         ORDER BY MIN(s.i)
+    ) INTO missing;
+    IF missing[1] IS NULL THEN
+        RETURN ok( true, $3 );
+    END IF;
+    RETURN ok( false, $3 ) || E'\n' || diag(
+        '    ' || quote_ident($1) || '.' ||
+        array_to_string( missing, E'() missing\n    ' || quote_ident($1) || '.') ||
+        '() missing'
+    );
+END;

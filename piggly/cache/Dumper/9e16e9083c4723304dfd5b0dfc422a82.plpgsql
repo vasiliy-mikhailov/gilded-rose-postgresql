@@ -1,0 +1,12 @@
+DECLARE
+    owner NAME := _get_type_owner($1);
+BEGIN
+    -- Make sure the type exists.
+    IF owner IS NULL THEN
+        RETURN ok(FALSE, $3) || E'\n' || diag(
+            E'    Type ' || quote_ident($1) || ' not found'
+        );
+    END IF;
+
+    RETURN is(owner, $2, $3);
+END;

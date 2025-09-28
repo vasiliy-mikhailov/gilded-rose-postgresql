@@ -1,0 +1,5 @@
+BEGIN
+    RETURN array_to_string($1::regtype[], ',');
+EXCEPTION WHEN undefined_object THEN
+    RETURN array_to_string($1, ',');
+END;

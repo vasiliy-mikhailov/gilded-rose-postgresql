@@ -1,0 +1,18 @@
+DECLARE
+    res  BOOLEAN := FALSE;
+    rec  RECORD;
+BEGIN
+    -- Find extra records.
+    perform public.piggly_branch($PIGGLY$4a2d72ad9e8c301d$PIGGLY$);
+    FOR rec in EXECUTE _query($1) LOOP
+        perform public.piggly_cond($PIGGLY$12daa64dfd5b2d9f$PIGGLY$, true);
+        perform public.piggly_branch($PIGGLY$4c367f0111dd28f5$PIGGLY$);
+        res := TRUE;
+        perform public.piggly_branch($PIGGLY$cc408f074e7189a4$PIGGLY$);EXIT;
+    
+        perform public.piggly_signal($PIGGLY$12daa64dfd5b2d9f$PIGGLY$, $PIGGLY$@$PIGGLY$);
+    END LOOP;
+perform public.piggly_cond($PIGGLY$12daa64dfd5b2d9f$PIGGLY$, false);
+
+    perform public.piggly_branch($PIGGLY$046307bb4869df61$PIGGLY$);RETURN ok(res, $2);
+END;

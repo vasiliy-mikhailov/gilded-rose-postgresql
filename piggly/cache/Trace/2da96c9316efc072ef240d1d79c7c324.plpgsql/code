@@ -1,0 +1,5 @@
+BEGIN
+    perform public.piggly_branch($PIGGLY$9df1dcedb252bae1$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$84bb72f6e9c3ed22$PIGGLY$, (NOT $1)) THEN perform public.piggly_branch($PIGGLY$331a4296187fbd35$PIGGLY$);PERFORM _set('failed', _get('failed') + 1); END IF;
+    perform public.piggly_branch($PIGGLY$fcf1af24d3d6842b$PIGGLY$);RETURN nextval('__tresults___numb_seq');
+END;

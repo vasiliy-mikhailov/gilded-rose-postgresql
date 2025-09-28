@@ -1,0 +1,4 @@
+BEGIN
+    EXECUTE 'CREATE TEMP TABLE ' || $2 || ' AS ' || _query($1);
+    return $2;
+END;

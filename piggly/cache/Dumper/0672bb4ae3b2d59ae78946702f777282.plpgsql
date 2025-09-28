@@ -1,0 +1,37 @@
+DECLARE
+   aok      ALIAS FOR $1;
+   descr    text := $2;
+   test_num INTEGER;
+   todo_why TEXT;
+   ok       BOOL;
+BEGIN
+   todo_why := _todo();
+   ok       := CASE
+       WHEN aok = TRUE THEN aok
+       WHEN todo_why IS NULL THEN COALESCE(aok, false)
+       ELSE TRUE
+    END;
+    IF _get('plan') IS NULL THEN
+        RAISE EXCEPTION 'You tried to run a test without a plan! Gotta have a plan';
+    END IF;
+
+    test_num := add_result(
+        ok,
+        COALESCE(aok, false),
+        descr,
+        CASE WHEN todo_why IS NULL THEN '' ELSE 'todo' END,
+        COALESCE(todo_why, '')
+    );
+
+    RETURN (CASE aok WHEN TRUE THEN '' ELSE 'not ' END)
+           || 'ok ' || _set( 'curr_test', test_num )
+           || CASE descr WHEN '' THEN '' ELSE COALESCE( ' - ' || substr(diag( descr ), 3), '' ) END
+           || COALESCE( ' ' || diag( 'TODO ' || todo_why ), '')
+           || CASE aok WHEN TRUE THEN '' ELSE E'\n' ||
+                diag('Failed ' ||
+                CASE WHEN todo_why IS NULL THEN '' ELSE '(TODO) ' END ||
+                'test ' || test_num ||
+                CASE descr WHEN '' THEN '' ELSE COALESCE(': "' || descr || '"', '') END ) ||
+                CASE WHEN aok IS NULL THEN E'\n' || diag('    (test result was NULL)') ELSE '' END
+           END;
+END;

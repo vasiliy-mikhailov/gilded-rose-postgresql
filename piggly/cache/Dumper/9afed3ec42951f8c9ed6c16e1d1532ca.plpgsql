@@ -1,0 +1,40 @@
+DECLARE
+    have    TEXT    := _temptable( $1, '__taphave__' );
+    want    TEXT    := _temptable( $2, '__tapwant__' );
+    results TEXT[]  := '{}';
+    res     BOOLEAN := TRUE;
+    msg     TEXT    := '';
+    rec     RECORD;
+BEGIN
+    BEGIN
+        -- Find relevant records.
+        FOR rec in EXECUTE 'SELECT * FROM ' || want || ' ' || $4
+                       || ' SELECT * FROM ' || have LOOP
+            results := results || rec::text;
+        END LOOP;
+
+        -- Drop the temporary tables.
+        EXECUTE 'DROP TABLE ' || have;
+        EXECUTE 'DROP TABLE ' || want;
+    EXCEPTION WHEN syntax_error OR datatype_mismatch THEN
+        msg := E'\n' || diag(
+            E'    Columns differ between queries:\n'
+            || '        have: (' || _temptypes(have) || E')\n'
+            || '        want: (' || _temptypes(want) || ')'
+        );
+        EXECUTE 'DROP TABLE ' || have;
+        EXECUTE 'DROP TABLE ' || want;
+        RETURN ok(FALSE, $3) || msg;
+    END;
+
+    -- What records do we have?
+    IF results[1] IS NOT NULL THEN
+        res := FALSE;
+        msg := msg || E'\n' || diag(
+            '    ' || $5 || E' records:\n        '
+            ||  array_to_string( results, E'\n        ' )
+        );
+    END IF;
+
+    RETURN ok(res, $3) || msg;
+END;

@@ -1,0 +1,5 @@
+BEGIN
+    EXECUTE 'INSERT INTO __tcache__ (label, value, note) values (' ||
+    quote_literal($1) || ', ' || $2 || ', ' || quote_literal(COALESCE($3, '')) || ')';
+    RETURN $2;
+END;

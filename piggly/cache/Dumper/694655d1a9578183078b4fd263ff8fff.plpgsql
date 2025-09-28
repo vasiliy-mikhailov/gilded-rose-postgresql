@@ -1,0 +1,13 @@
+DECLARE
+    want char = substring(LOWER($3) FROM 1 FOR 1);
+    have char := _get_context($1, $2);
+BEGIN
+    IF have IS NOT NULL THEN
+        RETURN is( _expand_context(have), _expand_context(want), $4 );
+    END IF;
+
+    RETURN ok( false, $4 ) || E'\n' || diag(
+       '    Cast (' || quote_ident($1) || ' AS ' || quote_ident($2)
+      || ') does not exist'
+    );
+END;

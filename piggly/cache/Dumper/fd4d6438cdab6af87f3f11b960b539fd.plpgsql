@@ -1,0 +1,11 @@
+DECLARE
+    result BOOLEAN;
+    output TEXT;
+BEGIN
+    result := $1 IS DISTINCT FROM $2;
+    output := ok( result, $3 );
+    RETURN output || CASE result WHEN TRUE THEN '' ELSE E'\n' || diag(
+           '        have: ' || COALESCE( $1::text, 'NULL' ) ||
+        E'\n        want: anything else'
+    ) END;
+END;

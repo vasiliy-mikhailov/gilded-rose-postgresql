@@ -1,0 +1,12 @@
+BEGIN
+   perform public.piggly_branch($PIGGLY$a680cf9674e28826$PIGGLY$);
+   IF public.piggly_cond($PIGGLY$42a374ce7335ceff$PIGGLY$, (_is_schema($1))) THEN
+       -- ( schema, table, index )
+       perform public.piggly_branch($PIGGLY$400d239c82e5cad0$PIGGLY$);
+       perform public.piggly_branch($PIGGLY$482884fbbbabf86a$PIGGLY$);RETURN ok( _have_index( $1, $2, $3 ), 'Index ' || quote_ident($3) || ' should exist' );
+   ELSE
+       -- ( table, index, column/expression )
+       perform public.piggly_branch($PIGGLY$23985a1428d9da1d$PIGGLY$);
+       perform public.piggly_branch($PIGGLY$48ddd34163730b1d$PIGGLY$);RETURN has_index( $1, $2, $3, 'Index ' || quote_ident($2) || ' should exist' );
+   END IF;
+END;

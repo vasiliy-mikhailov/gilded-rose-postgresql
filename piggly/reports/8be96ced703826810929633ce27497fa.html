@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Code Coverage: public._finish</title><meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="piggly.css"/><script type="text/javascript" src="highlight.js"><!-- --></script></head><body><div class="header"><p class="summary">public._finish</p><table class="summary sortable"><tr><th>Blocks</th><th>Loops</th><th>Branches</th><th>Block Coverage</th><th>Loop Coverage</th><th>Branch Coverage</th></tr><tr class="even"><td class="count">13</td><td class="count">0</td><td class="count">5</td><td class="pct"><table align="center"><tr><td class="num">23.08%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="11"/><td class="uncovered" width="38"/></tr></table></td></tr></table></td><td class="pct"><span style="display:none">-1</span></td><td class="pct"><table align="center"><tr><td class="num">40.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="20"/><td class="uncovered" width="30"/></tr></table></td></tr></table></td></tr></table></div><div class="container"><div class="listing"><table><tr><td class="signature">&nbsp;</td><td class="signature"><span class='tK'>CREATE FUNCTION</span> <b><span class='tI'>public._finish</span></b> ( <span class='tK'>IN</span> <span class='tD'>integer</span>, <span class='tK'>IN</span> <span class='tD'>integer</span>, <span class='tK'>IN</span> <span class='tD'>integer</span>, <span class='tK'>IN</span> <span class='tD'>boolean</span> )
+<span class='tK'>RETURNS SETOF</span> <span class='tD'>text</span>
+  <span class='tK'>VOLATILE</span></td></tr><tr><td class="lines"><a href="#L1" id="L1">1</a>
+<a href="#L2" id="L2">2</a>
+<a href="#L3" id="L3">3</a>
+<a href="#L4" id="L4">4</a>
+<a href="#L5" id="L5">5</a>
+<a href="#L6" id="L6">6</a>
+<a href="#L7" id="L7">7</a>
+<a href="#L8" id="L8">8</a>
+<a href="#L9" id="L9">9</a>
+<a href="#L10" id="L10">10</a>
+<a href="#L11" id="L11">11</a>
+<a href="#L12" id="L12">12</a>
+<a href="#L13" id="L13">13</a>
+<a href="#L14" id="L14">14</a>
+<a href="#L15" id="L15">15</a>
+<a href="#L16" id="L16">16</a>
+<a href="#L17" id="L17">17</a>
+<a href="#L18" id="L18">18</a>
+<a href="#L19" id="L19">19</a>
+<a href="#L20" id="L20">20</a>
+<a href="#L21" id="L21">21</a>
+<a href="#L22" id="L22">22</a>
+<a href="#L23" id="L23">23</a>
+<a href="#L24" id="L24">24</a>
+<a href="#L25" id="L25">25</a>
+<a href="#L26" id="L26">26</a>
+<a href="#L27" id="L27">27</a>
+<a href="#L28" id="L28">28</a>
+<a href="#L29" id="L29">29</a>
+<a href="#L30" id="L30">30</a>
+<a href="#L31" id="L31">31</a>
+<a href="#L32" id="L32">32</a>
+<a href="#L33" id="L33">33</a>
+<a href="#L34" id="L34">34</a>
+<a href="#L35" id="L35">35</a>
+<a href="#L36" id="L36">36</a>
+<a href="#L37" id="L37">37</a>
+<a href="#L38" id="L38">38</a></td><td class="code"><span class="tK">DECLARE</span>
+    <span class="tI">curr_test</span> <span class="tD">ALIAS FOR $1</span>;
+    <span class="tI">exp_tests</span> <span class="tD">INTEGER</span> <span class="tK">:=</span> $2;
+    <span class="tI">num_faild</span> <span class="tD">ALIAS FOR $3</span>;
+    <span class="tI">plural</span>    <span class="tD">CHAR</span>;
+    <span class="tI">raise_ex</span>  <span class="tD">ALIAS FOR $4</span>;
+<span class="tK">BEGIN</span>
+    <span class="c1" id="Tc3f41088600312cb"><span class="tI">plural</span>    <span class="tK">:=</span> CASE exp_tests WHEN 1 THEN <span class="tS">''</span> ELSE <span class="tS">'s'</span> END;
+
+    <span class="tK">IF</span> <span class="b01" id="Tf2257a0fd057624a" title="never evaluates true">curr_test IS NULL </span><span class="tK">THEN</span>
+        <span class="c0" id="T2399c246a3b67707" title="never evaluated"><span class="c0" id="T608f67dccb99b21e" title="never evaluated"><span class="tK">RAISE</span> <span class="tK">EXCEPTION</span> <span class="tS">'# No tests run!'</span></span>;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="tK">IF</span> <span class="b01" id="T33d43ddf7eb54ce6" title="never evaluates true">exp_tests = 0 OR exp_tests IS NULL </span><span class="tK">THEN</span>
+         <span class="tC">-- No plan. Output one now.
+</span>        <span class="c0" id="T77ba4b91193e4d2f" title="never evaluated"><span class="tI">exp_tests</span> <span class="tK">=</span> curr_test;
+        <span class="c0" id="Tf333c31967cd8cf1" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> <span class="tS">'1..'</span> || exp_tests</span>;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="tK">IF</span> <span class="b01" id="T98bbc670da0915f9" title="never evaluates true">curr_test &lt;&gt; exp_tests </span><span class="tK">THEN</span>
+        <span class="c0" id="T20a87487b26ae13f" title="never evaluated"><span class="c0" id="T78ea7daf53df573a" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> diag(
+            <span class="tS">'Looks like you planned '</span> || exp_tests || <span class="tS">' test'</span> ||
+            plural || <span class="tS">' but ran '</span> || curr_test
+        )</span>;
+    </span><span class="tK">ELSIF</span> <span class="b01" id="T661374e4b55f3829" title="never evaluates true">num_faild &gt; 0 </span><span class="tK">THEN</span>
+        <span class="c0" id="Tee17659d7d251971" title="never evaluated"><span class="tK">IF</span> <span class="b00" id="T9959fb90ef1e94f0" title="never evaluated">raise_ex </span><span class="tK">THEN</span>
+            <span class="c0" id="T52d0b19d5dc96702" title="never evaluated"><span class="c0" id="T916d362824e17ca3" title="never evaluated"><span class="tK">RAISE</span> <span class="tK">EXCEPTION</span>  <span class="tS">'% test% failed of %'</span>, num_faild, CASE num_faild WHEN 1 THEN <span class="tS">''</span> ELSE <span class="tS">'s'</span> END, exp_tests</span>;
+        </span><span class="tK">END</span> <span class="tK">IF</span>;
+        <span class="c0" id="T86fe264983b9f083" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> diag(
+            <span class="tS">'Looks like you failed '</span> || num_faild || <span class="tS">' test'</span> ||
+            CASE num_faild WHEN 1 THEN <span class="tS">''</span> ELSE <span class="tS">'s'</span> END
+            || <span class="tS">' of '</span> || exp_tests
+        )</span>;
+    </span><span class="tK">ELSE</span>
+
+    <span class="c1" id="T1479a8ee54e456ee"></span><span class="tK">END</span> <span class="tK">IF</span>;
+    <span class="c1" id="Ta7a7afd76619b93c"><span class="tK">RETURN</span></span>;
+</span><span class="tK">END</span>;</td></tr></table></div><div class="toc"><strong>Notes</strong><ol><li class="branch"><a href="#Tf2257a0fd057624a" onMouseOver="highlight('Tf2257a0fd057624a')">never evaluates true</a></li><li class="block"><a href="#T2399c246a3b67707" onMouseOver="highlight('T2399c246a3b67707')">never evaluated</a></li><li class="block"><a href="#T608f67dccb99b21e" onMouseOver="highlight('T608f67dccb99b21e')">never evaluated</a></li><li class="branch"><a href="#T33d43ddf7eb54ce6" onMouseOver="highlight('T33d43ddf7eb54ce6')">never evaluates true</a></li><li class="block"><a href="#T77ba4b91193e4d2f" onMouseOver="highlight('T77ba4b91193e4d2f')">never evaluated</a></li><li class="block"><a href="#Tf333c31967cd8cf1" onMouseOver="highlight('Tf333c31967cd8cf1')">never evaluated</a></li><li class="branch"><a href="#T98bbc670da0915f9" onMouseOver="highlight('T98bbc670da0915f9')">never evaluates true</a></li><li class="block"><a href="#T20a87487b26ae13f" onMouseOver="highlight('T20a87487b26ae13f')">never evaluated</a></li><li class="block"><a href="#T78ea7daf53df573a" onMouseOver="highlight('T78ea7daf53df573a')">never evaluated</a></li><li class="branch"><a href="#T661374e4b55f3829" onMouseOver="highlight('T661374e4b55f3829')">never evaluates true</a></li><li class="block"><a href="#Tee17659d7d251971" onMouseOver="highlight('Tee17659d7d251971')">never evaluated</a></li><li class="branch"><a href="#T9959fb90ef1e94f0" onMouseOver="highlight('T9959fb90ef1e94f0')">never evaluated</a></li><li class="block"><a href="#T52d0b19d5dc96702" onMouseOver="highlight('T52d0b19d5dc96702')">never evaluated</a></li><li class="block"><a href="#T916d362824e17ca3" onMouseOver="highlight('T916d362824e17ca3')">never evaluated</a></li><li class="block"><a href="#T86fe264983b9f083" onMouseOver="highlight('T86fe264983b9f083')">never evaluated</a></li></ol></div></div><div class="timestamp">Generated by piggly 2.3.1 at September 24, 2025 13:36 UTC</div><a href="index.html" class="return">Return to index</a></body></html>

@@ -1,0 +1,14 @@
+BEGIN
+    IF pg_catalog.has_server_privilege($1, $2, 'USAGE') THEN
+        RETURN '{USAGE}';
+    ELSE
+        RETURN '{}';
+    END IF;
+EXCEPTION WHEN undefined_object THEN
+    -- Same error code for unknown user or server. So figure out which.
+    RETURN CASE WHEN SQLERRM LIKE '%' || $1 || '%' THEN
+        '{undefined_role}'
+    ELSE
+        '{undefined_server}'
+    END;
+END;

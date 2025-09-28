@@ -1,0 +1,12 @@
+DECLARE
+    have REFCURSOR;
+    want REFCURSOR;
+    res  TEXT;
+BEGIN
+    OPEN have FOR EXECUTE _query($1);
+    OPEN want FOR EXECUTE _query($2);
+    res := results_ne(have, want, $3);
+    CLOSE have;
+    CLOSE want;
+    RETURN res;
+END;

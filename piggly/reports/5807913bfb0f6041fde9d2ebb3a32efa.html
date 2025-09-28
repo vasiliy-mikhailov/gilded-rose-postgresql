@@ -1,0 +1,129 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Code Coverage: public.update_quality</title><meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="piggly.css"/><script type="text/javascript" src="highlight.js"><!-- --></script></head><body><div class="header"><p class="summary">public.update_quality</p><table class="summary sortable"><tr><th>Blocks</th><th>Loops</th><th>Branches</th><th>Block Coverage</th><th>Loop Coverage</th><th>Branch Coverage</th></tr><tr class="even"><td class="count">21</td><td class="count">1</td><td class="count">16</td><td class="pct"><table align="center"><tr><td class="num">90.48%&nbsp;</td><td class="graph"><table align="right" class="graph mid"><tr><td class="covered" width="45"/><td class="uncovered" width="4"/></tr></table></td></tr></table></td><td class="pct"><table align="center"><tr><td class="num">50.00%&nbsp;</td><td class="graph"><table align="right" class="graph mid"><tr><td class="covered" width="25"/><td class="uncovered" width="25"/></tr></table></td></tr></table></td><td class="pct"><table align="center"><tr><td class="num">75.00%&nbsp;</td><td class="graph"><table align="right" class="graph mid"><tr><td class="covered" width="37"/><td class="uncovered" width="12"/></tr></table></td></tr></table></td></tr></table></div><div class="container"><div class="listing"><table><tr><td class="signature">&nbsp;</td><td class="signature"><span class='tK'>CREATE FUNCTION</span> <b><span class='tI'>public.update_quality</span></b> (  )
+<span class='tK'>RETURNS</span> <span class='tD'>void</span>
+  <span class='tK'>VOLATILE</span></td></tr><tr><td class="lines"><a href="#L1" id="L1">1</a>
+<a href="#L2" id="L2">2</a>
+<a href="#L3" id="L3">3</a>
+<a href="#L4" id="L4">4</a>
+<a href="#L5" id="L5">5</a>
+<a href="#L6" id="L6">6</a>
+<a href="#L7" id="L7">7</a>
+<a href="#L8" id="L8">8</a>
+<a href="#L9" id="L9">9</a>
+<a href="#L10" id="L10">10</a>
+<a href="#L11" id="L11">11</a>
+<a href="#L12" id="L12">12</a>
+<a href="#L13" id="L13">13</a>
+<a href="#L14" id="L14">14</a>
+<a href="#L15" id="L15">15</a>
+<a href="#L16" id="L16">16</a>
+<a href="#L17" id="L17">17</a>
+<a href="#L18" id="L18">18</a>
+<a href="#L19" id="L19">19</a>
+<a href="#L20" id="L20">20</a>
+<a href="#L21" id="L21">21</a>
+<a href="#L22" id="L22">22</a>
+<a href="#L23" id="L23">23</a>
+<a href="#L24" id="L24">24</a>
+<a href="#L25" id="L25">25</a>
+<a href="#L26" id="L26">26</a>
+<a href="#L27" id="L27">27</a>
+<a href="#L28" id="L28">28</a>
+<a href="#L29" id="L29">29</a>
+<a href="#L30" id="L30">30</a>
+<a href="#L31" id="L31">31</a>
+<a href="#L32" id="L32">32</a>
+<a href="#L33" id="L33">33</a>
+<a href="#L34" id="L34">34</a>
+<a href="#L35" id="L35">35</a>
+<a href="#L36" id="L36">36</a>
+<a href="#L37" id="L37">37</a>
+<a href="#L38" id="L38">38</a>
+<a href="#L39" id="L39">39</a>
+<a href="#L40" id="L40">40</a>
+<a href="#L41" id="L41">41</a>
+<a href="#L42" id="L42">42</a>
+<a href="#L43" id="L43">43</a>
+<a href="#L44" id="L44">44</a>
+<a href="#L45" id="L45">45</a>
+<a href="#L46" id="L46">46</a>
+<a href="#L47" id="L47">47</a>
+<a href="#L48" id="L48">48</a>
+<a href="#L49" id="L49">49</a>
+<a href="#L50" id="L50">50</a>
+<a href="#L51" id="L51">51</a>
+<a href="#L52" id="L52">52</a>
+<a href="#L53" id="L53">53</a>
+<a href="#L54" id="L54">54</a>
+<a href="#L55" id="L55">55</a>
+<a href="#L56" id="L56">56</a>
+<a href="#L57" id="L57">57</a>
+<a href="#L58" id="L58">58</a>
+<a href="#L59" id="L59">59</a>
+<a href="#L60" id="L60">60</a>
+<a href="#L61" id="L61">61</a>
+<a href="#L62" id="L62">62</a>
+<a href="#L63" id="L63">63</a>
+<a href="#L64" id="L64">64</a></td><td class="code"><span class="tK">DECLARE</span>
+  <span class="tI">l_item</span> <span class="tD">RECORD</span>;
+  <span class="tI">l_name</span> <span class="tD">item.name%TYPE</span>;
+  <span class="tI">l_sell_in</span> <span class="tD">item.sell_in%TYPE</span>;
+  <span class="tI">l_quality</span> <span class="tD">item.quality%TYPE</span>;
+<span class="tK">BEGIN</span>
+  <span class="c1" id="T17accb9484936242"><span class="tK">FOR</span> <span class="tI">l_item</span> <span class="tK">IN</span>
+    <span class="l[0, 1, 0, 1]" id="T0296384120efed66" title="loop always iterates only once"><span class="tK">SELECT</span> name, sell_in, quality, ctid FROM item FOR UPDATE
+  </span><span class="tK">LOOP</span>
+    <span class="c1" id="T97cc5a1d21c2bdf5"><span class="tI">l_name</span>    <span class="tK">:=</span> l_item.name;
+    <span class="tI">l_sell_in</span> <span class="tK">:=</span> l_item.sell_in;
+    <span class="tI">l_quality</span> <span class="tK">:=</span> l_item.quality;
+
+    <span class="tK">IF</span> <span class="b11" id="T9cbaf7596a74b5cd">l_name &lt;&gt; <span class="tS">'Aged Brie'</span> AND l_name &lt;&gt; <span class="tS">'Backstage passes to a TAFKAL80ETC concert'</span> </span><span class="tK">THEN</span>
+      <span class="c1" id="T10528f019d2dbdec"><span class="tK">IF</span> <span class="b11" id="T02faf1a1ccfb97e3">l_quality &gt; 0 </span><span class="tK">THEN</span>
+        <span class="c1" id="T2eceb761bf38e8b0"><span class="tK">IF</span> <span class="b11" id="Tcc3a5ce78cf9e1e3">l_name &lt;&gt; <span class="tS">'Sulfuras, Hand of Ragnaros'</span> </span><span class="tK">THEN</span>
+          <span class="c1" id="T65a204bebf9c47b2"><span class="tI">l_quality</span> <span class="tK">:=</span> l_quality - 1;
+        </span><span class="tK">END</span> <span class="tK">IF</span>;
+      </span><span class="tK">END</span> <span class="tK">IF</span>;
+    </span><span class="tK">ELSE</span>
+      <span class="c1" id="Td8217b3f03201c93"><span class="tK">IF</span> <span class="b11" id="Tce8e48059850c4b4">(l_quality &lt; 50) </span><span class="tK">THEN</span>
+        <span class="c1" id="Tb3f202aff24a1a16"><span class="tI">l_quality</span> <span class="tK">:=</span> l_quality + 1;
+        <span class="tK">IF</span> <span class="b11" id="T910e0c2bc81e2677">l_name = <span class="tS">'Backstage passes to a TAFKAL80ETC concert'</span> </span><span class="tK">THEN</span>
+          <span class="c1" id="T08e8b4e20945199f"><span class="tK">IF</span> <span class="b10" id="T59b2aa5727606454" title="never evaluates false">l_sell_in &lt; 11 </span><span class="tK">THEN</span>
+            <span class="c1" id="Tad2b580505cc5443"><span class="tK">IF</span> <span class="b10" id="Tc12918bcd89df3ca" title="never evaluates false">l_quality &lt; 50 </span><span class="tK">THEN</span>
+              <span class="c1" id="T9be10f85292a3c3c"><span class="tI">l_quality</span> <span class="tK">:=</span> l_quality + 1;
+            </span><span class="tK">END</span> <span class="tK">IF</span>;
+          </span><span class="tK">END</span> <span class="tK">IF</span>;
+          <span class="tK">IF</span> <span class="b11" id="Ted7a3392a6183c66">l_sell_in &lt; 6 </span><span class="tK">THEN</span>
+            <span class="c1" id="T4a156914958e7e79"><span class="tK">IF</span> <span class="b10" id="T07447a6e26ee1bd5" title="never evaluates false">l_quality &lt; 50 </span><span class="tK">THEN</span>
+              <span class="c1" id="T8fc926b521d0ad03"><span class="tI">l_quality</span> <span class="tK">:=</span> l_quality + 1;
+            </span><span class="tK">END</span> <span class="tK">IF</span>;
+          </span><span class="tK">END</span> <span class="tK">IF</span>;
+        </span><span class="tK">END</span> <span class="tK">IF</span>;
+      </span><span class="tK">END</span> <span class="tK">IF</span>;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="tK">IF</span> <span class="b11" id="Tee4e2c66285ebedb">l_name &lt;&gt; <span class="tS">'Sulfuras, Hand of Ragnaros'</span> </span><span class="tK">THEN</span>
+      <span class="c1" id="Tafe83033204c775e"><span class="tI">l_sell_in</span> <span class="tK">:=</span> l_sell_in - 1;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="tK">IF</span> <span class="b11" id="Tdbc70489af1c202b">l_sell_in &lt; 0 </span><span class="tK">THEN</span>
+      <span class="c1" id="T9b3b440288f1d2dd"><span class="tK">IF</span> <span class="b10" id="Tff8f53f1ea365cd9" title="never evaluates false">l_name &lt;&gt; <span class="tS">'Aged Brie'</span> </span><span class="tK">THEN</span>
+        <span class="c1" id="Tf665d8a7ff669ba7"><span class="tK">IF</span> <span class="b11" id="T7c6b137ea3be3cef">l_name &lt;&gt; <span class="tS">'Backstage passes to a TAFKAL80ETC concert'</span> </span><span class="tK">THEN</span>
+          <span class="c1" id="T34ad87fb98cc5b75"><span class="tK">IF</span> <span class="b10" id="Tf9d8d165af9de820" title="never evaluates false">l_quality &gt; 0 </span><span class="tK">THEN</span>
+            <span class="c1" id="T42996a8cf41b6c3d"><span class="tK">IF</span> <span class="b10" id="T2f1143c282a50739" title="never evaluates false">l_name &lt;&gt; <span class="tS">'Sulfuras, Hand of Ragnaros'</span> </span><span class="tK">THEN</span>
+              <span class="c1" id="T131e480bec981c3a"><span class="tI">l_quality</span> <span class="tK">:=</span> l_quality - 1;
+            </span><span class="tK">END</span> <span class="tK">IF</span>;
+          </span><span class="tK">END</span> <span class="tK">IF</span>;
+        </span><span class="tK">ELSE</span>
+          <span class="c1" id="T2adaee25da8ec775"><span class="tI">l_quality</span> <span class="tK">:=</span> 0;
+        </span><span class="tK">END</span> <span class="tK">IF</span>;
+      </span><span class="tK">ELSE</span>
+        <span class="c0" id="T8fc46545b867fb25" title="never evaluated"><span class="tK">IF</span> <span class="b00" id="Ta10bb0db30670ac5" title="never evaluated">l_quality &lt; 50 </span><span class="tK">THEN</span>
+          <span class="c0" id="T537a3a05c6abe940" title="never evaluated"><span class="tI">l_quality</span> <span class="tK">:=</span> l_quality + 1;
+        </span><span class="tK">END</span> <span class="tK">IF</span>;
+      </span><span class="tK">END</span> <span class="tK">IF</span>;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="tK">UPDATE</span> item
+      SET name = l_name, sell_in = l_sell_in, quality = l_quality
+      WHERE ctid = l_item.ctid;
+  </span><span class="tK">END</span> <span class="tK">LOOP</span>;
+</span><span class="tK">END</span>;</td></tr></table></div><div class="toc"><strong>Notes</strong><ol><li class="loop"><a href="#T0296384120efed66" onMouseOver="highlight('T0296384120efed66')">loop always iterates only once</a></li><li class="branch"><a href="#T59b2aa5727606454" onMouseOver="highlight('T59b2aa5727606454')">never evaluates false</a></li><li class="branch"><a href="#Tc12918bcd89df3ca" onMouseOver="highlight('Tc12918bcd89df3ca')">never evaluates false</a></li><li class="branch"><a href="#T07447a6e26ee1bd5" onMouseOver="highlight('T07447a6e26ee1bd5')">never evaluates false</a></li><li class="branch"><a href="#Tff8f53f1ea365cd9" onMouseOver="highlight('Tff8f53f1ea365cd9')">never evaluates false</a></li><li class="branch"><a href="#Tf9d8d165af9de820" onMouseOver="highlight('Tf9d8d165af9de820')">never evaluates false</a></li><li class="branch"><a href="#T2f1143c282a50739" onMouseOver="highlight('T2f1143c282a50739')">never evaluates false</a></li><li class="block"><a href="#T8fc46545b867fb25" onMouseOver="highlight('T8fc46545b867fb25')">never evaluated</a></li><li class="branch"><a href="#Ta10bb0db30670ac5" onMouseOver="highlight('Ta10bb0db30670ac5')">never evaluated</a></li><li class="block"><a href="#T537a3a05c6abe940" onMouseOver="highlight('T537a3a05c6abe940')">never evaluated</a></li></ol></div></div><div class="timestamp">Generated by piggly 2.3.1 at September 24, 2025 13:36 UTC</div><a href="index.html" class="return">Return to index</a></body></html>

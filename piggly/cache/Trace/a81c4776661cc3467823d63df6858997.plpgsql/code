@@ -1,0 +1,17 @@
+DECLARE
+    grants TEXT[] := _get_tablespaceprivs( $2, $1::TEXT );
+BEGIN
+    perform public.piggly_branch($PIGGLY$be80fb6e5945adaa$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$14eab0ea11cb9ec3$PIGGLY$, (grants[1] = 'undefined_tablespace')) THEN
+        perform public.piggly_branch($PIGGLY$b475c5cb9437dc9b$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$fdc5911b03476d5b$PIGGLY$);RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Tablespace ' || quote_ident($1) || ' does not exist'
+        );
+    ELSIF public.piggly_cond($PIGGLY$d7bf364656240a98$PIGGLY$, (grants[1] = 'undefined_role')) THEN
+        perform public.piggly_branch($PIGGLY$e6c25acba4005a4a$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$c4a3dabcca78cc28$PIGGLY$);RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Role ' || quote_ident($2) || ' does not exist'
+        );
+    END IF;
+    perform public.piggly_branch($PIGGLY$a5e98b43c105ae9a$PIGGLY$);RETURN _assets_are('privileges', grants, $3, $4);
+END;

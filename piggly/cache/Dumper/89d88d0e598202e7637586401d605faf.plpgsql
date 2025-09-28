@@ -1,0 +1,7 @@
+BEGIN
+    CREATE TEMP TABLE _____coltmp___ AS
+    SELECT $1[i]
+    FROM generate_series(array_lower($1, 1), array_upper($1, 1)) s(i);
+    EXECUTE 'ALTER TABLE _____coltmp___ RENAME TO ' || $2;
+    return $2;
+END;

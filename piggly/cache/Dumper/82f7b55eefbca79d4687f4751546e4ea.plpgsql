@@ -1,0 +1,6 @@
+DECLARE
+    setof TEXT := substring($1 FROM '^setof[[:space:]]+');
+BEGIN
+    IF setof IS NULL THEN RETURN _typename($1); END IF;
+    RETURN setof || _typename(substring($1 FROM char_length(setof)+1));
+END;

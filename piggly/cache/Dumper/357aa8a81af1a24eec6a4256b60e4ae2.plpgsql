@@ -1,0 +1,34 @@
+DECLARE
+    query     TEXT := _query($1);
+    errcode   ALIAS FOR $2;
+    errmsg    ALIAS FOR $3;
+    desctext  ALIAS FOR $4;
+    descr     TEXT;
+BEGIN
+    descr := COALESCE(
+          desctext,
+          'threw ' || errcode || ': ' || errmsg,
+          'threw ' || errcode,
+          'threw ' || errmsg,
+          'threw an exception'
+    );
+    EXECUTE query;
+    RETURN ok( FALSE, descr ) || E'\n' || diag(
+           '      caught: no exception' ||
+        E'\n      wanted: ' || COALESCE( errcode, 'an exception' )
+    );
+EXCEPTION WHEN OTHERS OR ASSERT_FAILURE THEN
+    IF (errcode IS NULL OR SQLSTATE = errcode)
+        AND ( errmsg IS NULL OR SQLERRM = errmsg)
+    THEN
+        -- The expected errcode and/or message was thrown.
+        RETURN ok( TRUE, descr );
+    ELSE
+        -- This was not the expected errcode or errmsg.
+        RETURN ok( FALSE, descr ) || E'\n' || diag(
+               '      caught: ' || SQLSTATE || ': ' || SQLERRM ||
+            E'\n      wanted: ' || COALESCE( errcode, 'an exception' ) ||
+            COALESCE( ': ' || errmsg, '')
+        );
+    END IF;
+END;

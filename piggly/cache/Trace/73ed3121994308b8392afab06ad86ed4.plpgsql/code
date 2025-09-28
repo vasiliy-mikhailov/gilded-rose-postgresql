@@ -1,0 +1,28 @@
+DECLARE
+    akey NAME[];
+    keys TEXT[] := '{}';
+    have TEXT;
+BEGIN
+    perform public.piggly_branch($PIGGLY$97cc6a96311bc71a$PIGGLY$);
+    FOR akey IN SELECT * FROM _keys($1, $2, $3) LOOP
+        perform public.piggly_cond($PIGGLY$ccb01f992270037a$PIGGLY$, true);
+        perform public.piggly_branch($PIGGLY$a080779f4f9cf7ee$PIGGLY$);
+        IF public.piggly_cond($PIGGLY$6826901c85c04945$PIGGLY$, (akey = $4)) THEN perform public.piggly_branch($PIGGLY$32142697356e1254$PIGGLY$);perform public.piggly_branch($PIGGLY$b0832d8f1281dca1$PIGGLY$);RETURN pass($5); END IF;
+        keys = keys || akey::text;
+    
+        perform public.piggly_signal($PIGGLY$ccb01f992270037a$PIGGLY$, $PIGGLY$@$PIGGLY$);
+    END LOOP;
+perform public.piggly_cond($PIGGLY$ccb01f992270037a$PIGGLY$, false);
+    IF public.piggly_cond($PIGGLY$97c354287e3cce47$PIGGLY$, (array_upper(keys, 0) = 1)) THEN
+        perform public.piggly_branch($PIGGLY$e0a0b3e7bf499012$PIGGLY$);
+        have := 'No ' || $6 || ' constraints';
+    ELSE
+        perform public.piggly_branch($PIGGLY$3f7380f8f784950f$PIGGLY$);
+        have := array_to_string(keys, E'\n              ');
+    END IF;
+
+    perform public.piggly_branch($PIGGLY$c65aa1f6f97264e5$PIGGLY$);RETURN fail($5) || E'\n' || diag(
+             '        have: ' || have
+       || E'\n        want: ' || CASE WHEN $4 IS NULL THEN 'NULL' ELSE $4::text END
+    );
+END;

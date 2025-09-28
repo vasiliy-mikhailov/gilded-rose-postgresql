@@ -1,0 +1,8 @@
+BEGIN
+    IF pg_version_num() >= 110000 THEN
+        RETURN prokind FROM pg_catalog.pg_proc WHERE oid = p_oid;
+    ELSE
+        RETURN CASE WHEN proisagg THEN 'a' WHEN proiswindow THEN 'w' ELSE 'f' END
+            FROM pg_catalog.pg_proc WHERE oid = p_oid;
+    END IF;
+END;

@@ -1,0 +1,17 @@
+DECLARE
+    grants TEXT[] := _get_func_privs($2, $1);
+BEGIN
+    perform public.piggly_branch($PIGGLY$295c747774475833$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$1e3a5fe4976602f6$PIGGLY$, (grants[1] = 'undefined_function')) THEN
+        perform public.piggly_branch($PIGGLY$961bb246c32efe51$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$b945529fb3860e72$PIGGLY$);RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Function ' || $1 || ' does not exist'
+        );
+    ELSIF public.piggly_cond($PIGGLY$03b3218d85ddbbcc$PIGGLY$, (grants[1] = 'undefined_role')) THEN
+        perform public.piggly_branch($PIGGLY$20cccbd8872046d2$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$5b1e4b9e978bd686$PIGGLY$);RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Role ' || quote_ident($2) || ' does not exist'
+        );
+    END IF;
+    perform public.piggly_branch($PIGGLY$bd7036b0007376d7$PIGGLY$);RETURN _assets_are('privileges', grants, $3, $4);
+END;

@@ -1,0 +1,14 @@
+DECLARE
+    grants TEXT[] := _get_sequence_privs( $2, quote_ident($1) );
+BEGIN
+    IF grants[1] = 'undefined_table' THEN
+        RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Sequence ' || quote_ident($1) || '.' || quote_ident($2) || ' does not exist'
+        );
+    ELSIF grants[1] = 'undefined_role' THEN
+        RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Role ' || quote_ident($2) || ' does not exist'
+        );
+    END IF;
+    RETURN _assets_are('privileges', grants, $3, $4);
+END;

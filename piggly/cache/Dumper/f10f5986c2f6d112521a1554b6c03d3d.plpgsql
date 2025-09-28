@@ -1,0 +1,12 @@
+DECLARE
+    rcount integer;
+BEGIN
+    EXECUTE 'UPDATE __tcache__ SET value = ' || $2
+        || CASE WHEN $3 IS NULL THEN '' ELSE ', note = ' || quote_literal($3) END
+        || ' WHERE label = ' || quote_literal($1);
+    GET DIAGNOSTICS rcount = ROW_COUNT;
+    IF rcount = 0 THEN
+       RETURN _add( $1, $2, $3 );
+    END IF;
+    RETURN $2;
+END;

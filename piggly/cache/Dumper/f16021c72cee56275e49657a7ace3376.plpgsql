@@ -1,0 +1,12 @@
+DECLARE
+    owner NAME := _get_rel_owner('f'::char, $1);
+BEGIN
+    -- Make sure the table exists.
+    IF owner IS NULL THEN
+        RETURN ok(FALSE, $3) || E'\n' || diag(
+            E'    Foreign table ' || quote_ident($1) || ' does not exist'
+        );
+    END IF;
+
+    RETURN is(owner, $2, $3);
+END;

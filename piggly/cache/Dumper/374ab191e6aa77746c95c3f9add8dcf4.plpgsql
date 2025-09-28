@@ -1,0 +1,4 @@
+BEGIN
+    PERFORM plan(0);
+    RETURN;
+END;

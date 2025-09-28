@@ -1,0 +1,6 @@
+BEGIN
+    EXECUTE _query($1);
+    RETURN ok( FALSE, $3 ) || E'\n' || diag( '    no exception thrown' );
+EXCEPTION WHEN OTHERS THEN
+    return _tlike( SQLERRM ~ $2, SQLERRM, $2, $3 );
+END;

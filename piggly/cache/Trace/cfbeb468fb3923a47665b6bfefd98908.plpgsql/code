@@ -1,0 +1,35 @@
+DECLARE
+    todos INT[];
+    note text;
+BEGIN
+    -- Get the latest id and value, because todo() might have been called
+    -- again before the todos ran out for the first call to todo(). This
+    -- allows them to nest.
+    perform public.piggly_branch($PIGGLY$f4ed7187b3ea53a4$PIGGLY$);
+    todos := _get_latest('todo');
+    IF public.piggly_cond($PIGGLY$b52b8d242365418d$PIGGLY$, (todos IS NULL)) THEN
+        -- No todos.
+        perform public.piggly_branch($PIGGLY$e7ad36adcf1b8973$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$3e61e140391a5b56$PIGGLY$);RETURN NULL;
+    END IF;
+    IF public.piggly_cond($PIGGLY$7ec9487495d4c832$PIGGLY$, (todos[2] = 0)) THEN
+        -- Todos depleted. Clean up.
+        perform public.piggly_branch($PIGGLY$9a2c8e6ac86947d8$PIGGLY$);
+        EXECUTE 'DELETE FROM __tcache__ WHERE id = ' || todos[1];
+        perform public.piggly_branch($PIGGLY$f00da39f89922f77$PIGGLY$);RETURN NULL;
+    END IF;
+    -- Decrement the count of counted todos and return the reason.
+    IF public.piggly_cond($PIGGLY$edc9435fac9491d0$PIGGLY$, (todos[2] <> -1)) THEN
+        perform public.piggly_branch($PIGGLY$9d20cefbf57d3890$PIGGLY$);
+        PERFORM _set(todos[1], todos[2] - 1);
+    END IF;
+    note := _get_note(todos[1]);
+
+    IF public.piggly_cond($PIGGLY$61a743af2317f369$PIGGLY$, (todos[2] = 1)) THEN
+        -- This was the last todo, so delete the record.
+        perform public.piggly_branch($PIGGLY$1b35c070d88fe5a1$PIGGLY$);
+        EXECUTE 'DELETE FROM __tcache__ WHERE id = ' || todos[1];
+    END IF;
+
+    perform public.piggly_branch($PIGGLY$cb324d6a73f357ee$PIGGLY$);RETURN note;
+END;

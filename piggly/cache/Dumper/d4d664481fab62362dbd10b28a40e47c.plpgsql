@@ -1,0 +1,9 @@
+BEGIN
+   IF _is_schema($1) THEN
+       -- ( schema, table, index )
+       RETURN ok( _have_index( $1, $2, $3 ), 'Index ' || quote_ident($3) || ' should exist' );
+   ELSE
+       -- ( table, index, column/expression )
+       RETURN has_index( $1, $2, $3, 'Index ' || quote_ident($2) || ' should exist' );
+   END IF;
+END;

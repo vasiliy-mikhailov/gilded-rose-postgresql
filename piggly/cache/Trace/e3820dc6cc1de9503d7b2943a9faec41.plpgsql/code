@@ -1,0 +1,14 @@
+DECLARE
+    result ALIAS FOR $1;
+    got    ALIAS FOR $2;
+    rx     ALIAS FOR $3;
+    descr  ALIAS FOR $4;
+    output TEXT;
+BEGIN
+    perform public.piggly_branch($PIGGLY$aa83aec9f445643f$PIGGLY$);
+    output := ok( result, descr );
+    perform public.piggly_branch($PIGGLY$c968cb9925bcc0a7$PIGGLY$);RETURN output || CASE result WHEN TRUE THEN '' ELSE E'\n' || diag(
+           '                  ' || COALESCE( quote_literal(got), 'NULL' ) ||
+        E'\n         matches: ' || COALESCE( quote_literal(rx), 'NULL' )
+    ) END;
+END;

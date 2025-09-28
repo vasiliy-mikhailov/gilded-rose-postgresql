@@ -1,0 +1,13 @@
+DECLARE
+    result ALIAS FOR $1;
+    got    ALIAS FOR $2;
+    rx     ALIAS FOR $3;
+    descr  ALIAS FOR $4;
+    output TEXT;
+BEGIN
+    output := ok( result, descr );
+    RETURN output || CASE result WHEN TRUE THEN '' ELSE E'\n' || diag(
+           '                  ' || COALESCE( quote_literal(got), 'NULL' ) ||
+        E'\n         matches: ' || COALESCE( quote_literal(rx), 'NULL' )
+    ) END;
+END;

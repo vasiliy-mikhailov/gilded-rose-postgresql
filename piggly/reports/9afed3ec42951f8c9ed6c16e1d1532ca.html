@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Code Coverage: public._relcomp</title><meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="piggly.css"/><script type="text/javascript" src="highlight.js"><!-- --></script></head><body><div class="header"><p class="summary">public._relcomp</p><table class="summary sortable"><tr><th>Blocks</th><th>Loops</th><th>Branches</th><th>Block Coverage</th><th>Loop Coverage</th><th>Branch Coverage</th></tr><tr class="even"><td class="count">7</td><td class="count">1</td><td class="count">1</td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td></tr></table></div><div class="container"><div class="listing"><table><tr><td class="signature">&nbsp;</td><td class="signature"><span class='tK'>CREATE FUNCTION</span> <b><span class='tI'>public._relcomp</span></b> ( <span class='tK'>IN</span> <span class='tD'>text</span>, <span class='tK'>IN</span> <span class='tD'>text</span>, <span class='tK'>IN</span> <span class='tD'>text</span>, <span class='tK'>IN</span> <span class='tD'>text</span>, <span class='tK'>IN</span> <span class='tD'>text</span> )
+<span class='tK'>RETURNS</span> <span class='tD'>text</span>
+  <span class='tK'>VOLATILE</span></td></tr><tr><td class="lines"><a href="#L1" id="L1">1</a>
+<a href="#L2" id="L2">2</a>
+<a href="#L3" id="L3">3</a>
+<a href="#L4" id="L4">4</a>
+<a href="#L5" id="L5">5</a>
+<a href="#L6" id="L6">6</a>
+<a href="#L7" id="L7">7</a>
+<a href="#L8" id="L8">8</a>
+<a href="#L9" id="L9">9</a>
+<a href="#L10" id="L10">10</a>
+<a href="#L11" id="L11">11</a>
+<a href="#L12" id="L12">12</a>
+<a href="#L13" id="L13">13</a>
+<a href="#L14" id="L14">14</a>
+<a href="#L15" id="L15">15</a>
+<a href="#L16" id="L16">16</a>
+<a href="#L17" id="L17">17</a>
+<a href="#L18" id="L18">18</a>
+<a href="#L19" id="L19">19</a>
+<a href="#L20" id="L20">20</a>
+<a href="#L21" id="L21">21</a>
+<a href="#L22" id="L22">22</a>
+<a href="#L23" id="L23">23</a>
+<a href="#L24" id="L24">24</a>
+<a href="#L25" id="L25">25</a>
+<a href="#L26" id="L26">26</a>
+<a href="#L27" id="L27">27</a>
+<a href="#L28" id="L28">28</a>
+<a href="#L29" id="L29">29</a>
+<a href="#L30" id="L30">30</a>
+<a href="#L31" id="L31">31</a>
+<a href="#L32" id="L32">32</a>
+<a href="#L33" id="L33">33</a>
+<a href="#L34" id="L34">34</a>
+<a href="#L35" id="L35">35</a>
+<a href="#L36" id="L36">36</a>
+<a href="#L37" id="L37">37</a>
+<a href="#L38" id="L38">38</a>
+<a href="#L39" id="L39">39</a>
+<a href="#L40" id="L40">40</a></td><td class="code"><span class="tK">DECLARE</span>
+    <span class="tI">have</span>    <span class="tD">TEXT</span>    <span class="tK">:=</span> _temptable( $1, <span class="tS">'__taphave__'</span> );
+    <span class="tI">want</span>    <span class="tD">TEXT</span>    <span class="tK">:=</span> _temptable( $2, <span class="tS">'__tapwant__'</span> );
+    <span class="tI">results</span> <span class="tD">TEXT[]</span>  <span class="tK">:=</span> <span class="tS">'{}'</span>;
+    <span class="tI">res</span>     <span class="tD">BOOLEAN</span> <span class="tK">:=</span> TRUE;
+    <span class="tI">msg</span>     <span class="tD">TEXT</span>    <span class="tK">:=</span> <span class="tS">''</span>;
+    <span class="tI">rec</span>     <span class="tD">RECORD</span>;
+<span class="tK">BEGIN</span>
+    <span class="c0" id="Ta0798d0becb925f2" title="never evaluated"><span class="tK">BEGIN</span>
+        <span class="tC">-- Find relevant records.
+</span>        <span class="c0" id="Taec1ca16ab5806a5" title="never evaluated"><span class="tK">FOR</span> <span class="tI">rec</span> <span class="tK">in</span> <span class="l[0, 0, 0, 0]" id="T9f7a936df016bb3d" title="never evaluated"><span class="tK">EXECUTE</span> <span class="tS">'SELECT * FROM '</span> || want || <span class="tS">' '</span> || $4
+                       || <span class="tS">' SELECT * FROM '</span> || have </span><span class="tK">LOOP</span>
+            <span class="c0" id="Tbfb3d9f848f8f35c" title="never evaluated"><span class="tI">results</span> <span class="tK">:=</span> results || rec::text;
+        </span><span class="tK">END</span> <span class="tK">LOOP</span>;
+
+        <span class="tC">-- Drop the temporary tables.
+</span>        <span class="tK">EXECUTE</span> <span class="tS">'DROP TABLE '</span> || have;
+        <span class="tK">EXECUTE</span> <span class="tS">'DROP TABLE '</span> || want;
+    </span><span class="tK">EXCEPTION</span> <span class="tK">WHEN</span> syntax_error OR datatype_mismatch <span class="tK">THEN</span>
+        <span class="c0" id="T91b8dfcb669b5624" title="never evaluated"><span class="tI">msg</span> <span class="tK">:=</span> E<span class="tS">'\n'</span> || diag(
+            E<span class="tS">'    Columns differ between queries:\n'</span>
+            || <span class="tS">'        have: ('</span> || _temptypes(have) || E<span class="tS">')\n'</span>
+            || <span class="tS">'        want: ('</span> || _temptypes(want) || <span class="tS">')'</span>
+        );
+        <span class="tK">EXECUTE</span> <span class="tS">'DROP TABLE '</span> || have;
+        <span class="tK">EXECUTE</span> <span class="tS">'DROP TABLE '</span> || want;
+        <span class="c0" id="Tf47e1070feeaaac7" title="never evaluated"><span class="tK">RETURN</span> ok(FALSE, $3) || msg</span>;
+    </span><span class="tK">END</span>;
+
+    <span class="tC">-- What records do we have?
+</span>    <span class="tK">IF</span> <span class="b00" id="T54e50cf5011e858a" title="never evaluated">results[1] IS NOT NULL </span><span class="tK">THEN</span>
+        <span class="c0" id="T898c3b840cb25da7" title="never evaluated"><span class="tI">res</span> <span class="tK">:=</span> FALSE;
+        <span class="tI">msg</span> <span class="tK">:=</span> msg || E<span class="tS">'\n'</span> || diag(
+            <span class="tS">'    '</span> || $5 || E<span class="tS">' records:\n        '</span>
+            ||  array_to_string( results, E<span class="tS">'\n        '</span> )
+        );
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="c0" id="T8ce85abd1f5574b1" title="never evaluated"><span class="tK">RETURN</span> ok(res, $3) || msg</span>;
+</span><span class="tK">END</span>;</td></tr></table></div><div class="toc"><strong>Notes</strong><ol><li class="block"><a href="#Ta0798d0becb925f2" onMouseOver="highlight('Ta0798d0becb925f2')">never evaluated</a></li><li class="block"><a href="#Taec1ca16ab5806a5" onMouseOver="highlight('Taec1ca16ab5806a5')">never evaluated</a></li><li class="block"><a href="#Tbfb3d9f848f8f35c" onMouseOver="highlight('Tbfb3d9f848f8f35c')">never evaluated</a></li><li class="loop"><a href="#T9f7a936df016bb3d" onMouseOver="highlight('T9f7a936df016bb3d')">never evaluated</a></li><li class="block"><a href="#T91b8dfcb669b5624" onMouseOver="highlight('T91b8dfcb669b5624')">never evaluated</a></li><li class="block"><a href="#Tf47e1070feeaaac7" onMouseOver="highlight('Tf47e1070feeaaac7')">never evaluated</a></li><li class="branch"><a href="#T54e50cf5011e858a" onMouseOver="highlight('T54e50cf5011e858a')">never evaluated</a></li><li class="block"><a href="#T898c3b840cb25da7" onMouseOver="highlight('T898c3b840cb25da7')">never evaluated</a></li><li class="block"><a href="#T8ce85abd1f5574b1" onMouseOver="highlight('T8ce85abd1f5574b1')">never evaluated</a></li></ol></div></div><div class="timestamp">Generated by piggly 2.3.1 at September 24, 2025 13:36 UTC</div><a href="index.html" class="return">Return to index</a></body></html>

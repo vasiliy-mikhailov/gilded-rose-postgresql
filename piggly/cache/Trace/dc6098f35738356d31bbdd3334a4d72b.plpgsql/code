@@ -1,0 +1,15 @@
+BEGIN
+    perform public.piggly_branch($PIGGLY$2f99d6f0c72b6875$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$09fe57af09a0572d$PIGGLY$, (pg_catalog.has_function_privilege($1, $2, 'EXECUTE'))) THEN
+        perform public.piggly_branch($PIGGLY$d66b2b051a482001$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$8cc2cff78ee0c8d0$PIGGLY$);RETURN '{EXECUTE}';
+    ELSE
+        perform public.piggly_branch($PIGGLY$ce9ac07edcdbc0f0$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$68c79b355abf4f08$PIGGLY$);RETURN '{}';
+    END IF;
+EXCEPTION
+    -- Not a valid func name.
+    WHEN undefined_function THEN perform public.piggly_branch($PIGGLY$23deaa289d832fe6$PIGGLY$);perform public.piggly_branch($PIGGLY$61a034992880ff41$PIGGLY$);RETURN '{undefined_function}';
+    -- Not a valid role.
+    WHEN undefined_object   THEN perform public.piggly_branch($PIGGLY$0b82269f21d4e41b$PIGGLY$);perform public.piggly_branch($PIGGLY$75f355acf06f4be3$PIGGLY$);RETURN '{undefined_role}';
+END;

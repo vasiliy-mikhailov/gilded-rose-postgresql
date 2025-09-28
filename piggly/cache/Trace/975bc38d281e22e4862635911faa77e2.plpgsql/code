@@ -1,0 +1,18 @@
+BEGIN
+    perform public.piggly_branch($PIGGLY$b47e929fa9b1e283$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$326d98c078362077$PIGGLY$, (pg_catalog.has_language_privilege($1, $2, 'USAGE'))) THEN
+        perform public.piggly_branch($PIGGLY$fc0095bfa6d4426a$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$79fffae93a82b34d$PIGGLY$);RETURN '{USAGE}';
+    ELSE
+        perform public.piggly_branch($PIGGLY$f56d13da7fec7d84$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$6495b6b5172f4757$PIGGLY$);RETURN '{}';
+    END IF;
+EXCEPTION WHEN undefined_object THEN
+    -- Same error code for unknown user or language. So figure out which.
+    perform public.piggly_branch($PIGGLY$ba0a83ecccfdefa1$PIGGLY$);
+    perform public.piggly_branch($PIGGLY$5aa94163f7e772f2$PIGGLY$);RETURN CASE WHEN SQLERRM LIKE '%' || $1 || '%' THEN
+        '{undefined_role}'
+    ELSE
+        '{undefined_language}'
+    END;
+END;

@@ -1,0 +1,4 @@
+BEGIN
+    IF NOT $1 THEN PERFORM _set('failed', _get('failed') + 1); END IF;
+    RETURN nextval('__tresults___numb_seq');
+END;

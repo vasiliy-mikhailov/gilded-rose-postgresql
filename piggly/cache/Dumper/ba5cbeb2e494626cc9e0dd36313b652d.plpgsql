@@ -1,0 +1,14 @@
+DECLARE
+    res boolean;
+BEGIN
+    SELECT x.indisclustered
+      FROM pg_catalog.pg_index x
+      JOIN pg_catalog.pg_class ci ON ci.oid = x.indexrelid
+     WHERE ci.relname = $1
+      INTO res;
+
+      RETURN ok(
+          COALESCE(res, false),
+          'Table should be clustered on index ' || quote_ident($1)
+      );
+END;

@@ -1,0 +1,38 @@
+DECLARE
+    rcount INTEGER;
+BEGIN
+    perform public.piggly_branch($PIGGLY$5cf2b2b84e963c4e$PIGGLY$);
+    BEGIN
+        perform public.piggly_branch($PIGGLY$335c2d8aeb3053cb$PIGGLY$);
+        EXECUTE '
+            CREATE TEMP SEQUENCE __tcache___id_seq;
+            CREATE TEMP TABLE __tcache__ (
+                id    INTEGER NOT NULL DEFAULT nextval(''__tcache___id_seq''),
+                label TEXT    NOT NULL,
+                value INTEGER NOT NULL,
+                note  TEXT    NOT NULL DEFAULT ''''
+            );
+            CREATE UNIQUE INDEX __tcache___key ON __tcache__(id);
+            GRANT ALL ON TABLE __tcache__ TO PUBLIC;
+            GRANT ALL ON TABLE __tcache___id_seq TO PUBLIC;
+
+            CREATE TEMP SEQUENCE __tresults___numb_seq;
+            GRANT ALL ON TABLE __tresults___numb_seq TO PUBLIC;
+        ';
+
+    EXCEPTION WHEN duplicate_table THEN
+        -- Raise an exception if there's already a plan.
+        perform public.piggly_branch($PIGGLY$bdaacbb726408d83$PIGGLY$);
+        EXECUTE 'SELECT TRUE FROM __tcache__ WHERE label = ''plan''';
+      GET DIAGNOSTICS rcount = ROW_COUNT;
+        IF public.piggly_cond($PIGGLY$acb71339388b9410$PIGGLY$, (rcount > 0)) THEN
+           perform public.piggly_branch($PIGGLY$baf70491802eba0f$PIGGLY$);
+           perform public.piggly_branch($PIGGLY$91425b5879655012$PIGGLY$);RAISE EXCEPTION 'You tried to plan twice!';
+        END IF;
+    END;
+
+    -- Save the plan and return.
+    PERFORM _set('plan', $1 );
+    PERFORM _set('failed', 0 );
+    perform public.piggly_branch($PIGGLY$3e390dba8ab2944f$PIGGLY$);RETURN '1..' || $1;
+END;

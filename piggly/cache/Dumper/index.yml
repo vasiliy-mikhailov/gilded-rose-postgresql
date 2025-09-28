@@ -1,0 +1,6739 @@
+---
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: true
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: plan
+  oid: '16390'
+  identifier: 79295dfe80fbb0b4289f9b5fe7fec33a
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults: []
+  arg_types: []
+  arg_names: []
+  arg_modes: []
+  setof: true
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: bool
+    array: ''
+  secdef: false
+  strict: true
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: no_plan
+  oid: '16391'
+  identifier: 374ab191e6aa77746c95c3f9add8dcf4
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: int4
+    array: ''
+  secdef: false
+  strict: true
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get
+  oid: '16392'
+  identifier: '0839243c5ec68768eca615a5bde36c0a'
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _int4
+    array: ''
+  secdef: false
+  strict: true
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_latest
+  oid: '16393'
+  identifier: d2c632d4893db482081bd69d2634a5f8
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: int4
+    array: ''
+  secdef: false
+  strict: true
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_latest
+  oid: '16394'
+  identifier: 86a738660b0b9481c861a243f97a6096
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: true
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_note
+  oid: '16395'
+  identifier: 9564368361881b5a7a67ca9c6a42131b
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: true
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_note
+  oid: '16396'
+  identifier: 5ec421e147136137a02ec9eb9eddebab
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: int4
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _set
+  oid: '16397'
+  identifier: f10f5986c2f6d112521a1554b6c03d3d
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: int4
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _set
+  oid: '16399'
+  identifier: e6ae16177336b0bbd2b6efcbe4af6c1f
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: int4
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _add
+  oid: '16400'
+  identifier: e42ec6262c5b95720028a5fdae3b547a
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: boolean
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: boolean
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: int4
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: add_result
+  oid: '16402'
+  identifier: 2da96c9316efc072ef240d1d79c7c324
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: boolean
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyelement
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _alike
+  oid: '16416'
+  identifier: 3f218602f628087861b1ef55525af96c
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: boolean
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyelement
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _unalike
+  oid: '16425'
+  identifier: e3820dc6cc1de9503d7b2943a9faec41
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  - NULL::boolean
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: boolean
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: true
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _finish
+  oid: '16404'
+  identifier: 8be96ced703826810929633ce27497fa
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: boolean
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: ok
+  oid: '16410'
+  identifier: 0672bb4ae3b2d59ae78946702f777282
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyelement
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyelement
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: is
+  oid: '16412'
+  identifier: 7aba4afdbde0c814ec646256c97d8c9a
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyelement
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyelement
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: isnt
+  oid: '16414'
+  identifier: fd4d6438cdab6af87f3f11b960b539fd
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyelement
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyelement
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: cmp_ok
+  oid: '16434'
+  identifier: 0b468c7a0c0cfd3277ea39949da2cc15
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  arg_names:
+  - !ruby/object:Piggly::Dumper::QualifiedName
+    schema:
+    name: why
+  - !ruby/object:Piggly::Dumper::QualifiedName
+    schema:
+    name: how_many
+  arg_modes:
+  - in
+  - in
+  setof: true
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: bool
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: todo
+  oid: '16440'
+  identifier: c302f0afd996dd752a174a4f72501e4f
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names:
+  - !ruby/object:Piggly::Dumper::QualifiedName
+    schema:
+    name: how_many
+  - !ruby/object:Piggly::Dumper::QualifiedName
+    schema:
+    name: why
+  arg_modes:
+  - in
+  - in
+  setof: true
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: bool
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: todo
+  oid: '16441'
+  identifier: 9161ef0fa9b26bbcd82ddbb6f10f2c4c
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names:
+  - !ruby/object:Piggly::Dumper::QualifiedName
+    schema:
+    name: why
+  arg_modes:
+  - in
+  setof: true
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: bool
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: todo
+  oid: '16442'
+  identifier: d73b8d7308b332880188ec3d52197a08
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  arg_names:
+  - !ruby/object:Piggly::Dumper::QualifiedName
+    schema:
+    name: how_many
+  arg_modes:
+  - in
+  setof: true
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: bool
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: todo
+  oid: '16443'
+  identifier: fd5814e656eb96d3bcb8ea16c6b53a35
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  setof: true
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: bool
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: todo_start
+  oid: '16444'
+  identifier: 74557ef60ae2e165fdbf3c0eb598f88b
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults: []
+  arg_types: []
+  arg_names: []
+  arg_modes: []
+  setof: true
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: bool
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: todo_start
+  oid: '16445'
+  identifier: ef6b171e4b53103a621f6320781b5d03
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults: []
+  arg_types: []
+  arg_names: []
+  arg_modes: []
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: bool
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: in_todo
+  oid: '16446'
+  identifier: 29d489de6be541f30eac971ee18d79ca
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults: []
+  arg_types: []
+  arg_names: []
+  arg_modes: []
+  setof: true
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: bool
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: todo_end
+  oid: '16447'
+  identifier: ef0ec163d706a2b984a7137f6ba38b51
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults: []
+  arg_types: []
+  arg_names: []
+  arg_modes: []
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _todo
+  oid: '16448'
+  identifier: cfbeb468fb3923a47665b6bfefd98908
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  arg_names:
+  - !ruby/object:Piggly::Dumper::QualifiedName
+    schema:
+    name: why
+  - !ruby/object:Piggly::Dumper::QualifiedName
+    schema:
+    name: how_many
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: skip
+  oid: '16449'
+  identifier: 66f281cd53ca6a6923316b2c6a506156
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: numeric
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: numeric
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: performs_within
+  oid: '16470'
+  identifier: 5dfe73aee9f3bc58b9f530c1bfac8060
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: character
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: throws_ok
+  oid: '16454'
+  identifier: 357aa8a81af1a24eec6a4256b60e4ae2
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: throws_ok
+  oid: '16455'
+  identifier: 763880452eccfa91879bcf082a48f836
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: throws_ok
+  oid: '16456'
+  identifier: c81f28806c210f967d09439dd734e541
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: lives_ok
+  oid: '16462'
+  identifier: c276a3f4b9d0b849d5a1d00898b9a3b0
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: numeric
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: performs_ok
+  oid: '16464'
+  identifier: 5e602599bc82c3472c8f47e42c4c36ce
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: integer
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: numeric
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: true
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: public
+    name: _time_trial_type
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _time_trials
+  oid: '16469'
+  identifier: 6a3955dcb61ffa1497855ba3e4bcff56
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: boolean
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _col_is_null
+  oid: '16531'
+  identifier: ead7a743e35192eb33f446f122076570
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: boolean
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _col_is_null
+  oid: '16532'
+  identifier: 78165508264a89b2eff7c49ba327c7d5
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  setof: false
+  volatility: stable
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _typename
+  oid: '16540'
+  identifier: 2ecdb4fdf04295a59f9b04ed6d4ba9af
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: col_hasnt_default
+  oid: '16554'
+  identifier: 69a5ef6f5c7dc7d53527402b815dc0e9
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  setof: false
+  volatility: stable
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: format_type_string
+  oid: '16541'
+  identifier: 04632e21a5db19d698ac0c1012f5be52
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: col_type_is
+  oid: '16542'
+  identifier: 5821d7fd95f9e3dffa1a390759adcc84
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: col_type_is
+  oid: '16544'
+  identifier: 142b3a75b2f3eda004b2833c8234b33c
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: col_has_default
+  oid: '16550'
+  identifier: 639afd6d93de3b69efc9a330628fa27a
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: col_has_default
+  oid: '16551'
+  identifier: e56c87276c01bb7df15975dec114b562
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: col_hasnt_default
+  oid: '16553'
+  identifier: faaaaf9dbf84166b889bb6754d694038
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: hasnt_index
+  oid: '16698'
+  identifier: 00aaa6421eb808e238c556c77bd67e25
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyelement
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _def_is
+  oid: '16556'
+  identifier: ec1db24977ed41ca65bcc072b92764d2
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyelement
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _cdi
+  oid: '16557'
+  identifier: bb1b16f18e71339ed66cbe6440132da4
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyelement
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _cdi
+  oid: '16558'
+  identifier: 853830c5becd4857f14ca49347d67029
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: col_is_fk
+  oid: '16609'
+  identifier: a650de92979720bfac5fa57a25362c03
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: col_is_fk
+  oid: '16610'
+  identifier: 0ddf4bc50085da875e63ea4bf7d7dd40
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: character
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _constraint
+  oid: '16624'
+  identifier: 73ed3121994308b8392afab06ad86ed4
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: character
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _constraint
+  oid: '16625'
+  identifier: 9128ad6ae886ef64edb4e9d570b16831
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: fk_ok
+  oid: '16643'
+  identifier: 851cc96bf02f9b2132657f40b24ba6da
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: fk_ok
+  oid: '16644'
+  identifier: a5b239a2ddaec67f5aa8bdcfdc814d7f
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: oid
+    array: ''
+  arg_names:
+  - !ruby/object:Piggly::Dumper::QualifiedName
+    schema:
+    name: p_oid
+  arg_modes:
+  - in
+  setof: false
+  volatility: stable
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: char
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _prokind
+  oid: '16651'
+  identifier: 28f84ea46080a0ca2df8d7ef9007ede9
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  arg_names: []
+  arg_modes:
+  - in
+  setof: false
+  volatility: stable
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _funkargs
+  oid: '16657'
+  identifier: 555d8407fda2369855eef7d821ca0213
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: can
+  oid: '16679'
+  identifier: ed46bbe1f4df772880ea0cb4c9c5e8ed
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: can
+  oid: '16681'
+  identifier: 56d56228bf88373f332450c2b81fcc5b
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: has_index
+  oid: '16687'
+  identifier: 418c7c5c3e912d19ac582e858f8b1c24
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: has_index
+  oid: '16691'
+  identifier: 513c5d070ecc0100c3c2b649734416d4
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: has_index
+  oid: '16695'
+  identifier: d4d664481fab62362dbd10b28a40e47c
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: index_is_unique
+  oid: '16710'
+  identifier: 1facc3338f74bb3dbc4127e81e0072ca
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: index_is_unique
+  oid: '16712'
+  identifier: 9021305ed720f57bf98a065ab580ad78
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: index_is_unique
+  oid: '16713'
+  identifier: 802b0a22982b3855c5f6092da4bf3b6d
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: index_is_primary
+  oid: '16714'
+  identifier: 8f76184de15a849fdb9f2de3c7d629bc
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: index_is_primary
+  oid: '16716'
+  identifier: 90dad73980c1fe071e1f46e8f0e42a63
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: index_is_primary
+  oid: '16717'
+  identifier: e86a61f262b362ee4f39f6e34d93b63c
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: is_clustered
+  oid: '16718'
+  identifier: b49748d5731b6d55144bb48390a017e7
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: is_clustered
+  oid: '16720'
+  identifier: 9b95a7325475e82f76df33f4441f701d
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: is_clustered
+  oid: '16721'
+  identifier: ba5cbeb2e494626cc9e0dd36313b652d
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: index_is_type
+  oid: '16722'
+  identifier: fd4d38a215ad038d64858032e0cf90aa
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: index_is_type
+  oid: '16724'
+  identifier: e6dc288f95d4b9eeb6343834d996dd4b
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: index_is_type
+  oid: '16725'
+  identifier: 1963fa67fdffe447e4bd5d89f1b47d97
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: trigger_is
+  oid: '16736'
+  identifier: c817741c7dda2077f025b60bf72b269b
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: trigger_is
+  oid: '16738'
+  identifier: 4d74f1862762943cb03fbca7f69137f9
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: has_tablespace
+  oid: '16744'
+  identifier: 56ef1041466bd43b5a662843420e6ec1
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: is_superuser
+  oid: '16790'
+  identifier: 2cd6e39f338472eb83b32f0cb2a872a2
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: isnt_superuser
+  oid: '16792'
+  identifier: 1cff15641e7005537952f3c2b88019bd
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: is_member_of
+  oid: '16800'
+  identifier: e13673cb9fdbbc1e388b166e4e8ddf08
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: isnt_member_of
+  oid: '16804'
+  identifier: 7007af52967ca0814b417fc9754b5b41
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: cast_context_is
+  oid: '16826'
+  identifier: 694655d1a9578183078b4fd263ff8fff
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _are
+  oid: '16867'
+  identifier: 9ad4b7fe7d90ef44ed106ca8b2c4d7bb
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: language_is_trusted
+  oid: '16911'
+  identifier: 60f086820a6e4365a06103d81529af03
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: rule_is_instead
+  oid: '16941'
+  identifier: 95f9608089ef976f6f0f112ce053e94f
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: rule_is_instead
+  oid: '16943'
+  identifier: e7420b1f5adc35e8f0f8708662feb3bd
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: rule_is_on
+  oid: '16949'
+  identifier: 50abbffe242ff94b33887282fc067d47
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: rule_is_on
+  oid: '16951'
+  identifier: 284e4af08062a1e4852780c643207bce
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _retval
+  oid: '16974'
+  identifier: 82f7b55eefbca79d4687f4751546e4ea
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: boolean
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: boolean
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: true
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: check_test
+  oid: '17057'
+  identifier: '09910308420cf01a5e658a1d93d61d74'
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: boolean
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: true
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _runem
+  oid: '17066'
+  identifier: fc04c0f0c1bd88fbc8043724051ea985
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults: []
+  arg_types: []
+  arg_names: []
+  arg_modes: []
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: int4
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _currtest
+  oid: '17072'
+  identifier: 85d3f055da04eb8e8f7bf945164b8552
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: "[]"
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: true
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _runner
+  oid: '17075'
+  identifier: 366b6c16909b6f240bec70aae71d4130
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _temptable
+  oid: '17080'
+  identifier: 11066c24e0dc3cfeb4e7cf35b64845f2
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyarray
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _temptable
+  oid: '17081'
+  identifier: 89d88d0e598202e7637586401d605faf
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _docomp
+  oid: '17083'
+  identifier: 597e9d31365d38db62ae9635a11d248c
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _do_ne
+  oid: '17094'
+  identifier: c1ac682951397ac66ea4f6229fc7de2d
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _relcomp
+  oid: '17105'
+  identifier: 9afed3ec42951f8c9ed6c16e1d1532ca
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: refcursor
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: refcursor
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: results_eq
+  oid: '17114'
+  identifier: 01c5babded6e1d0c9346c0bc988806a4
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: results_eq
+  oid: '17116'
+  identifier: 13d066b35b5e30057fa806d434034bab
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyarray
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: results_eq
+  oid: '17118'
+  identifier: 1e8318a268b2a3f0a319f3f5bfafac43
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: refcursor
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: results_eq
+  oid: '17120'
+  identifier: 5b3039693b6471ea80588ca96943049b
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: refcursor
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: results_eq
+  oid: '17122'
+  identifier: eed8f98a2526da70fc483d2ad78591b3
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: refcursor
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyarray
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: results_eq
+  oid: '17124'
+  identifier: a9e02e14f3dae5b021afbb15ee4c233a
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: refcursor
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: refcursor
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: results_ne
+  oid: '17126'
+  identifier: 7734af7dc6c568b2072b4af493e9f559
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: results_ne
+  oid: '17128'
+  identifier: 61abc7bc61866baeb4fd97db2defb0ee
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyarray
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: results_ne
+  oid: '17130'
+  identifier: '070510594334a365b2e0943bfa8f90f0'
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: refcursor
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: results_ne
+  oid: '17132'
+  identifier: 88596a79c7c7a11dac524861744d5876
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: refcursor
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: results_ne
+  oid: '17134'
+  identifier: 4d67640cab5c5a940807c4a2a37cdbb4
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: refcursor
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyarray
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: results_ne
+  oid: '17136'
+  identifier: 9373d6f2efc9775e07111dcc726e6f87
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyelement
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: regtype
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: isa_ok
+  oid: '17138'
+  identifier: 699357d5ead2300323d630a1421f1cc9
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: is_empty
+  oid: '17140'
+  identifier: ab4ce23b1b32684c9b5cd5b83b489da1
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: isnt_empty
+  oid: '17142'
+  identifier: 832d338f4120270c126135e9300c062e
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: throws_like
+  oid: '17147'
+  identifier: 816a16ef6495f7b4e31c3d0d5006d235
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: throws_ilike
+  oid: '17149'
+  identifier: 06ffc3ba7b2240bba650be260301b924
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: throws_matching
+  oid: '17151'
+  identifier: 309b0a0d0ef1f1b41e31d7069afac6eb
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: throws_imatching
+  oid: '17153'
+  identifier: 632826f7167a0f30c301848410a023d3
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: domain_type_is
+  oid: '17179'
+  identifier: 3e222bb704750f41cb2d5aecbb46d1c2
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: domain_type_is
+  oid: '17175'
+  identifier: 7e4b9f7c4ecd76362584878bb30dd830
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: domain_type_is
+  oid: '17177'
+  identifier: e8f73a32c212dffed2d0041587d83f30
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: domain_type_isnt
+  oid: '17181'
+  identifier: 8da3c6de6810de91f796210cf02b5f6c
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: domain_type_isnt
+  oid: '17183'
+  identifier: f7fb3cfe6e273ab609651944aecbfe28
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: domain_type_isnt
+  oid: '17185'
+  identifier: 454af0748b4f182d4156d9ba42010526
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: anyelement
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: row_eq
+  oid: '17187'
+  identifier: 89ab5b13602aab3af8dd224ad4bc08c6
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _areni
+  oid: '17193'
+  identifier: 9bf290a906a222326dbaa7db4b0e47a0
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: db_owner_is
+  oid: '17206'
+  identifier: 542c9a6d33df09ce90d3ec2e41ae28e2
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: schema_owner_is
+  oid: '17209'
+  identifier: d589103944d08fad5339d952e5aea858
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: relation_owner_is
+  oid: '17213'
+  identifier: 03a91124457b30eab6e421c96b14c020
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: relation_owner_is
+  oid: '17215'
+  identifier: 77b9bc089a70e76ecbfd4525a9e8f761
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: table_owner_is
+  oid: '17221'
+  identifier: c78ad057193dc909791cf10e9b06def0
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: table_owner_is
+  oid: '17223'
+  identifier: 3b9d3ab7926ff7dbe88e68c82a70e1ab
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: view_owner_is
+  oid: '17225'
+  identifier: 37582f0b8c43290e19bef2879417d166
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: view_owner_is
+  oid: '17227'
+  identifier: 259c1652a1be8e50bcecfc31d31e56ae
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: sequence_owner_is
+  oid: '17229'
+  identifier: 6a30ef69c330eb43f450d38f77da45b6
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: sequence_owner_is
+  oid: '17231'
+  identifier: 10f5796163346cbdf813335545e33694
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: composite_owner_is
+  oid: '17233'
+  identifier: 1ae1ffa6f127c2a3b2b68a9450c3d416
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: composite_owner_is
+  oid: '17235'
+  identifier: 4a152ea9d3c3bdb1ebbe1e9a0fc013fc
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: foreign_table_owner_is
+  oid: '17237'
+  identifier: b16048e469fc3cbd6337a8010307ab3e
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: foreign_table_owner_is
+  oid: '17239'
+  identifier: f16021c72cee56275e49657a7ace3376
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: function_owner_is
+  oid: '17243'
+  identifier: e421ff3736f78c192cb8740da15db205
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: function_owner_is
+  oid: '17245'
+  identifier: d6e745cd23100810d7aee8a7d5689c77
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: tablespace_owner_is
+  oid: '17248'
+  identifier: d44aac358e6bd33e50d96834851fb220
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: index_owner_is
+  oid: '17252'
+  identifier: 8950e7c8ca668aabda384b9577aa6f90
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: index_owner_is
+  oid: '17254'
+  identifier: 9fe52a7d64ab509245ba457b02e57bd4
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: language_owner_is
+  oid: '17257'
+  identifier: '0192ddf50b9ee4393b387778bdbe066a'
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: opclass_owner_is
+  oid: '17261'
+  identifier: 946f9226af7cb251b32557f9168b9c77
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: opclass_owner_is
+  oid: '17263'
+  identifier: c08a0751e3476007a99e8b71804bd7b5
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: type_owner_is
+  oid: '17267'
+  identifier: 7f494248920f60a04ff03e30e7b95161
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: type_owner_is
+  oid: '17269'
+  identifier: 9e16e9083c4723304dfd5b0dfc422a82
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_table_privs
+  oid: '17272'
+  identifier: c1ffec3b7f4b7a645dc28b13eb0c75b7
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults: []
+  arg_types: []
+  arg_names: []
+  arg_modes: []
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _name
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _table_privs
+  oid: '17273'
+  identifier: 8ba23fe696425859d1618267dba2a941
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: table_privs_are
+  oid: '17274'
+  identifier: ed5d4096d25c333e035aa49e51192051
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: table_privs_are
+  oid: '17276'
+  identifier: cdd928e28fda066114488f8de5a176d0
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults: []
+  arg_types: []
+  arg_names: []
+  arg_modes: []
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _name
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _db_privs
+  oid: '17278'
+  identifier: 1b472224f2514a5e53dcbac91e613c33
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_db_privs
+  oid: '17279'
+  identifier: df84fb4f3b13adf2558b0ede270c636b
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: database_privs_are
+  oid: '17280'
+  identifier: '09d3829a69f0b8650ded9adf3779d5dd'
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_func_privs
+  oid: '17282'
+  identifier: dc6098f35738356d31bbdd3334a4d72b
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _fprivs_are
+  oid: '17283'
+  identifier: '08752d15266cc1b67e64ada8ec923383'
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_lang_privs
+  oid: '17288'
+  identifier: 975bc38d281e22e4862635911faa77e2
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: language_privs_are
+  oid: '17289'
+  identifier: 3d10ccea0cf931d6ded58e5dc4d6949b
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_schema_privs
+  oid: '17291'
+  identifier: a397540fdcf0856958a8f74bb0534916
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: schema_privs_are
+  oid: '17292'
+  identifier: b322e2f99601060ab7ce40654b9c646e
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_tablespaceprivs
+  oid: '17294'
+  identifier: f17543f0576045684ff3421c7aaec621
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: tablespace_privs_are
+  oid: '17295'
+  identifier: a81c4776661cc3467823d63df6858997
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_sequence_privs
+  oid: '17297'
+  identifier: 2efcb647ba810469d38ffe97d68c50eb
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: sequence_privs_are
+  oid: '17298'
+  identifier: b4c5602a4e92f9500f1ad0508ca1973e
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: sequence_privs_are
+  oid: '17300'
+  identifier: 9f9f16e5d6e6f5a01f73b834faff300d
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_ac_privs
+  oid: '17302'
+  identifier: 3565c7699c9ae7dc0241706f546e9ff0
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: any_column_privs_are
+  oid: '17303'
+  identifier: 741498adc40e8e223cf4782b71ab5def
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: any_column_privs_are
+  oid: '17305'
+  identifier: aeabc351a57f8bcc4080d584ac7b1f73
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_col_privs
+  oid: '17307'
+  identifier: 4493c35974efe60f47901dd984e148da
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: column_privs_are
+  oid: '17308'
+  identifier: fa3ef9e23e7d0417ad23e56d323322c7
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: column_privs_are
+  oid: '17310'
+  identifier: ad555cdaa540e35f6087845fa50dcc85
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_fdw_privs
+  oid: '17312'
+  identifier: 13b3ee8d4d7b70deca75d6c73765e0f2
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: fdw_privs_are
+  oid: '17313'
+  identifier: e3225fca966e7545fe5dd6b19e4f6493
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: _text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: _get_server_privs
+  oid: '17315'
+  identifier: 63d6c093101391f93cbb48f06c6ffac5
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: "[]"
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: server_privs_are
+  oid: '17316'
+  identifier: d88852069c94d8f6bcbc6ab1d9f71fbe
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: materialized_view_owner_is
+  oid: '17322'
+  identifier: d171ba9a439a263c2bd58968777ec7be
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: materialized_view_owner_is
+  oid: '17324'
+  identifier: '088e85357154e37e27cad35ba984216d'
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: policy_cmd_is
+  oid: '17382'
+  identifier: 91658e1f57eca605c6e2afbb6a4a2461
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: name
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: text
+    array: ''
+  arg_names: []
+  arg_modes:
+  - in
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: text
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: policy_cmd_is
+  oid: '17384'
+  identifier: fbe1aab03735a22d6cf82ec33ceb361d
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults:
+  -
+  -
+  -
+  arg_types:
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: character varying
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: numeric
+    array: ''
+  - !ruby/object:Piggly::Dumper::QualifiedType
+    schema:
+    name: numeric
+    array: ''
+  arg_names:
+  - !ruby/object:Piggly::Dumper::QualifiedName
+    schema:
+    name: name
+  - !ruby/object:Piggly::Dumper::QualifiedName
+    schema:
+    name: sell_in
+  - !ruby/object:Piggly::Dumper::QualifiedName
+    schema:
+    name: quality
+  arg_modes:
+  - in
+  - in
+  - in
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: void
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: new_item
+  oid: '17481'
+  identifier: 5b7cf83568ecbcdd4fb62667ee43133e
+- !ruby/object:Piggly::Dumper::SkeletonProcedure
+  arg_defaults: []
+  arg_types: []
+  arg_names: []
+  arg_modes: []
+  setof: false
+  volatility: volatile
+  type: !ruby/object:Piggly::Dumper::QualifiedType
+    schema: pg_catalog
+    name: void
+    array: ''
+  secdef: false
+  strict: false
+  name: !ruby/object:Piggly::Dumper::QualifiedName
+    schema: public
+    name: update_quality
+  oid: '17482'
+  identifier: 5807913bfb0f6041fde9d2ebb3a32efa

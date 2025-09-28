@@ -1,0 +1,6 @@
+piggly:
+  adapter: postgresql
+  database: gilded_rose
+  username: gilded
+  password: secret
+  host: localhost

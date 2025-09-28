@@ -1,0 +1,15 @@
+DECLARE
+    tap    text;
+    lbound int := array_lower($1, 1);
+BEGIN
+    IF lbound IS NULL THEN RETURN; END IF;
+    FOR i IN lbound..array_upper($1, 1) LOOP
+        -- Send the name of the function to diag if warranted.
+        IF $2 THEN RETURN NEXT diag( $1[i] || '()' ); END IF;
+        -- Execute the tap function and return its results.
+        FOR tap IN EXECUTE 'SELECT * FROM ' || $1[i] || '()' LOOP
+            RETURN NEXT tap;
+        END LOOP;
+    END LOOP;
+    RETURN;
+END;

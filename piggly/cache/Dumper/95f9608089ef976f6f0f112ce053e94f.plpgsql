@@ -1,0 +1,8 @@
+DECLARE
+    is_it boolean := _is_instead($1, $2, $3);
+BEGIN
+    IF is_it IS NOT NULL THEN RETURN ok( is_it, $4 ); END IF;
+    RETURN ok( FALSE, $4 ) || E'\n' || diag(
+        '    Rule ' || quote_ident($3) || ' does not exist'
+    );
+END;

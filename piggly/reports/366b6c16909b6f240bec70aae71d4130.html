@@ -1,0 +1,285 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Code Coverage: public._runner</title><meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="piggly.css"/><script type="text/javascript" src="highlight.js"><!-- --></script></head><body><div class="header"><p class="summary">public._runner</p><table class="summary sortable"><tr><th>Blocks</th><th>Loops</th><th>Branches</th><th>Block Coverage</th><th>Loop Coverage</th><th>Branch Coverage</th></tr><tr class="even"><td class="count">35</td><td class="count">7</td><td class="count">5</td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td></tr></table></div><div class="container"><div class="listing"><table><tr><td class="signature">&nbsp;</td><td class="signature"><span class='tK'>CREATE FUNCTION</span> <b><span class='tI'>public._runner</span></b> ( <span class='tK'>IN</span> <span class='tD'>text[]</span>, <span class='tK'>IN</span> <span class='tD'>text[]</span>, <span class='tK'>IN</span> <span class='tD'>text[]</span>, <span class='tK'>IN</span> <span class='tD'>text[]</span>, <span class='tK'>IN</span> <span class='tD'>text[]</span> )
+<span class='tK'>RETURNS SETOF</span> <span class='tD'>text</span>
+  <span class='tK'>VOLATILE</span></td></tr><tr><td class="lines"><a href="#L1" id="L1">1</a>
+<a href="#L2" id="L2">2</a>
+<a href="#L3" id="L3">3</a>
+<a href="#L4" id="L4">4</a>
+<a href="#L5" id="L5">5</a>
+<a href="#L6" id="L6">6</a>
+<a href="#L7" id="L7">7</a>
+<a href="#L8" id="L8">8</a>
+<a href="#L9" id="L9">9</a>
+<a href="#L10" id="L10">10</a>
+<a href="#L11" id="L11">11</a>
+<a href="#L12" id="L12">12</a>
+<a href="#L13" id="L13">13</a>
+<a href="#L14" id="L14">14</a>
+<a href="#L15" id="L15">15</a>
+<a href="#L16" id="L16">16</a>
+<a href="#L17" id="L17">17</a>
+<a href="#L18" id="L18">18</a>
+<a href="#L19" id="L19">19</a>
+<a href="#L20" id="L20">20</a>
+<a href="#L21" id="L21">21</a>
+<a href="#L22" id="L22">22</a>
+<a href="#L23" id="L23">23</a>
+<a href="#L24" id="L24">24</a>
+<a href="#L25" id="L25">25</a>
+<a href="#L26" id="L26">26</a>
+<a href="#L27" id="L27">27</a>
+<a href="#L28" id="L28">28</a>
+<a href="#L29" id="L29">29</a>
+<a href="#L30" id="L30">30</a>
+<a href="#L31" id="L31">31</a>
+<a href="#L32" id="L32">32</a>
+<a href="#L33" id="L33">33</a>
+<a href="#L34" id="L34">34</a>
+<a href="#L35" id="L35">35</a>
+<a href="#L36" id="L36">36</a>
+<a href="#L37" id="L37">37</a>
+<a href="#L38" id="L38">38</a>
+<a href="#L39" id="L39">39</a>
+<a href="#L40" id="L40">40</a>
+<a href="#L41" id="L41">41</a>
+<a href="#L42" id="L42">42</a>
+<a href="#L43" id="L43">43</a>
+<a href="#L44" id="L44">44</a>
+<a href="#L45" id="L45">45</a>
+<a href="#L46" id="L46">46</a>
+<a href="#L47" id="L47">47</a>
+<a href="#L48" id="L48">48</a>
+<a href="#L49" id="L49">49</a>
+<a href="#L50" id="L50">50</a>
+<a href="#L51" id="L51">51</a>
+<a href="#L52" id="L52">52</a>
+<a href="#L53" id="L53">53</a>
+<a href="#L54" id="L54">54</a>
+<a href="#L55" id="L55">55</a>
+<a href="#L56" id="L56">56</a>
+<a href="#L57" id="L57">57</a>
+<a href="#L58" id="L58">58</a>
+<a href="#L59" id="L59">59</a>
+<a href="#L60" id="L60">60</a>
+<a href="#L61" id="L61">61</a>
+<a href="#L62" id="L62">62</a>
+<a href="#L63" id="L63">63</a>
+<a href="#L64" id="L64">64</a>
+<a href="#L65" id="L65">65</a>
+<a href="#L66" id="L66">66</a>
+<a href="#L67" id="L67">67</a>
+<a href="#L68" id="L68">68</a>
+<a href="#L69" id="L69">69</a>
+<a href="#L70" id="L70">70</a>
+<a href="#L71" id="L71">71</a>
+<a href="#L72" id="L72">72</a>
+<a href="#L73" id="L73">73</a>
+<a href="#L74" id="L74">74</a>
+<a href="#L75" id="L75">75</a>
+<a href="#L76" id="L76">76</a>
+<a href="#L77" id="L77">77</a>
+<a href="#L78" id="L78">78</a>
+<a href="#L79" id="L79">79</a>
+<a href="#L80" id="L80">80</a>
+<a href="#L81" id="L81">81</a>
+<a href="#L82" id="L82">82</a>
+<a href="#L83" id="L83">83</a>
+<a href="#L84" id="L84">84</a>
+<a href="#L85" id="L85">85</a>
+<a href="#L86" id="L86">86</a>
+<a href="#L87" id="L87">87</a>
+<a href="#L88" id="L88">88</a>
+<a href="#L89" id="L89">89</a>
+<a href="#L90" id="L90">90</a>
+<a href="#L91" id="L91">91</a>
+<a href="#L92" id="L92">92</a>
+<a href="#L93" id="L93">93</a>
+<a href="#L94" id="L94">94</a>
+<a href="#L95" id="L95">95</a>
+<a href="#L96" id="L96">96</a>
+<a href="#L97" id="L97">97</a>
+<a href="#L98" id="L98">98</a>
+<a href="#L99" id="L99">99</a>
+<a href="#L100" id="L100">100</a>
+<a href="#L101" id="L101">101</a>
+<a href="#L102" id="L102">102</a>
+<a href="#L103" id="L103">103</a>
+<a href="#L104" id="L104">104</a>
+<a href="#L105" id="L105">105</a>
+<a href="#L106" id="L106">106</a>
+<a href="#L107" id="L107">107</a>
+<a href="#L108" id="L108">108</a>
+<a href="#L109" id="L109">109</a>
+<a href="#L110" id="L110">110</a>
+<a href="#L111" id="L111">111</a>
+<a href="#L112" id="L112">112</a>
+<a href="#L113" id="L113">113</a>
+<a href="#L114" id="L114">114</a>
+<a href="#L115" id="L115">115</a>
+<a href="#L116" id="L116">116</a>
+<a href="#L117" id="L117">117</a>
+<a href="#L118" id="L118">118</a>
+<a href="#L119" id="L119">119</a>
+<a href="#L120" id="L120">120</a>
+<a href="#L121" id="L121">121</a>
+<a href="#L122" id="L122">122</a>
+<a href="#L123" id="L123">123</a>
+<a href="#L124" id="L124">124</a>
+<a href="#L125" id="L125">125</a>
+<a href="#L126" id="L126">126</a>
+<a href="#L127" id="L127">127</a>
+<a href="#L128" id="L128">128</a>
+<a href="#L129" id="L129">129</a>
+<a href="#L130" id="L130">130</a>
+<a href="#L131" id="L131">131</a>
+<a href="#L132" id="L132">132</a>
+<a href="#L133" id="L133">133</a>
+<a href="#L134" id="L134">134</a>
+<a href="#L135" id="L135">135</a>
+<a href="#L136" id="L136">136</a>
+<a href="#L137" id="L137">137</a>
+<a href="#L138" id="L138">138</a>
+<a href="#L139" id="L139">139</a>
+<a href="#L140" id="L140">140</a>
+<a href="#L141" id="L141">141</a>
+<a href="#L142" id="L142">142</a></td><td class="code"><span class="tK">DECLARE</span>
+    <span class="tI">startup</span>  <span class="tD">ALIAS FOR $1</span>;
+    <span class="tI">shutdown</span> <span class="tD">ALIAS FOR $2</span>;
+    <span class="tI">setup</span>    <span class="tD">ALIAS FOR $3</span>;
+    <span class="tI">teardown</span> <span class="tD">ALIAS FOR $4</span>;
+    <span class="tI">tests</span>    <span class="tD">ALIAS FOR $5</span>;
+    <span class="tI">tap</span>      <span class="tD">TEXT</span>;
+    <span class="tI">tfaild</span>   <span class="tD">INTEGER</span> <span class="tK">:=</span> 0;
+    <span class="tI">ffaild</span>   <span class="tD">INTEGER</span> <span class="tK">:=</span> 0;
+    <span class="tI">tnumb</span>    <span class="tD">INTEGER</span> <span class="tK">:=</span> 0;
+    <span class="tI">fnumb</span>    <span class="tD">INTEGER</span> <span class="tK">:=</span> 0;
+    <span class="tI">tok</span>      <span class="tD">BOOLEAN</span> <span class="tK">:=</span> TRUE;
+<span class="tK">BEGIN</span>
+    <span class="c0" id="Tc400096e2ba86e87" title="never evaluated"><span class="tK">BEGIN</span>
+        <span class="tC">-- No plan support.
+</span>        <span class="c0" id="Tedf0b1f0de5ecf6c" title="never evaluated"><span class="tK">PERFORM</span> * FROM no_plan();
+        <span class="tK">FOR</span> <span class="tI">tap</span> <span class="tK">IN</span> <span class="l[0, 0, 0, 0]" id="T47422bcae1c9f293" title="never evaluated"><span class="tK">SELECT</span> * FROM _runem(startup, false) </span><span class="tK">LOOP</span> <span class="c0" id="Tb88fe18c4e90ead3" title="never evaluated"><span class="c0" id="Td0b287b1f4deddeb" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> tap</span>; </span><span class="tK">END</span> <span class="tK">LOOP</span>;
+    </span><span class="tK">EXCEPTION</span>
+        <span class="tC">-- Catch all exceptions and simply rethrow custom exceptions. This
+</span>        <span class="tC">-- will roll back everything in the above block.
+</span>        <span class="tK">WHEN</span> raise_exception <span class="tK">THEN</span> <span class="c0" id="Tbbb16234dc6b1275" title="never evaluated"><span class="c0" id="T469bbe13f688fbe1" title="never evaluated"><span class="tK">RAISE</span> <span class="tK">EXCEPTION</span> <span class="tS">'%'</span>, SQLERRM</span>;
+    </span><span class="tK">END</span>;
+
+    <span class="tC">-- Record how startup tests have failed.
+</span>    <span class="tI">tfaild</span> <span class="tK">:=</span> num_failed();
+
+    <span class="tK">FOR</span> <span class="tI">i</span> <span class="tK">IN</span> <span class="l[0, 0, 0, 0]" id="Ta7f0a119211b566c" title="never evaluated">1..COALESCE(array_upper(tests, 1), 0) </span><span class="tK">LOOP</span>
+
+        <span class="tC">-- What subtest are we running?
+</span>        <span class="c0" id="T46ffa2ca6df42714" title="never evaluated"><span class="c0" id="Te384abbed6842d4e" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> diag_test_name(<span class="tS">'Subtest: '</span> || tests[i])</span>;
+
+        <span class="tC">-- Reset the results.
+</span>        <span class="tI">tok</span> <span class="tK">:=</span> TRUE;
+        <span class="tI">tnumb</span> <span class="tK">:=</span> COALESCE(_get(<span class="tS">'curr_test'</span>), 0);
+
+        <span class="tK">IF</span> <span class="b00" id="Td2dafcf5b7fef351" title="never evaluated">tnumb &gt; 0 </span><span class="tK">THEN</span>
+            <span class="c0" id="T87d96b3381f06861" title="never evaluated"><span class="tK">EXECUTE</span> <span class="tS">'ALTER SEQUENCE __tresults___numb_seq RESTART WITH 1'</span>;
+            <span class="tK">PERFORM</span> _set(<span class="tS">'curr_test'</span>, 0);
+            <span class="tK">PERFORM</span> _set(<span class="tS">'failed'</span>, 0);
+        </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+        <span class="tK">DECLARE</span>
+            <span class="tI">errstate</span> <span class="tD">text</span>;
+            <span class="tI">errmsg</span>   <span class="tD">text</span>;
+            <span class="tI">detail</span>   <span class="tD">text</span>;
+            <span class="tI">hint</span>     <span class="tD">text</span>;
+            <span class="tI">context</span>  <span class="tD">text</span>;
+            <span class="tI">schname</span>  <span class="tD">text</span>;
+            <span class="tI">tabname</span>  <span class="tD">text</span>;
+            <span class="tI">colname</span>  <span class="tD">text</span>;
+            <span class="tI">chkname</span>  <span class="tD">text</span>;
+            <span class="tI">typname</span>  <span class="tD">text</span>;
+        <span class="tK">BEGIN</span>
+            <span class="c0" id="Tdb960d3a81a619a2" title="never evaluated"><span class="tK">BEGIN</span>
+                <span class="tC">-- Run the setup functions.
+</span>                <span class="c0" id="T809ad4e5849151b0" title="never evaluated"><span class="tK">FOR</span> <span class="tI">tap</span> <span class="tK">IN</span> <span class="l[0, 0, 0, 0]" id="T264a499fc826f730" title="never evaluated"><span class="tK">SELECT</span> * FROM _runem(setup, false) </span><span class="tK">LOOP</span>
+                    <span class="c0" id="Tc768faad9303a8dd" title="never evaluated"><span class="c0" id="Tbfb13e6e200efb79" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> regexp_replace(tap, <span class="tS">'^'</span>, <span class="tS">'    '</span>, <span class="tS">'gn'</span>)</span>;
+                </span><span class="tK">END</span> <span class="tK">LOOP</span>;
+
+                <span class="tC">-- Run the actual test function.
+</span>                <span class="tK">FOR</span> <span class="tI">tap</span> <span class="tK">IN</span> <span class="l[0, 0, 0, 0]" id="Tf22be67163ade727" title="never evaluated"><span class="tK">EXECUTE</span> <span class="tS">'SELECT * FROM '</span> || tests[i] || <span class="tS">'()'</span> </span><span class="tK">LOOP</span>
+                    <span class="c0" id="T64c7194370675139" title="never evaluated"><span class="c0" id="Tf8339340e3415aea" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> regexp_replace(tap, <span class="tS">'^'</span>, <span class="tS">'    '</span>, <span class="tS">'gn'</span>)</span>;
+                </span><span class="tK">END</span> <span class="tK">LOOP</span>;
+
+                <span class="tC">-- Run the teardown functions.
+</span>                <span class="tK">FOR</span> <span class="tI">tap</span> <span class="tK">IN</span> <span class="l[0, 0, 0, 0]" id="T27aba1b1a674916e" title="never evaluated"><span class="tK">SELECT</span> * FROM _runem(teardown, false) </span><span class="tK">LOOP</span>
+                    <span class="c0" id="T600c8f51a0a852dc" title="never evaluated"><span class="c0" id="T2afbf75535b9bd85" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> regexp_replace(tap, <span class="tS">'^'</span>, <span class="tS">'    '</span>, <span class="tS">'gn'</span>)</span>;
+                </span><span class="tK">END</span> <span class="tK">LOOP</span>;
+
+                <span class="tC">-- Emit the plan.
+</span>                <span class="tI">fnumb</span> <span class="tK">:=</span> COALESCE(_get(<span class="tS">'curr_test'</span>), 0);
+                <span class="c0" id="Taf60abab1f023326" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> <span class="tS">'    1..'</span> || fnumb</span>;
+
+                <span class="tC">-- Emit any error messages.
+</span>                <span class="tK">IF</span> <span class="b00" id="T5c481d90ffb58a94" title="never evaluated">fnumb = 0 </span><span class="tK">THEN</span>
+                    <span class="c0" id="Tf7e07bfd91613194" title="never evaluated"><span class="c0" id="Tb07f3469704ad095" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> <span class="tS">'    # No tests run!'</span></span>;
+                    <span class="tI">tok</span> <span class="tK">=</span> false;
+                </span><span class="tK">ELSE</span>
+                    <span class="tC">-- Report failures.
+</span>                    <span class="c0" id="Tc4381277bf546f5a" title="never evaluated"><span class="tI">ffaild</span> <span class="tK">:=</span> num_failed();
+                    <span class="tK">IF</span> <span class="b00" id="T781c2b57293cbd7e" title="never evaluated">ffaild &gt; 0 </span><span class="tK">THEN</span>
+                        <span class="c0" id="T3acb60aa949bff9c" title="never evaluated"><span class="tI">tok</span> <span class="tK">:=</span> FALSE;
+                        <span class="c0" id="Tb34fb04dffd95acb" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> <span class="tS">'    '</span> || diag(
+                            <span class="tS">'Looks like you failed '</span> || ffaild || <span class="tS">' test'</span> ||
+                             CASE ffaild WHEN 1 THEN <span class="tS">''</span> ELSE <span class="tS">'s'</span> END
+                             || <span class="tS">' of '</span> || fnumb
+                        )</span>;
+                    </span><span class="tK">END</span> <span class="tK">IF</span>;
+                </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+            </span><span class="tK">EXCEPTION</span> <span class="tK">WHEN</span> OTHERS <span class="tK">THEN</span>
+                <span class="tC">-- Something went wrong. Record that fact.
+</span>                <span class="c0" id="T333c5f678b3160cf" title="never evaluated"><span class="tI">errstate</span> <span class="tK">:=</span> SQLSTATE;
+                <span class="tI">errmsg</span> <span class="tK">:=</span> SQLERRM;
+                <span class="tK">GET</span> <span class="tK">STACKED</span> <span class="tK">DIAGNOSTICS</span>
+                    detail  = PG_EXCEPTION_DETAIL,
+                    hint    = PG_EXCEPTION_HINT,
+                    context = PG_EXCEPTION_CONTEXT,
+                    schname = SCHEMA_NAME,
+                    tabname = TABLE_NAME,
+                    colname = COLUMN_NAME,
+                    chkname = CONSTRAINT_NAME,
+                    typname = PG_DATATYPE_NAME;
+            </span><span class="tK">END</span>;
+
+            <span class="tC">-- Always raise an exception to rollback any changes.
+</span>            <span class="c0" id="Te9cb9cfdcdb6b2fa" title="never evaluated"><span class="tK">RAISE</span> <span class="tK">EXCEPTION</span> <span class="tS">'__TAP_ROLLBACK__'</span></span>;
+
+        </span><span class="tK">EXCEPTION</span> <span class="tK">WHEN</span> raise_exception <span class="tK">THEN</span>
+            <span class="c0" id="T2072510433bdfee9" title="never evaluated"><span class="tK">IF</span> <span class="b00" id="Td246fcdee619f482" title="never evaluated">errmsg IS NOT NULL </span><span class="tK">THEN</span>
+                <span class="tC">-- Something went wrong. Emit the error message.
+</span>                <span class="c0" id="T6f2cb0112968f26f" title="never evaluated"><span class="tI">tok</span> <span class="tK">:=</span> FALSE;
+               <span class="c0" id="Tc3a3b9934c471161" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> regexp_replace( diag(<span class="tS">'Test died: '</span> || _error_diag(
+                   errstate, errmsg, detail, hint, context, schname, tabname, colname, chkname, typname
+               )), <span class="tS">'^'</span>, <span class="tS">'    '</span>, <span class="tS">'gn'</span>)</span>;
+                <span class="tI">errmsg</span> <span class="tK">:=</span> NULL;
+            </span><span class="tK">END</span> <span class="tK">IF</span>;
+        </span><span class="tK">END</span>;
+
+        <span class="tC">-- Restore the sequence.
+</span>        <span class="tK">EXECUTE</span> <span class="tS">'ALTER SEQUENCE __tresults___numb_seq RESTART WITH '</span> || tnumb + 1;
+        <span class="tK">PERFORM</span> _set(<span class="tS">'curr_test'</span>, tnumb);
+        <span class="tK">PERFORM</span> _set(<span class="tS">'failed'</span>, tfaild);
+
+        <span class="tC">-- Record this test.
+</span>        <span class="c0" id="Tde820ee2c7128f56" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> ok(tok, tests[i])</span>;
+        <span class="tK">IF</span> <span class="b00" id="T9ed6afc2249f03ee" title="never evaluated">NOT tok </span><span class="tK">THEN</span> <span class="c0" id="T7ab89fe0fd72961e" title="never evaluated"><span class="tI">tfaild</span> <span class="tK">:=</span> tfaild + 1; </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    </span><span class="tK">END</span> <span class="tK">LOOP</span>;
+
+    <span class="tC">-- Run the shutdown functions.
+</span>    <span class="tK">FOR</span> <span class="tI">tap</span> <span class="tK">IN</span> <span class="l[0, 0, 0, 0]" id="Tdbee91eb1cff395f" title="never evaluated"><span class="tK">SELECT</span> * FROM _runem(shutdown, false) </span><span class="tK">LOOP</span> <span class="c0" id="T32027304af679473" title="never evaluated"><span class="c0" id="Tb4a188d7b29be2c5" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> tap</span>; </span><span class="tK">END</span> <span class="tK">LOOP</span>;
+
+    <span class="tC">-- Finish up.
+</span>    <span class="tK">FOR</span> <span class="tI">tap</span> <span class="tK">IN</span> <span class="l[0, 0, 0, 0]" id="T64f82aa3b140c9e1" title="never evaluated"><span class="tK">SELECT</span> * FROM _finish( COALESCE(_get(<span class="tS">'curr_test'</span>), 0), 0, tfaild ) </span><span class="tK">LOOP</span>
+        <span class="c0" id="T2e8ff8bcf97cb750" title="never evaluated"><span class="c0" id="T136c58e02926726d" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> tap</span>;
+    </span><span class="tK">END</span> <span class="tK">LOOP</span>;
+
+    <span class="tC">-- Clean up and return.
+</span>    <span class="tK">PERFORM</span> _cleanup();
+    <span class="c0" id="T67018e06e80f0ac8" title="never evaluated"><span class="tK">RETURN</span></span>;
+</span><span class="tK">END</span>;</td></tr></table></div><div class="toc"><strong>Notes</strong><ol><li class="block"><a href="#Tc400096e2ba86e87" onMouseOver="highlight('Tc400096e2ba86e87')">never evaluated</a></li><li class="block"><a href="#Tedf0b1f0de5ecf6c" onMouseOver="highlight('Tedf0b1f0de5ecf6c')">never evaluated</a></li><li class="block"><a href="#Tb88fe18c4e90ead3" onMouseOver="highlight('Tb88fe18c4e90ead3')">never evaluated</a></li><li class="loop"><a href="#T47422bcae1c9f293" onMouseOver="highlight('T47422bcae1c9f293')">never evaluated</a></li><li class="block"><a href="#Td0b287b1f4deddeb" onMouseOver="highlight('Td0b287b1f4deddeb')">never evaluated</a></li><li class="block"><a href="#Tbbb16234dc6b1275" onMouseOver="highlight('Tbbb16234dc6b1275')">never evaluated</a></li><li class="block"><a href="#T469bbe13f688fbe1" onMouseOver="highlight('T469bbe13f688fbe1')">never evaluated</a></li><li class="block"><a href="#T46ffa2ca6df42714" onMouseOver="highlight('T46ffa2ca6df42714')">never evaluated</a></li><li class="loop"><a href="#Ta7f0a119211b566c" onMouseOver="highlight('Ta7f0a119211b566c')">never evaluated</a></li><li class="block"><a href="#Te384abbed6842d4e" onMouseOver="highlight('Te384abbed6842d4e')">never evaluated</a></li><li class="branch"><a href="#Td2dafcf5b7fef351" onMouseOver="highlight('Td2dafcf5b7fef351')">never evaluated</a></li><li class="block"><a href="#T87d96b3381f06861" onMouseOver="highlight('T87d96b3381f06861')">never evaluated</a></li><li class="block"><a href="#Tdb960d3a81a619a2" onMouseOver="highlight('Tdb960d3a81a619a2')">never evaluated</a></li><li class="block"><a href="#T809ad4e5849151b0" onMouseOver="highlight('T809ad4e5849151b0')">never evaluated</a></li><li class="block"><a href="#Tc768faad9303a8dd" onMouseOver="highlight('Tc768faad9303a8dd')">never evaluated</a></li><li class="loop"><a href="#T264a499fc826f730" onMouseOver="highlight('T264a499fc826f730')">never evaluated</a></li><li class="block"><a href="#Tbfb13e6e200efb79" onMouseOver="highlight('Tbfb13e6e200efb79')">never evaluated</a></li><li class="block"><a href="#T64c7194370675139" onMouseOver="highlight('T64c7194370675139')">never evaluated</a></li><li class="loop"><a href="#Tf22be67163ade727" onMouseOver="highlight('Tf22be67163ade727')">never evaluated</a></li><li class="block"><a href="#Tf8339340e3415aea" onMouseOver="highlight('Tf8339340e3415aea')">never evaluated</a></li><li class="block"><a href="#T600c8f51a0a852dc" onMouseOver="highlight('T600c8f51a0a852dc')">never evaluated</a></li><li class="loop"><a href="#T27aba1b1a674916e" onMouseOver="highlight('T27aba1b1a674916e')">never evaluated</a></li><li class="block"><a href="#T2afbf75535b9bd85" onMouseOver="highlight('T2afbf75535b9bd85')">never evaluated</a></li><li class="block"><a href="#Taf60abab1f023326" onMouseOver="highlight('Taf60abab1f023326')">never evaluated</a></li><li class="branch"><a href="#T5c481d90ffb58a94" onMouseOver="highlight('T5c481d90ffb58a94')">never evaluated</a></li><li class="block"><a href="#Tf7e07bfd91613194" onMouseOver="highlight('Tf7e07bfd91613194')">never evaluated</a></li><li class="block"><a href="#Tb07f3469704ad095" onMouseOver="highlight('Tb07f3469704ad095')">never evaluated</a></li><li class="block"><a href="#Tc4381277bf546f5a" onMouseOver="highlight('Tc4381277bf546f5a')">never evaluated</a></li><li class="branch"><a href="#T781c2b57293cbd7e" onMouseOver="highlight('T781c2b57293cbd7e')">never evaluated</a></li><li class="block"><a href="#T3acb60aa949bff9c" onMouseOver="highlight('T3acb60aa949bff9c')">never evaluated</a></li><li class="block"><a href="#Tb34fb04dffd95acb" onMouseOver="highlight('Tb34fb04dffd95acb')">never evaluated</a></li><li class="block"><a href="#T333c5f678b3160cf" onMouseOver="highlight('T333c5f678b3160cf')">never evaluated</a></li><li class="block"><a href="#Te9cb9cfdcdb6b2fa" onMouseOver="highlight('Te9cb9cfdcdb6b2fa')">never evaluated</a></li><li class="block"><a href="#T2072510433bdfee9" onMouseOver="highlight('T2072510433bdfee9')">never evaluated</a></li><li class="branch"><a href="#Td246fcdee619f482" onMouseOver="highlight('Td246fcdee619f482')">never evaluated</a></li><li class="block"><a href="#T6f2cb0112968f26f" onMouseOver="highlight('T6f2cb0112968f26f')">never evaluated</a></li><li class="block"><a href="#Tc3a3b9934c471161" onMouseOver="highlight('Tc3a3b9934c471161')">never evaluated</a></li><li class="block"><a href="#Tde820ee2c7128f56" onMouseOver="highlight('Tde820ee2c7128f56')">never evaluated</a></li><li class="branch"><a href="#T9ed6afc2249f03ee" onMouseOver="highlight('T9ed6afc2249f03ee')">never evaluated</a></li><li class="block"><a href="#T7ab89fe0fd72961e" onMouseOver="highlight('T7ab89fe0fd72961e')">never evaluated</a></li><li class="block"><a href="#T32027304af679473" onMouseOver="highlight('T32027304af679473')">never evaluated</a></li><li class="loop"><a href="#Tdbee91eb1cff395f" onMouseOver="highlight('Tdbee91eb1cff395f')">never evaluated</a></li><li class="block"><a href="#Tb4a188d7b29be2c5" onMouseOver="highlight('Tb4a188d7b29be2c5')">never evaluated</a></li><li class="block"><a href="#T2e8ff8bcf97cb750" onMouseOver="highlight('T2e8ff8bcf97cb750')">never evaluated</a></li><li class="loop"><a href="#T64f82aa3b140c9e1" onMouseOver="highlight('T64f82aa3b140c9e1')">never evaluated</a></li><li class="block"><a href="#T136c58e02926726d" onMouseOver="highlight('T136c58e02926726d')">never evaluated</a></li><li class="block"><a href="#T67018e06e80f0ac8" onMouseOver="highlight('T67018e06e80f0ac8')">never evaluated</a></li></ol></div></div><div class="timestamp">Generated by piggly 2.3.1 at September 24, 2025 13:36 UTC</div><a href="index.html" class="return">Return to index</a></body></html>

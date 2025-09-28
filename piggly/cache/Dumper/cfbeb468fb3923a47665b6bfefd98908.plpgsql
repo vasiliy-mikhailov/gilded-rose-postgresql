@@ -1,0 +1,30 @@
+DECLARE
+    todos INT[];
+    note text;
+BEGIN
+    -- Get the latest id and value, because todo() might have been called
+    -- again before the todos ran out for the first call to todo(). This
+    -- allows them to nest.
+    todos := _get_latest('todo');
+    IF todos IS NULL THEN
+        -- No todos.
+        RETURN NULL;
+    END IF;
+    IF todos[2] = 0 THEN
+        -- Todos depleted. Clean up.
+        EXECUTE 'DELETE FROM __tcache__ WHERE id = ' || todos[1];
+        RETURN NULL;
+    END IF;
+    -- Decrement the count of counted todos and return the reason.
+    IF todos[2] <> -1 THEN
+        PERFORM _set(todos[1], todos[2] - 1);
+    END IF;
+    note := _get_note(todos[1]);
+
+    IF todos[2] = 1 THEN
+        -- This was the last todo, so delete the record.
+        EXECUTE 'DELETE FROM __tcache__ WHERE id = ' || todos[1];
+    END IF;
+
+    RETURN note;
+END;

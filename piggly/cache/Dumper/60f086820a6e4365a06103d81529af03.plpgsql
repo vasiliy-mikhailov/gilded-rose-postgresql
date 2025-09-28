@@ -1,0 +1,8 @@
+DECLARE
+    is_trusted boolean := _is_trusted($1);
+BEGIN
+    IF is_trusted IS NULL THEN
+        RETURN fail( $2 ) || E'\n' || diag( '    Procedural language ' || quote_ident($1) || ' does not exist') ;
+    END IF;
+    RETURN ok( is_trusted, $2 );
+END;

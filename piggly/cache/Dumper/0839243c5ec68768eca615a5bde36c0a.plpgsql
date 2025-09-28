@@ -1,0 +1,6 @@
+DECLARE
+    ret integer;
+BEGIN
+    EXECUTE 'SELECT value FROM __tcache__ WHERE label = ' || quote_literal($1) || ' LIMIT 1' INTO ret;
+    RETURN ret;
+END;

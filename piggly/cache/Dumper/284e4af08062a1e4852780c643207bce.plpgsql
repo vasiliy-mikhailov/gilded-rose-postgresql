@@ -1,0 +1,13 @@
+DECLARE
+    want char := _contract_on($3);
+    have char := _rule_on($1, $2);
+BEGIN
+    IF have IS NOT NULL THEN
+        RETURN is( _expand_on(have), _expand_on(want), $4 );
+    END IF;
+
+    RETURN ok( false, $4 ) || E'\n' || diag(
+        '    Rule ' || quote_ident($2) || ' does not exist on '
+        || quote_ident($1)
+    );
+END;

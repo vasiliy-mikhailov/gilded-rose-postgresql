@@ -1,0 +1,12 @@
+BEGIN
+    IF pg_catalog.has_function_privilege($1, $2, 'EXECUTE') THEN
+        RETURN '{EXECUTE}';
+    ELSE
+        RETURN '{}';
+    END IF;
+EXCEPTION
+    -- Not a valid func name.
+    WHEN undefined_function THEN RETURN '{undefined_function}';
+    -- Not a valid role.
+    WHEN undefined_object   THEN RETURN '{undefined_role}';
+END;

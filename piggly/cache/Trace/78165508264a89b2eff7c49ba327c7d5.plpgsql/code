@@ -1,0 +1,28 @@
+DECLARE
+    qcol CONSTANT text := quote_ident($1) || '.' || quote_ident($2);
+    c_desc CONSTANT text := coalesce(
+        $3,
+        'Column ' || qcol || ' should '
+            || CASE WHEN $4 THEN 'be NOT' ELSE 'allow' END || ' NULL'
+    );
+BEGIN
+    perform public.piggly_branch($PIGGLY$4660afc7cf927a23$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$c2550dbc563423c5$PIGGLY$, (NOT _cexists( $1, $2 ))) THEN
+        perform public.piggly_branch($PIGGLY$58eb8b46b9337d23$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$e1f641c31cac9b92$PIGGLY$);RETURN fail( c_desc ) || E'\n'
+            || diag ('    Column ' || qcol || ' does not exist' );
+    END IF;
+    perform public.piggly_branch($PIGGLY$7845e3b89c4bbfe3$PIGGLY$);RETURN ok(
+        EXISTS(
+            SELECT true
+              FROM pg_catalog.pg_class c
+              JOIN pg_catalog.pg_attribute a ON c.oid = a.attrelid
+             WHERE pg_catalog.pg_table_is_visible(c.oid)
+               AND c.relname = $1
+               AND a.attnum > 0
+               AND NOT a.attisdropped
+               AND a.attname    = $2
+               AND a.attnotnull = $4
+        ), c_desc
+    );
+END;

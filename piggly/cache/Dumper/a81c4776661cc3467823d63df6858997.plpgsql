@@ -1,0 +1,14 @@
+DECLARE
+    grants TEXT[] := _get_tablespaceprivs( $2, $1::TEXT );
+BEGIN
+    IF grants[1] = 'undefined_tablespace' THEN
+        RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Tablespace ' || quote_ident($1) || ' does not exist'
+        );
+    ELSIF grants[1] = 'undefined_role' THEN
+        RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Role ' || quote_ident($2) || ' does not exist'
+        );
+    END IF;
+    RETURN _assets_are('privileges', grants, $3, $4);
+END;

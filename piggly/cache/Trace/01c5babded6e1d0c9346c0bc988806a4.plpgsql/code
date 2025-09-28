@@ -1,0 +1,45 @@
+DECLARE
+    have       ALIAS FOR $1;
+    want       ALIAS FOR $2;
+    have_rec   RECORD;
+    want_rec   RECORD;
+    have_found BOOLEAN;
+    want_found BOOLEAN;
+    rownum     INTEGER := 1;
+    err_msg    text := 'details not available in pg <= 9.1';
+BEGIN
+    perform public.piggly_branch($PIGGLY$4b6799987d1c97c9$PIGGLY$);
+    FETCH have INTO have_rec;
+    have_found := FOUND;
+    FETCH want INTO want_rec;
+    want_found := FOUND;
+    WHILE public.piggly_cond($PIGGLY$74a21966810fb479$PIGGLY$, (have_found OR want_found)) LOOP
+        perform public.piggly_branch($PIGGLY$26bb4c36de6d4a79$PIGGLY$);
+        IF public.piggly_cond($PIGGLY$e872becfd9fdf810$PIGGLY$, (have_rec IS DISTINCT FROM want_rec OR have_found <> want_found)) THEN
+            perform public.piggly_branch($PIGGLY$adc282cbeef35126$PIGGLY$);
+            perform public.piggly_branch($PIGGLY$49c9a1ef5bfa81aa$PIGGLY$);RETURN ok( false, $3 ) || E'\n' || diag(
+                '    Results differ beginning at row ' || rownum || E':\n' ||
+                '        have: ' || CASE WHEN have_found THEN have_rec::text ELSE 'NULL' END || E'\n' ||
+                '        want: ' || CASE WHEN want_found THEN want_rec::text ELSE 'NULL' END
+            );
+        END IF;
+        rownum = rownum + 1;
+        FETCH have INTO have_rec;
+        have_found := FOUND;
+        FETCH want INTO want_rec;
+        want_found := FOUND;
+    END LOOP;
+
+    perform public.piggly_branch($PIGGLY$04ac393a22addef8$PIGGLY$);RETURN ok( true, $3 );
+EXCEPTION
+    WHEN datatype_mismatch THEN
+        perform public.piggly_branch($PIGGLY$4331046d265ee2df$PIGGLY$);
+        GET STACKED DIAGNOSTICS err_msg = MESSAGE_TEXT;
+        perform public.piggly_branch($PIGGLY$10d9bfe818f428b3$PIGGLY$);RETURN ok( false, $3 ) || E'\n' || diag(
+            E'    Number of columns or their types differ between the queries' ||
+            CASE WHEN have_rec::TEXT = want_rec::text THEN '' ELSE E':\n' ||
+                '        have: ' || CASE WHEN have_found THEN have_rec::text ELSE 'NULL' END || E'\n' ||
+                '        want: ' || CASE WHEN want_found THEN want_rec::text ELSE 'NULL' END
+            END || E'\n        ERROR: ' || err_msg
+        );
+END;

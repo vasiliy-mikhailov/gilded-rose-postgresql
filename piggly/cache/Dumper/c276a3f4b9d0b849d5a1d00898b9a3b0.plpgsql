@@ -1,0 +1,29 @@
+DECLARE
+    code  TEXT := _query($1);
+    descr ALIAS FOR $2;
+    detail  text;
+    hint    text;
+    context text;
+    schname text;
+    tabname text;
+    colname text;
+    chkname text;
+    typname text;
+BEGIN
+    EXECUTE code;
+    RETURN ok( TRUE, descr );
+EXCEPTION WHEN OTHERS OR ASSERT_FAILURE THEN
+    -- There should have been no exception.
+    GET STACKED DIAGNOSTICS
+        detail  = PG_EXCEPTION_DETAIL,
+        hint    = PG_EXCEPTION_HINT,
+        context = PG_EXCEPTION_CONTEXT,
+        schname = SCHEMA_NAME,
+        tabname = TABLE_NAME,
+        colname = COLUMN_NAME,
+        chkname = CONSTRAINT_NAME,
+        typname = PG_DATATYPE_NAME;
+    RETURN ok( FALSE, descr ) || E'\n' || diag(
+           '    died: ' || _error_diag(SQLSTATE, SQLERRM, detail, hint, context, schname, tabname, colname, chkname, typname)
+    );
+END;

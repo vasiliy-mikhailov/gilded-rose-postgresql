@@ -1,0 +1,15 @@
+DECLARE
+    owner NAME := _get_func_owner($1, $2, $3);
+BEGIN
+    -- Make sure the function exists.
+    perform public.piggly_branch($PIGGLY$96d6f27cb5bd9c71$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$4261a93e820585d7$PIGGLY$, (owner IS NULL)) THEN
+        perform public.piggly_branch($PIGGLY$3a6c0ac120b33538$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$a3fe37e7a3aea863$PIGGLY$);RETURN ok(FALSE, $5) || E'\n' || diag(
+            E'    Function ' || quote_ident($1) || '.' || quote_ident($2) || '(' ||
+                    array_to_string($3, ', ') || ') does not exist'
+        );
+    END IF;
+
+    perform public.piggly_branch($PIGGLY$ee083711917b4534$PIGGLY$);RETURN is(owner, $4, $5);
+END;

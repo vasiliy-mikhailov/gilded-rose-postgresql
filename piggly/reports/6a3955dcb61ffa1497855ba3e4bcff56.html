@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Code Coverage: public._time_trials</title><meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="piggly.css"/><script type="text/javascript" src="highlight.js"><!-- --></script></head><body><div class="header"><p class="summary">public._time_trials</p><table class="summary sortable"><tr><th>Blocks</th><th>Loops</th><th>Branches</th><th>Block Coverage</th><th>Loop Coverage</th><th>Branch Coverage</th></tr><tr class="even"><td class="count">4</td><td class="count">2</td><td class="count">0</td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><span style="display:none">-1</span></td></tr></table></div><div class="container"><div class="listing"><table><tr><td class="signature">&nbsp;</td><td class="signature"><span class='tK'>CREATE FUNCTION</span> <b><span class='tI'>public._time_trials</span></b> ( <span class='tK'>IN</span> <span class='tD'>text</span>, <span class='tK'>IN</span> <span class='tD'>integer</span>, <span class='tK'>IN</span> <span class='tD'>numeric</span> )
+<span class='tK'>RETURNS SETOF</span> <span class='tD'>time_trial_type[]</span>
+  <span class='tK'>VOLATILE</span></td></tr><tr><td class="lines"><a href="#L1" id="L1">1</a>
+<a href="#L2" id="L2">2</a>
+<a href="#L3" id="L3">3</a>
+<a href="#L4" id="L4">4</a>
+<a href="#L5" id="L5">5</a>
+<a href="#L6" id="L6">6</a>
+<a href="#L7" id="L7">7</a>
+<a href="#L8" id="L8">8</a>
+<a href="#L9" id="L9">9</a>
+<a href="#L10" id="L10">10</a>
+<a href="#L11" id="L11">11</a>
+<a href="#L12" id="L12">12</a>
+<a href="#L13" id="L13">13</a>
+<a href="#L14" id="L14">14</a>
+<a href="#L15" id="L15">15</a>
+<a href="#L16" id="L16">16</a>
+<a href="#L17" id="L17">17</a>
+<a href="#L18" id="L18">18</a>
+<a href="#L19" id="L19">19</a>
+<a href="#L20" id="L20">20</a>
+<a href="#L21" id="L21">21</a>
+<a href="#L22" id="L22">22</a>
+<a href="#L23" id="L23">23</a>
+<a href="#L24" id="L24">24</a>
+<a href="#L25" id="L25">25</a>
+<a href="#L26" id="L26">26</a>
+<a href="#L27" id="L27">27</a>
+<a href="#L28" id="L28">28</a>
+<a href="#L29" id="L29">29</a>
+<a href="#L30" id="L30">30</a>
+<a href="#L31" id="L31">31</a>
+<a href="#L32" id="L32">32</a>
+<a href="#L33" id="L33">33</a></td><td class="code"><span class="tK">DECLARE</span>
+    <span class="tI">query</span>            <span class="tD">TEXT</span> <span class="tK">:=</span> _query($1);
+    <span class="tI">iterations</span>       <span class="tD">ALIAS FOR $2</span>;
+    <span class="tI">return_percent</span>   <span class="tD">ALIAS FOR $3</span>;
+    <span class="tI">start_time</span>       <span class="tD">TEXT</span>;
+    <span class="tI">act_time</span>         <span class="tD">NUMERIC</span>;
+    <span class="tI">times</span>            <span class="tD">NUMERIC[]</span>;
+    <span class="tI">offset_it</span>        <span class="tD">INT</span>;
+    <span class="tI">limit_it</span>         <span class="tD">INT</span>;
+    <span class="tI">offset_percent</span>   <span class="tD">NUMERIC</span>;
+    <span class="tI">a_time</span>	     <span class="tD">_time_trial_type</span>;
+<span class="tK">BEGIN</span>
+    <span class="tC">-- Execute the query over and over
+</span>    <span class="c0" id="T15c81300e60ba793" title="never evaluated"><span class="tK">FOR</span> <span class="tI">i</span> <span class="tK">IN</span> <span class="l[0, 0, 0, 0]" id="T6b31985cf47f4e78" title="never evaluated">1..iterations </span><span class="tK">LOOP</span>
+        <span class="c0" id="T62ef766deeeb98c6" title="never evaluated"><span class="tI">start_time</span> <span class="tK">:=</span> timeofday();
+        <span class="tK">EXECUTE</span> query;
+        <span class="tC">-- Store the execution time for the run in an array of times
+</span>        <span class="tI">times</span>[i] <span class="tK">:=</span> extract(millisecond from timeofday()::timestamptz - start_time::timestamptz);
+    </span><span class="tK">END</span> <span class="tK">LOOP</span>;
+    <span class="tI">offset_percent</span> <span class="tK">:=</span> (1.0 - return_percent) / 2.0;
+    <span class="tC">-- Ensure that offset skips the bottom X% of runs, or set it to 0
+</span>    <span class="tK">SELECT</span> GREATEST((offset_percent * iterations)::int, 0) INTO offset_it;
+    <span class="tC">-- Ensure that with limit the query to returning only the middle X% of runs
+</span>    <span class="tK">SELECT</span> GREATEST((return_percent * iterations)::int, 1) INTO limit_it;
+
+    <span class="tK">FOR</span> <span class="tI">a_time</span> <span class="tK">IN</span> <span class="l[0, 0, 0, 0]" id="Tb1fba7c1ed329994" title="never evaluated"><span class="tK">SELECT</span> times[i]
+		  FROM generate_series(array_lower(times, 1), array_upper(times, 1)) i
+                  ORDER BY 1
+                  OFFSET offset_it
+                  LIMIT limit_it </span><span class="tK">LOOP</span>
+	<span class="c0" id="Td90c35d8a74eb1d1" title="never evaluated"><span class="c0" id="Tca956eb68757795f" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> a_time</span>;
+    </span><span class="tK">END</span> <span class="tK">LOOP</span>;
+</span><span class="tK">END</span>;</td></tr></table></div><div class="toc"><strong>Notes</strong><ol><li class="block"><a href="#T15c81300e60ba793" onMouseOver="highlight('T15c81300e60ba793')">never evaluated</a></li><li class="block"><a href="#T62ef766deeeb98c6" onMouseOver="highlight('T62ef766deeeb98c6')">never evaluated</a></li><li class="loop"><a href="#T6b31985cf47f4e78" onMouseOver="highlight('T6b31985cf47f4e78')">never evaluated</a></li><li class="block"><a href="#Td90c35d8a74eb1d1" onMouseOver="highlight('Td90c35d8a74eb1d1')">never evaluated</a></li><li class="loop"><a href="#Tb1fba7c1ed329994" onMouseOver="highlight('Tb1fba7c1ed329994')">never evaluated</a></li><li class="block"><a href="#Tca956eb68757795f" onMouseOver="highlight('Tca956eb68757795f')">never evaluated</a></li></ol></div></div><div class="timestamp">Generated by piggly 2.3.1 at September 24, 2025 13:36 UTC</div><a href="index.html" class="return">Return to index</a></body></html>

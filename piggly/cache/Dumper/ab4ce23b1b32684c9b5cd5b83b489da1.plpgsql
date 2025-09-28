@@ -1,0 +1,22 @@
+DECLARE
+    extras  TEXT[]  := '{}';
+    res     BOOLEAN := TRUE;
+    msg     TEXT    := '';
+    rec     RECORD;
+BEGIN
+    -- Find extra records.
+    FOR rec in EXECUTE _query($1) LOOP
+        extras := extras || rec::text;
+    END LOOP;
+
+    -- What extra records do we have?
+    IF extras[1] IS NOT NULL THEN
+        res := FALSE;
+        msg := E'\n' || diag(
+            E'    Unexpected records:\n        '
+            ||  array_to_string( extras, E'\n        ' )
+        );
+    END IF;
+
+    RETURN ok(res, $2) || msg;
+END;

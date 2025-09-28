@@ -1,0 +1,17 @@
+DECLARE
+    grants TEXT[] := _get_lang_privs( $2, quote_ident($1) );
+BEGIN
+    perform public.piggly_branch($PIGGLY$e8eec8a1e860ba6c$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$101df692ab4f7283$PIGGLY$, (grants[1] = 'undefined_language')) THEN
+        perform public.piggly_branch($PIGGLY$6577d856ab4638ea$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$5f102fcb2647e784$PIGGLY$);RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Language ' || quote_ident($1) || ' does not exist'
+        );
+    ELSIF public.piggly_cond($PIGGLY$e1b5a0a853424f07$PIGGLY$, (grants[1] = 'undefined_role')) THEN
+        perform public.piggly_branch($PIGGLY$16a13cf6ac7f998a$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$d7d07a8a6ba5fdde$PIGGLY$);RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Role ' || quote_ident($2) || ' does not exist'
+        );
+    END IF;
+    perform public.piggly_branch($PIGGLY$7742f158934232a0$PIGGLY$);RETURN _assets_are('privileges', grants, $3, $4);
+END;

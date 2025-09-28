@@ -1,0 +1,18 @@
+BEGIN
+    perform public.piggly_branch($PIGGLY$f8588f3d99180c5a$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$3a47e65fb3de6d9a$PIGGLY$, (pg_catalog.has_foreign_data_wrapper_privilege($1, $2, 'USAGE'))) THEN
+        perform public.piggly_branch($PIGGLY$744f37ba49012af3$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$b941efe379eb5074$PIGGLY$);RETURN '{USAGE}';
+    ELSE
+        perform public.piggly_branch($PIGGLY$d45ed2abb6c375f3$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$f26ca73b1ad1300f$PIGGLY$);RETURN '{}';
+    END IF;
+EXCEPTION WHEN undefined_object THEN
+    -- Same error code for unknown user or fdw. So figure out which.
+    perform public.piggly_branch($PIGGLY$44499fc0cd0a6aa3$PIGGLY$);
+    perform public.piggly_branch($PIGGLY$f292279ab2e2004e$PIGGLY$);RETURN CASE WHEN SQLERRM LIKE '%' || $1 || '%' THEN
+        '{undefined_role}'
+    ELSE
+        '{undefined_fdw}'
+    END;
+END;

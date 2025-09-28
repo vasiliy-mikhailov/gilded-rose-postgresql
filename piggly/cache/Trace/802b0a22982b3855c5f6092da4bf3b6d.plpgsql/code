@@ -1,0 +1,17 @@
+DECLARE
+    res boolean;
+BEGIN
+    perform public.piggly_branch($PIGGLY$eea7877313a1ffae$PIGGLY$);
+    SELECT x.indisunique
+      FROM pg_catalog.pg_index x
+      JOIN pg_catalog.pg_class ci ON ci.oid = x.indexrelid
+      JOIN pg_catalog.pg_class ct ON ct.oid = x.indrelid
+     WHERE ci.relname = $1
+       AND pg_catalog.pg_table_is_visible(ct.oid)
+      INTO res;
+
+      perform public.piggly_branch($PIGGLY$084463282d3383a0$PIGGLY$);RETURN ok(
+          COALESCE(res, false),
+          'Index ' || quote_ident($1) || ' should be unique'
+      );
+END;

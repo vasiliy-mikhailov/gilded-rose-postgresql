@@ -1,0 +1,18 @@
+DECLARE
+    output TEXT[];
+BEGIN
+    perform public.piggly_branch($PIGGLY$48cc2fe08076e152$PIGGLY$);
+    output := '{}';
+    FOR i IN 1..how_many LOOP
+        perform public.piggly_cond($PIGGLY$b9bcb67e5d9f97c3$PIGGLY$, true);
+        perform public.piggly_branch($PIGGLY$f76a254969397edc$PIGGLY$);
+        output = array_append(
+            output,
+            ok( TRUE ) || ' ' || diag( 'SKIP' || COALESCE( ' ' || why, '') )
+        );
+    
+        perform public.piggly_signal($PIGGLY$b9bcb67e5d9f97c3$PIGGLY$, $PIGGLY$@$PIGGLY$);
+    END LOOP;
+perform public.piggly_cond($PIGGLY$b9bcb67e5d9f97c3$PIGGLY$, false);
+    perform public.piggly_branch($PIGGLY$925b3e5187329cd8$PIGGLY$);RETURN array_to_string(output, E'\n');
+END;

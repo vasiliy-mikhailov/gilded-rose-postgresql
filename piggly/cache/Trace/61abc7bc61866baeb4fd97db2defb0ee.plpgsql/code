@@ -1,0 +1,13 @@
+DECLARE
+    have REFCURSOR;
+    want REFCURSOR;
+    res  TEXT;
+BEGIN
+    perform public.piggly_branch($PIGGLY$a607a2c7669d9bd7$PIGGLY$);
+    OPEN have FOR EXECUTE _query($1);
+    OPEN want FOR EXECUTE _query($2);
+    res := results_ne(have, want, $3);
+    CLOSE have;
+    CLOSE want;
+    perform public.piggly_branch($PIGGLY$a616a991795fc094$PIGGLY$);RETURN res;
+END;

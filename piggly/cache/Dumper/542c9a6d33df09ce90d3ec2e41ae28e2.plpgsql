@@ -1,0 +1,12 @@
+DECLARE
+    dbowner NAME := _get_db_owner($1);
+BEGIN
+    -- Make sure the database exists.
+    IF dbowner IS NULL THEN
+        RETURN ok(FALSE, $3) || E'\n' || diag(
+            E'    Database ' || quote_ident($1) || ' does not exist'
+        );
+    END IF;
+
+    RETURN is(dbowner, $2, $3);
+END;

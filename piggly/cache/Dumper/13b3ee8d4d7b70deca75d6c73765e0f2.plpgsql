@@ -1,0 +1,14 @@
+BEGIN
+    IF pg_catalog.has_foreign_data_wrapper_privilege($1, $2, 'USAGE') THEN
+        RETURN '{USAGE}';
+    ELSE
+        RETURN '{}';
+    END IF;
+EXCEPTION WHEN undefined_object THEN
+    -- Same error code for unknown user or fdw. So figure out which.
+    RETURN CASE WHEN SQLERRM LIKE '%' || $1 || '%' THEN
+        '{undefined_role}'
+    ELSE
+        '{undefined_fdw}'
+    END;
+END;

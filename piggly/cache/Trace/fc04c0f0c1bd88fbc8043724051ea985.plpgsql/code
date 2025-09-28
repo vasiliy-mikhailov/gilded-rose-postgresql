@@ -1,0 +1,26 @@
+DECLARE
+    tap    text;
+    lbound int := array_lower($1, 1);
+BEGIN
+    perform public.piggly_branch($PIGGLY$ecfa569051b2bd80$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$f3680e2359cee4a3$PIGGLY$, (lbound IS NULL)) THEN perform public.piggly_branch($PIGGLY$9cdb2102d56dd157$PIGGLY$);perform public.piggly_branch($PIGGLY$5ac4bd31e5e8b003$PIGGLY$);RETURN; END IF;
+    FOR i IN lbound..array_upper($1, 1) LOOP
+        -- Send the name of the function to diag if warranted.
+        perform public.piggly_cond($PIGGLY$689756646a8381db$PIGGLY$, true);
+        perform public.piggly_branch($PIGGLY$918469e748849517$PIGGLY$);
+        IF public.piggly_cond($PIGGLY$808dfdfd82f3ae54$PIGGLY$, ($2)) THEN perform public.piggly_branch($PIGGLY$5f7712e72a799436$PIGGLY$);perform public.piggly_branch($PIGGLY$a9f6819f71cc1c17$PIGGLY$);RETURN NEXT diag( $1[i] || '()' ); END IF;
+        -- Execute the tap function and return its results.
+        FOR tap IN EXECUTE 'SELECT * FROM ' || $1[i] || '()' LOOP
+            perform public.piggly_cond($PIGGLY$dee71bb4cf529ce2$PIGGLY$, true);
+            perform public.piggly_branch($PIGGLY$205f6771e71aef89$PIGGLY$);
+            perform public.piggly_branch($PIGGLY$2b28c6a7936b927c$PIGGLY$);RETURN NEXT tap;
+        
+            perform public.piggly_signal($PIGGLY$dee71bb4cf529ce2$PIGGLY$, $PIGGLY$@$PIGGLY$);
+        END LOOP;
+perform public.piggly_cond($PIGGLY$dee71bb4cf529ce2$PIGGLY$, false);
+    
+        perform public.piggly_signal($PIGGLY$689756646a8381db$PIGGLY$, $PIGGLY$@$PIGGLY$);
+    END LOOP;
+perform public.piggly_cond($PIGGLY$689756646a8381db$PIGGLY$, false);
+    perform public.piggly_branch($PIGGLY$6f00908c50bb0f85$PIGGLY$);RETURN;
+END;

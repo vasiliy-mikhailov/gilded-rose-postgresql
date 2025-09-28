@@ -1,0 +1,12 @@
+DECLARE
+    actual_type TEXT := _get_dtype($1, $2, false);
+BEGIN
+    IF actual_type IS NULL THEN
+        RETURN fail( $4 ) || E'\n' || diag (
+            '   Domain ' || quote_ident($1) || '.' || $2
+            || ' does not exist'
+        );
+    END IF;
+
+    RETURN is( actual_type, _typename($3), $4 );
+END;

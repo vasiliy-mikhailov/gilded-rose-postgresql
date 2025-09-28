@@ -1,0 +1,42 @@
+DECLARE
+    have_type TEXT;
+    want_type TEXT;
+BEGIN
+    -- Get the data type.
+    perform public.piggly_branch($PIGGLY$b8846c9bc34531ea$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$f706b7361395aa64$PIGGLY$, ($1 IS NULL)) THEN
+        perform public.piggly_branch($PIGGLY$85dc3ad2cddc8604$PIGGLY$);
+        have_type := _get_col_type($2, $3);
+    ELSE
+        perform public.piggly_branch($PIGGLY$43b8663212193835$PIGGLY$);
+        have_type := _get_col_type($1, $2, $3);
+    END IF;
+
+    IF public.piggly_cond($PIGGLY$3aed0193f368aa50$PIGGLY$, (have_type IS NULL)) THEN
+        perform public.piggly_branch($PIGGLY$ec7e0a562c125ff0$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$2dd791f6ccdfe243$PIGGLY$);RETURN fail( $5 ) || E'\n' || diag (
+            '   Column ' || COALESCE(quote_ident($1) || '.', '')
+            || quote_ident($2) || '.' || quote_ident($3) || ' does not exist'
+        );
+    END IF;
+
+    want_type := format_type_string($4);
+    IF public.piggly_cond($PIGGLY$4e2096162697960e$PIGGLY$, (want_type IS NULL)) THEN
+        perform public.piggly_branch($PIGGLY$0ccbe1e09145c2d3$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$a73599e0944fd204$PIGGLY$);RETURN fail( $5 ) || E'\n' || diag (
+            '    Type ' || $4 || ' does not exist'
+        );
+    END IF;
+
+    IF public.piggly_cond($PIGGLY$d79bbd88c8ab1916$PIGGLY$, (have_type = want_type)) THEN
+        -- We're good to go.
+        perform public.piggly_branch($PIGGLY$8d1441213ac65078$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$7a4b583d552b482f$PIGGLY$);RETURN ok( true, $5 );
+    END IF;
+
+    -- Wrong data type. tell 'em what we really got.
+    perform public.piggly_branch($PIGGLY$f7b71f8f5de38a02$PIGGLY$);RETURN ok( false, $5 ) || E'\n' || diag(
+           '        have: ' || have_type ||
+        E'\n        want: ' || want_type
+    );
+END;

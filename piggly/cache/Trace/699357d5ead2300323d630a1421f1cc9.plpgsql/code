@@ -1,0 +1,8 @@
+DECLARE
+    typeof regtype := pg_typeof($1);
+BEGIN
+    perform public.piggly_branch($PIGGLY$7da71d33226ea3f0$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$847615bf9cb5eab0$PIGGLY$, (typeof = $2)) THEN perform public.piggly_branch($PIGGLY$a4bd3819538b9bd6$PIGGLY$);perform public.piggly_branch($PIGGLY$28112704088504f1$PIGGLY$);RETURN ok(true, $3 || ' isa ' || $2 ); END IF;
+    perform public.piggly_branch($PIGGLY$ba58da47445b9909$PIGGLY$);RETURN ok(false, $3 || ' isa ' || $2 ) || E'\n' ||
+        diag('    ' || $3 || ' isn''t a "' || $2 || '" it''s a "' || typeof || '"');
+END;

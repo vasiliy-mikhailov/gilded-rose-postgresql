@@ -1,0 +1,15 @@
+DECLARE
+    actual_type TEXT := _get_dtype($1, $2, true);
+BEGIN
+    IF actual_type IS NULL THEN
+        RETURN fail( $5 ) || E'\n' || diag (
+            '   Domain ' || quote_ident($1) || '.' || $2
+            || ' does not exist'
+        );
+    END IF;
+
+    IF quote_ident($3) = ANY(current_schemas(true)) THEN
+        RETURN isnt( actual_type, quote_ident($3) || '.' || _typename($4), $5);
+    END IF;
+    RETURN isnt( actual_type, _typename(quote_ident($3) || '.' || $4), $5);
+END;

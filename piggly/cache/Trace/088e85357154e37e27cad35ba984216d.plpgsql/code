@@ -1,0 +1,14 @@
+DECLARE
+    owner NAME := _get_rel_owner('m'::char, $1);
+BEGIN
+    -- Make sure the materialized view exists.
+    perform public.piggly_branch($PIGGLY$937b13c789ff5555$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$fe311964bf60c506$PIGGLY$, (owner IS NULL)) THEN
+        perform public.piggly_branch($PIGGLY$34715819b1b714b8$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$cb77fcc19384acb5$PIGGLY$);RETURN ok(FALSE, $3) || E'\n' || diag(
+            E'    Materialized view ' || quote_ident($1) || ' does not exist'
+        );
+    END IF;
+
+    perform public.piggly_branch($PIGGLY$bfd79cc5cbd3c498$PIGGLY$);RETURN is(owner, $2, $3);
+END;

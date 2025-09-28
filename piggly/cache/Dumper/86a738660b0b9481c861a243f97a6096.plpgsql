@@ -1,0 +1,7 @@
+DECLARE
+    ret integer;
+BEGIN
+    EXECUTE 'SELECT MAX(id) FROM __tcache__ WHERE label = ' ||
+    quote_literal($1) || ' AND value = ' || $2 INTO ret;
+    RETURN ret;
+END;

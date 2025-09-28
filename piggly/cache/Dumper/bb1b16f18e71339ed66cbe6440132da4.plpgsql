@@ -1,0 +1,29 @@
+BEGIN
+    IF NOT _cexists( $1, $2, $3 ) THEN
+        RETURN fail( $5 ) || E'\n'
+            || diag ('    Column ' || quote_ident($1) || '.' || quote_ident($2) || '.' || quote_ident($3) || ' does not exist' );
+    END IF;
+
+    IF NOT _has_def( $1, $2, $3 ) THEN
+        RETURN fail( $5 ) || E'\n'
+            || diag ('    Column ' || quote_ident($1) || '.' || quote_ident($2) || '.' || quote_ident($3) || ' has no default' );
+    END IF;
+
+    RETURN _def_is(
+        pg_catalog.pg_get_expr(d.adbin, d.adrelid),
+        pg_catalog.format_type(a.atttypid, a.atttypmod),
+        $4, $5
+    )
+      FROM pg_catalog.pg_namespace n, pg_catalog.pg_class c, pg_catalog.pg_attribute a,
+           pg_catalog.pg_attrdef d
+     WHERE n.oid = c.relnamespace
+       AND c.oid = a.attrelid
+       AND a.atthasdef
+       AND a.attrelid = d.adrelid
+       AND a.attnum = d.adnum
+       AND n.nspname = $1
+       AND c.relname = $2
+       AND a.attnum > 0
+       AND NOT a.attisdropped
+       AND a.attname = $3;
+END;

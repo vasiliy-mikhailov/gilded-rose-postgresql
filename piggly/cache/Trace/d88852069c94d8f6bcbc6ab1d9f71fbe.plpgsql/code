@@ -1,0 +1,17 @@
+DECLARE
+    grants TEXT[] := _get_server_privs( $2, $1::TEXT );
+BEGIN
+    perform public.piggly_branch($PIGGLY$2819d29f7b64854f$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$131678a4795ef57c$PIGGLY$, (grants[1] = 'undefined_server')) THEN
+        perform public.piggly_branch($PIGGLY$caec5b7ca57e3935$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$8292e781b6834fec$PIGGLY$);RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Server ' || quote_ident($1) || ' does not exist'
+        );
+    ELSIF public.piggly_cond($PIGGLY$606b481a2fe3ecd5$PIGGLY$, (grants[1] = 'undefined_role')) THEN
+        perform public.piggly_branch($PIGGLY$a255ad559c441733$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$d751859a1e7b4e8f$PIGGLY$);RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Role ' || quote_ident($2) || ' does not exist'
+        );
+    END IF;
+    perform public.piggly_branch($PIGGLY$7a5e8ef935576af9$PIGGLY$);RETURN _assets_are('privileges', grants, $3, $4);
+END;

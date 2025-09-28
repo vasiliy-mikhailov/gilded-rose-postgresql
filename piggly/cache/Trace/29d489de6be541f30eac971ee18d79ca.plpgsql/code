@@ -1,0 +1,7 @@
+DECLARE
+    todos integer;
+BEGIN
+    perform public.piggly_branch($PIGGLY$bac707de312d7ddf$PIGGLY$);
+    todos := _get('todo');
+    perform public.piggly_branch($PIGGLY$b1ab11f9e7a5c872$PIGGLY$);RETURN CASE WHEN todos IS NULL THEN FALSE ELSE TRUE END;
+END;

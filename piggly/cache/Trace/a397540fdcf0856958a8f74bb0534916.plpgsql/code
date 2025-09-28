@@ -1,0 +1,23 @@
+DECLARE
+    privs  TEXT[] := ARRAY['CREATE', 'USAGE'];
+    grants TEXT[] := '{}';
+BEGIN
+    perform public.piggly_branch($PIGGLY$4a31348571b3ebb1$PIGGLY$);
+    FOR i IN 1..array_upper(privs, 1) LOOP
+        perform public.piggly_cond($PIGGLY$f7dfe320a6baba04$PIGGLY$, true);
+        perform public.piggly_branch($PIGGLY$50d7b9d71c9299e5$PIGGLY$);
+        IF public.piggly_cond($PIGGLY$d32f88e5f6d59300$PIGGLY$, (pg_catalog.has_schema_privilege($1, $2, privs[i]))) THEN
+            perform public.piggly_branch($PIGGLY$f36ec5508db11843$PIGGLY$);
+            grants := grants || privs[i];
+        END IF;
+    
+        perform public.piggly_signal($PIGGLY$f7dfe320a6baba04$PIGGLY$, $PIGGLY$@$PIGGLY$);
+    END LOOP;
+perform public.piggly_cond($PIGGLY$f7dfe320a6baba04$PIGGLY$, false);
+    perform public.piggly_branch($PIGGLY$d1d168c0798e8c0e$PIGGLY$);RETURN grants;
+EXCEPTION
+    -- Not a valid schema name.
+    WHEN invalid_schema_name THEN perform public.piggly_branch($PIGGLY$00bdf85c6df96fb3$PIGGLY$);perform public.piggly_branch($PIGGLY$92bff913e5374547$PIGGLY$);RETURN '{invalid_schema_name}';
+    -- Not a valid role.
+    WHEN undefined_object   THEN perform public.piggly_branch($PIGGLY$d00138bd7f494894$PIGGLY$);perform public.piggly_branch($PIGGLY$e1a753a9b83a7396$PIGGLY$);RETURN '{undefined_role}';
+END;

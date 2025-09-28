@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Code Coverage: public.col_is_fk</title><meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="piggly.css"/><script type="text/javascript" src="highlight.js"><!-- --></script></head><body><div class="header"><p class="summary">public.col_is_fk</p><table class="summary sortable"><tr><th>Blocks</th><th>Loops</th><th>Branches</th><th>Block Coverage</th><th>Loop Coverage</th><th>Branch Coverage</th></tr><tr class="even"><td class="count">6</td><td class="count">0</td><td class="count">2</td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><span style="display:none">-1</span></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td></tr></table></div><div class="container"><div class="listing"><table><tr><td class="signature">&nbsp;</td><td class="signature"><span class='tK'>CREATE FUNCTION</span> <b><span class='tI'>public.col_is_fk</span></b> ( <span class='tK'>IN</span> <span class='tD'>name</span>, <span class='tK'>IN</span> <span class='tD'>name</span>, <span class='tK'>IN</span> <span class='tD'>name[]</span>, <span class='tK'>IN</span> <span class='tD'>text</span> )
+<span class='tK'>RETURNS</span> <span class='tD'>text</span>
+  <span class='tK'>VOLATILE</span></td></tr><tr><td class="lines"><a href="#L1" id="L1">1</a>
+<a href="#L2" id="L2">2</a>
+<a href="#L3" id="L3">3</a>
+<a href="#L4" id="L4">4</a>
+<a href="#L5" id="L5">5</a>
+<a href="#L6" id="L6">6</a>
+<a href="#L7" id="L7">7</a>
+<a href="#L8" id="L8">8</a>
+<a href="#L9" id="L9">9</a>
+<a href="#L10" id="L10">10</a>
+<a href="#L11" id="L11">11</a>
+<a href="#L12" id="L12">12</a>
+<a href="#L13" id="L13">13</a>
+<a href="#L14" id="L14">14</a>
+<a href="#L15" id="L15">15</a>
+<a href="#L16" id="L16">16</a>
+<a href="#L17" id="L17">17</a>
+<a href="#L18" id="L18">18</a>
+<a href="#L19" id="L19">19</a>
+<a href="#L20" id="L20">20</a>
+<a href="#L21" id="L21">21</a>
+<a href="#L22" id="L22">22</a>
+<a href="#L23" id="L23">23</a>
+<a href="#L24" id="L24">24</a>
+<a href="#L25" id="L25">25</a>
+<a href="#L26" id="L26">26</a>
+<a href="#L27" id="L27">27</a>
+<a href="#L28" id="L28">28</a></td><td class="code"><span class="tK">DECLARE</span>
+    <span class="tI">names</span> <span class="tD">text[]</span>;
+<span class="tK">BEGIN</span>
+    <span class="c0" id="T213577a05e5338cc" title="never evaluated"><span class="tK">IF</span> <span class="b00" id="Tae281ac6acdcdcb0" title="never evaluated">_fkexists($1, $2, $3) </span><span class="tK">THEN</span>
+        <span class="c0" id="Tb2cf4d98ed4bafff" title="never evaluated"><span class="c0" id="T0677db200e5a5399" title="never evaluated"><span class="tK">RETURN</span> pass( $4 )</span>;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="tC">-- Try to show the columns.
+</span>    <span class="tK">SELECT</span> ARRAY(
+        SELECT _ident_array_to_string(fk_columns, <span class="tS">', '</span>)
+          FROM pg_all_foreign_keys
+         WHERE fk_schema_name = $1
+           AND fk_table_name  = $2
+         ORDER BY fk_columns
+    ) INTO names;
+
+    <span class="tK">IF</span> <span class="b00" id="T078a4d31028ec516" title="never evaluated">names[1] IS NOT NULL </span><span class="tK">THEN</span>
+        <span class="c0" id="T60704069b12ee1f1" title="never evaluated"><span class="c0" id="T906c28c38a18554e" title="never evaluated"><span class="tK">RETURN</span> fail($4) || E<span class="tS">'\n'</span> || diag(
+            <span class="tS">'    Table '</span> || quote_ident($1) || <span class="tS">'.'</span> || quote_ident($2) || E<span class="tS">' has foreign key constraints on these columns:\n        '</span>
+            ||  array_to_string( names, E<span class="tS">'\n        '</span> )
+        )</span>;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="tC">-- No FKs in this table.
+</span>    <span class="c0" id="T0845582da7b9915c" title="never evaluated"><span class="tK">RETURN</span> fail($4) || E<span class="tS">'\n'</span> || diag(
+        <span class="tS">'    Table '</span> || quote_ident($1) || <span class="tS">'.'</span> || quote_ident($2) || <span class="tS">' has no foreign key columns'</span>
+    )</span>;
+</span><span class="tK">END</span>;</td></tr></table></div><div class="toc"><strong>Notes</strong><ol><li class="block"><a href="#T213577a05e5338cc" onMouseOver="highlight('T213577a05e5338cc')">never evaluated</a></li><li class="branch"><a href="#Tae281ac6acdcdcb0" onMouseOver="highlight('Tae281ac6acdcdcb0')">never evaluated</a></li><li class="block"><a href="#Tb2cf4d98ed4bafff" onMouseOver="highlight('Tb2cf4d98ed4bafff')">never evaluated</a></li><li class="block"><a href="#T0677db200e5a5399" onMouseOver="highlight('T0677db200e5a5399')">never evaluated</a></li><li class="branch"><a href="#T078a4d31028ec516" onMouseOver="highlight('T078a4d31028ec516')">never evaluated</a></li><li class="block"><a href="#T60704069b12ee1f1" onMouseOver="highlight('T60704069b12ee1f1')">never evaluated</a></li><li class="block"><a href="#T906c28c38a18554e" onMouseOver="highlight('T906c28c38a18554e')">never evaluated</a></li><li class="block"><a href="#T0845582da7b9915c" onMouseOver="highlight('T0845582da7b9915c')">never evaluated</a></li></ol></div></div><div class="timestamp">Generated by piggly 2.3.1 at September 24, 2025 13:36 UTC</div><a href="index.html" class="return">Return to index</a></body></html>

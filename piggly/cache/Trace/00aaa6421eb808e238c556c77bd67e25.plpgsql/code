@@ -1,0 +1,4 @@
+BEGIN
+    perform public.piggly_branch($PIGGLY$dd5ce721ae92cb2f$PIGGLY$);
+    perform public.piggly_branch($PIGGLY$158aab3fa29246b6$PIGGLY$);RETURN ok( NOT _have_index( $1, $2, $3 ), $4 );
+END;

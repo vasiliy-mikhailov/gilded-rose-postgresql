@@ -1,0 +1,49 @@
+DECLARE
+    have    TEXT    := _temptable( $1, '__taphave__' );
+    want    TEXT    := _temptable( $2, '__tapwant__' );
+    results TEXT[]  := '{}';
+    res     BOOLEAN := TRUE;
+    msg     TEXT    := '';
+    rec     RECORD;
+BEGIN
+    perform public.piggly_branch($PIGGLY$a0798d0becb925f2$PIGGLY$);
+    BEGIN
+        -- Find relevant records.
+        perform public.piggly_branch($PIGGLY$aec1ca16ab5806a5$PIGGLY$);
+        FOR rec in EXECUTE 'SELECT * FROM ' || want || ' ' || $4
+                       || ' SELECT * FROM ' || have LOOP
+            perform public.piggly_cond($PIGGLY$9f7a936df016bb3d$PIGGLY$, true);
+            perform public.piggly_branch($PIGGLY$bfb3d9f848f8f35c$PIGGLY$);
+            results := results || rec::text;
+        
+            perform public.piggly_signal($PIGGLY$9f7a936df016bb3d$PIGGLY$, $PIGGLY$@$PIGGLY$);
+        END LOOP;
+perform public.piggly_cond($PIGGLY$9f7a936df016bb3d$PIGGLY$, false);
+
+        -- Drop the temporary tables.
+        EXECUTE 'DROP TABLE ' || have;
+        EXECUTE 'DROP TABLE ' || want;
+    EXCEPTION WHEN syntax_error OR datatype_mismatch THEN
+        perform public.piggly_branch($PIGGLY$91b8dfcb669b5624$PIGGLY$);
+        msg := E'\n' || diag(
+            E'    Columns differ between queries:\n'
+            || '        have: (' || _temptypes(have) || E')\n'
+            || '        want: (' || _temptypes(want) || ')'
+        );
+        EXECUTE 'DROP TABLE ' || have;
+        EXECUTE 'DROP TABLE ' || want;
+        perform public.piggly_branch($PIGGLY$f47e1070feeaaac7$PIGGLY$);RETURN ok(FALSE, $3) || msg;
+    END;
+
+    -- What records do we have?
+    IF public.piggly_cond($PIGGLY$54e50cf5011e858a$PIGGLY$, (results[1] IS NOT NULL)) THEN
+        perform public.piggly_branch($PIGGLY$898c3b840cb25da7$PIGGLY$);
+        res := FALSE;
+        msg := msg || E'\n' || diag(
+            '    ' || $5 || E' records:\n        '
+            ||  array_to_string( results, E'\n        ' )
+        );
+    END IF;
+
+    perform public.piggly_branch($PIGGLY$8ce85abd1f5574b1$PIGGLY$);RETURN ok(res, $3) || msg;
+END;

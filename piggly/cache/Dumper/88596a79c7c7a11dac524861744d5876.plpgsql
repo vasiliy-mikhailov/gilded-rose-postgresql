@@ -1,0 +1,9 @@
+DECLARE
+    have REFCURSOR;
+    res  TEXT;
+BEGIN
+    OPEN have FOR EXECUTE _query($1);
+    res := results_ne(have, $2, $3);
+    CLOSE have;
+    RETURN res;
+END;

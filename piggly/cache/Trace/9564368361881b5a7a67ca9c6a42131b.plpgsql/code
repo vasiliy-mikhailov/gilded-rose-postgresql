@@ -1,0 +1,7 @@
+DECLARE
+    ret text;
+BEGIN
+    perform public.piggly_branch($PIGGLY$aca6bcad15ae97f9$PIGGLY$);
+    EXECUTE 'SELECT note FROM __tcache__ WHERE label = ' || quote_literal($1) || ' LIMIT 1' INTO ret;
+    perform public.piggly_branch($PIGGLY$eaee87ab804bd0f5$PIGGLY$);RETURN ret;
+END;

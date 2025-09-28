@@ -1,0 +1,14 @@
+DECLARE
+    owner NAME := _get_schema_owner($1);
+BEGIN
+    -- Make sure the schema exists.
+    perform public.piggly_branch($PIGGLY$4a8a4db73012111a$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$fdb1ca2877a07989$PIGGLY$, (owner IS NULL)) THEN
+        perform public.piggly_branch($PIGGLY$8b79d4915516282f$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$4ef324785c4269b4$PIGGLY$);RETURN ok(FALSE, $3) || E'\n' || diag(
+            E'    Schema ' || quote_ident($1) || ' does not exist'
+        );
+    END IF;
+
+    perform public.piggly_branch($PIGGLY$9510a49f067d8f27$PIGGLY$);RETURN is(owner, $2, $3);
+END;

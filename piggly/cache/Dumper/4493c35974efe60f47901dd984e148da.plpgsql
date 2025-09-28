@@ -1,0 +1,18 @@
+DECLARE
+    privs  TEXT[] := ARRAY['INSERT', 'REFERENCES', 'SELECT', 'UPDATE'];
+    grants TEXT[] := '{}';
+BEGIN
+    FOR i IN 1..array_upper(privs, 1) LOOP
+        IF pg_catalog.has_column_privilege($1, $2, $3, privs[i]) THEN
+            grants := grants || privs[i];
+        END IF;
+    END LOOP;
+    RETURN grants;
+EXCEPTION
+    -- Not a valid column name.
+    WHEN undefined_column THEN RETURN '{undefined_column}';
+    -- Not a valid table name.
+    WHEN undefined_table THEN RETURN '{undefined_table}';
+    -- Not a valid role.
+    WHEN undefined_object THEN RETURN '{undefined_role}';
+END;

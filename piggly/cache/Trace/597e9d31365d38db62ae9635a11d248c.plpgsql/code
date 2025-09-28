@@ -1,0 +1,71 @@
+DECLARE
+    have    ALIAS FOR $1;
+    want    ALIAS FOR $2;
+    extras  TEXT[]  := '{}';
+    missing TEXT[]  := '{}';
+    res     BOOLEAN := TRUE;
+    msg     TEXT    := '';
+    rec     RECORD;
+BEGIN
+    perform public.piggly_branch($PIGGLY$2054aba6d4426b4b$PIGGLY$);
+    BEGIN
+        -- Find extra records.
+        perform public.piggly_branch($PIGGLY$4c190179e2b016f6$PIGGLY$);
+        FOR rec in EXECUTE 'SELECT * FROM ' || have || ' EXCEPT ' || $4
+                        || 'SELECT * FROM ' || want LOOP
+            perform public.piggly_cond($PIGGLY$64f30a7bf0cef5c9$PIGGLY$, true);
+            perform public.piggly_branch($PIGGLY$73c31831db91c3dc$PIGGLY$);
+            extras := extras || rec::text;
+        
+            perform public.piggly_signal($PIGGLY$64f30a7bf0cef5c9$PIGGLY$, $PIGGLY$@$PIGGLY$);
+        END LOOP;
+perform public.piggly_cond($PIGGLY$64f30a7bf0cef5c9$PIGGLY$, false);
+
+        -- Find missing records.
+        FOR rec in EXECUTE 'SELECT * FROM ' || want || ' EXCEPT ' || $4
+                        || 'SELECT * FROM ' || have LOOP
+            perform public.piggly_cond($PIGGLY$091cbb25ccd96456$PIGGLY$, true);
+            perform public.piggly_branch($PIGGLY$cee95085d3f10d97$PIGGLY$);
+            missing := missing || rec::text;
+        
+            perform public.piggly_signal($PIGGLY$091cbb25ccd96456$PIGGLY$, $PIGGLY$@$PIGGLY$);
+        END LOOP;
+perform public.piggly_cond($PIGGLY$091cbb25ccd96456$PIGGLY$, false);
+
+        -- Drop the temporary tables.
+        EXECUTE 'DROP TABLE ' || have;
+        EXECUTE 'DROP TABLE ' || want;
+    EXCEPTION WHEN syntax_error OR datatype_mismatch THEN
+        perform public.piggly_branch($PIGGLY$25b788ba754e329c$PIGGLY$);
+        msg := E'\n' || diag(
+            E'    Columns differ between queries:\n'
+            || '        have: (' || _temptypes(have) || E')\n'
+            || '        want: (' || _temptypes(want) || ')'
+        );
+        EXECUTE 'DROP TABLE ' || have;
+        EXECUTE 'DROP TABLE ' || want;
+        perform public.piggly_branch($PIGGLY$de182e7cbc052dfe$PIGGLY$);RETURN ok(FALSE, $3) || msg;
+    END;
+
+    -- What extra records do we have?
+    IF public.piggly_cond($PIGGLY$af4922408b7b562c$PIGGLY$, (extras[1] IS NOT NULL)) THEN
+        perform public.piggly_branch($PIGGLY$2c6fa2c8f2c9c0e7$PIGGLY$);
+        res := FALSE;
+        msg := E'\n' || diag(
+            E'    Extra records:\n        '
+            ||  array_to_string( extras, E'\n        ' )
+        );
+    END IF;
+
+    -- What missing records do we have?
+    IF public.piggly_cond($PIGGLY$224a395f941cb373$PIGGLY$, (missing[1] IS NOT NULL)) THEN
+        perform public.piggly_branch($PIGGLY$9eac65020d7c6f54$PIGGLY$);
+        res := FALSE;
+        msg := msg || E'\n' || diag(
+            E'    Missing records:\n        '
+            ||  array_to_string( missing, E'\n        ' )
+        );
+    END IF;
+
+    perform public.piggly_branch($PIGGLY$a89c9694ebe53d38$PIGGLY$);RETURN ok(res, $3) || msg;
+END;

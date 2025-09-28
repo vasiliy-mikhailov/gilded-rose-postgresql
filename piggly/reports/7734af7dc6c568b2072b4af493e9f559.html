@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Code Coverage: public.results_ne</title><meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="piggly.css"/><script type="text/javascript" src="highlight.js"><!-- --></script></head><body><div class="header"><p class="summary">public.results_ne</p><table class="summary sortable"><tr><th>Blocks</th><th>Loops</th><th>Branches</th><th>Block Coverage</th><th>Loop Coverage</th><th>Branch Coverage</th></tr><tr class="even"><td class="count">8</td><td class="count">1</td><td class="count">1</td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td></tr></table></div><div class="container"><div class="listing"><table><tr><td class="signature">&nbsp;</td><td class="signature"><span class='tK'>CREATE FUNCTION</span> <b><span class='tI'>public.results_ne</span></b> ( <span class='tK'>IN</span> <span class='tD'>refcursor</span>, <span class='tK'>IN</span> <span class='tD'>refcursor</span>, <span class='tK'>IN</span> <span class='tD'>text</span> )
+<span class='tK'>RETURNS</span> <span class='tD'>text</span>
+  <span class='tK'>VOLATILE</span></td></tr><tr><td class="lines"><a href="#L1" id="L1">1</a>
+<a href="#L2" id="L2">2</a>
+<a href="#L3" id="L3">3</a>
+<a href="#L4" id="L4">4</a>
+<a href="#L5" id="L5">5</a>
+<a href="#L6" id="L6">6</a>
+<a href="#L7" id="L7">7</a>
+<a href="#L8" id="L8">8</a>
+<a href="#L9" id="L9">9</a>
+<a href="#L10" id="L10">10</a>
+<a href="#L11" id="L11">11</a>
+<a href="#L12" id="L12">12</a>
+<a href="#L13" id="L13">13</a>
+<a href="#L14" id="L14">14</a>
+<a href="#L15" id="L15">15</a>
+<a href="#L16" id="L16">16</a>
+<a href="#L17" id="L17">17</a>
+<a href="#L18" id="L18">18</a>
+<a href="#L19" id="L19">19</a>
+<a href="#L20" id="L20">20</a>
+<a href="#L21" id="L21">21</a>
+<a href="#L22" id="L22">22</a>
+<a href="#L23" id="L23">23</a>
+<a href="#L24" id="L24">24</a>
+<a href="#L25" id="L25">25</a>
+<a href="#L26" id="L26">26</a>
+<a href="#L27" id="L27">27</a>
+<a href="#L28" id="L28">28</a>
+<a href="#L29" id="L29">29</a>
+<a href="#L30" id="L30">30</a>
+<a href="#L31" id="L31">31</a>
+<a href="#L32" id="L32">32</a>
+<a href="#L33" id="L33">33</a>
+<a href="#L34" id="L34">34</a>
+<a href="#L35" id="L35">35</a></td><td class="code"><span class="tK">DECLARE</span>
+    <span class="tI">have</span>       <span class="tD">ALIAS FOR $1</span>;
+    <span class="tI">want</span>       <span class="tD">ALIAS FOR $2</span>;
+    <span class="tI">have_rec</span>   <span class="tD">RECORD</span>;
+    <span class="tI">want_rec</span>   <span class="tD">RECORD</span>;
+    <span class="tI">have_found</span> <span class="tD">BOOLEAN</span>;
+    <span class="tI">want_found</span> <span class="tD">BOOLEAN</span>;
+    <span class="tI">err_msg</span>    <span class="tD">text</span> <span class="tK">:=</span> <span class="tS">'details not available in pg &lt;= 9.1'</span>;
+<span class="tK">BEGIN</span>
+    <span class="c0" id="Te36517603f7e7511" title="never evaluated"><span class="tK">FETCH</span> have INTO have_rec;
+    <span class="tI">have_found</span> <span class="tK">:=</span> FOUND;
+    <span class="tK">FETCH</span> want INTO want_rec;
+    <span class="tI">want_found</span> <span class="tK">:=</span> FOUND;
+    <span class="tK">WHILE</span> <span class="l[0, 0, 0, 0]" id="T37dde41d61b0121d" title="never evaluated">have_found OR want_found </span><span class="tK">LOOP</span>
+        <span class="c0" id="Tcbd2b956a6893b03" title="never evaluated"><span class="tK">IF</span> <span class="b00" id="T7a1accfad2dfedb2" title="never evaluated">have_rec IS DISTINCT FROM want_rec OR have_found &lt;&gt; want_found </span><span class="tK">THEN</span>
+            <span class="c0" id="Tc6057461f801b823" title="never evaluated"><span class="c0" id="Tc24b2a11c2c027bf" title="never evaluated"><span class="tK">RETURN</span> ok( true, $3 )</span>;
+        </span><span class="tK">ELSE</span>
+            <span class="c0" id="T828f881e2d7b8551" title="never evaluated"><span class="tK">FETCH</span> have INTO have_rec;
+            <span class="tI">have_found</span> <span class="tK">:=</span> FOUND;
+            <span class="tK">FETCH</span> want INTO want_rec;
+            <span class="tI">want_found</span> <span class="tK">:=</span> FOUND;
+        </span><span class="tK">END</span> <span class="tK">IF</span>;
+    </span><span class="tK">END</span> <span class="tK">LOOP</span>;
+    <span class="c0" id="T8f5e5a4de303a9ec" title="never evaluated"><span class="tK">RETURN</span> ok( false, $3 )</span>;
+</span><span class="tK">EXCEPTION</span>
+    <span class="tK">WHEN</span> datatype_mismatch <span class="tK">THEN</span>
+        <span class="c0" id="T76586e5d0cdbff52" title="never evaluated"><span class="tK">GET</span> <span class="tK">STACKED</span> <span class="tK">DIAGNOSTICS</span> err_msg = MESSAGE_TEXT;
+        <span class="c0" id="T3416fa523bb9b05f" title="never evaluated"><span class="tK">RETURN</span> ok( false, $3 ) || E<span class="tS">'\n'</span> || diag(
+            E<span class="tS">'    Number of columns or their types differ between the queries'</span> ||
+            CASE WHEN have_rec::TEXT = want_rec::text THEN <span class="tS">''</span> ELSE E<span class="tS">':\n'</span> ||
+                <span class="tS">'        have: '</span> || CASE WHEN have_found THEN have_rec::text ELSE <span class="tS">'NULL'</span> END || E<span class="tS">'\n'</span> ||
+                <span class="tS">'        want: '</span> || CASE WHEN want_found THEN want_rec::text ELSE <span class="tS">'NULL'</span> END
+            END || E<span class="tS">'\n        ERROR: '</span> || err_msg
+        )</span>;
+</span><span class="tK">END</span>;</td></tr></table></div><div class="toc"><strong>Notes</strong><ol><li class="block"><a href="#Te36517603f7e7511" onMouseOver="highlight('Te36517603f7e7511')">never evaluated</a></li><li class="loop"><a href="#T37dde41d61b0121d" onMouseOver="highlight('T37dde41d61b0121d')">never evaluated</a></li><li class="block"><a href="#Tcbd2b956a6893b03" onMouseOver="highlight('Tcbd2b956a6893b03')">never evaluated</a></li><li class="branch"><a href="#T7a1accfad2dfedb2" onMouseOver="highlight('T7a1accfad2dfedb2')">never evaluated</a></li><li class="block"><a href="#Tc6057461f801b823" onMouseOver="highlight('Tc6057461f801b823')">never evaluated</a></li><li class="block"><a href="#Tc24b2a11c2c027bf" onMouseOver="highlight('Tc24b2a11c2c027bf')">never evaluated</a></li><li class="block"><a href="#T828f881e2d7b8551" onMouseOver="highlight('T828f881e2d7b8551')">never evaluated</a></li><li class="block"><a href="#T8f5e5a4de303a9ec" onMouseOver="highlight('T8f5e5a4de303a9ec')">never evaluated</a></li><li class="block"><a href="#T76586e5d0cdbff52" onMouseOver="highlight('T76586e5d0cdbff52')">never evaluated</a></li><li class="block"><a href="#T3416fa523bb9b05f" onMouseOver="highlight('T3416fa523bb9b05f')">never evaluated</a></li></ol></div></div><div class="timestamp">Generated by piggly 2.3.1 at September 24, 2025 13:36 UTC</div><a href="index.html" class="return">Return to index</a></body></html>

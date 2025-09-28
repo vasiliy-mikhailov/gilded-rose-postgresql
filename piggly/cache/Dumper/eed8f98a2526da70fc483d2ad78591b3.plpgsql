@@ -1,0 +1,9 @@
+DECLARE
+    want REFCURSOR;
+    res  TEXT;
+BEGIN
+    OPEN want FOR EXECUTE _query($2);
+    res := results_eq($1, want, $3);
+    CLOSE want;
+    RETURN res;
+END;

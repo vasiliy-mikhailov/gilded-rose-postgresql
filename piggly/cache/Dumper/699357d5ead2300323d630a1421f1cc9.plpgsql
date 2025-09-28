@@ -1,0 +1,7 @@
+DECLARE
+    typeof regtype := pg_typeof($1);
+BEGIN
+    IF typeof = $2 THEN RETURN ok(true, $3 || ' isa ' || $2 ); END IF;
+    RETURN ok(false, $3 || ' isa ' || $2 ) || E'\n' ||
+        diag('    ' || $3 || ' isn''t a "' || $2 || '" it''s a "' || typeof || '"');
+END;

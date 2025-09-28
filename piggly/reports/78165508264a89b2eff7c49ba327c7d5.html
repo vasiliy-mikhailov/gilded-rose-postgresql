@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Code Coverage: public._col_is_null</title><meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="piggly.css"/><script type="text/javascript" src="highlight.js"><!-- --></script></head><body><div class="header"><p class="summary">public._col_is_null</p><table class="summary sortable"><tr><th>Blocks</th><th>Loops</th><th>Branches</th><th>Block Coverage</th><th>Loop Coverage</th><th>Branch Coverage</th></tr><tr class="even"><td class="count">4</td><td class="count">0</td><td class="count">1</td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><span style="display:none">-1</span></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td></tr></table></div><div class="container"><div class="listing"><table><tr><td class="signature">&nbsp;</td><td class="signature"><span class='tK'>CREATE FUNCTION</span> <b><span class='tI'>public._col_is_null</span></b> ( <span class='tK'>IN</span> <span class='tD'>name</span>, <span class='tK'>IN</span> <span class='tD'>name</span>, <span class='tK'>IN</span> <span class='tD'>text</span>, <span class='tK'>IN</span> <span class='tD'>boolean</span> )
+<span class='tK'>RETURNS</span> <span class='tD'>text</span>
+  <span class='tK'>VOLATILE</span></td></tr><tr><td class="lines"><a href="#L1" id="L1">1</a>
+<a href="#L2" id="L2">2</a>
+<a href="#L3" id="L3">3</a>
+<a href="#L4" id="L4">4</a>
+<a href="#L5" id="L5">5</a>
+<a href="#L6" id="L6">6</a>
+<a href="#L7" id="L7">7</a>
+<a href="#L8" id="L8">8</a>
+<a href="#L9" id="L9">9</a>
+<a href="#L10" id="L10">10</a>
+<a href="#L11" id="L11">11</a>
+<a href="#L12" id="L12">12</a>
+<a href="#L13" id="L13">13</a>
+<a href="#L14" id="L14">14</a>
+<a href="#L15" id="L15">15</a>
+<a href="#L16" id="L16">16</a>
+<a href="#L17" id="L17">17</a>
+<a href="#L18" id="L18">18</a>
+<a href="#L19" id="L19">19</a>
+<a href="#L20" id="L20">20</a>
+<a href="#L21" id="L21">21</a>
+<a href="#L22" id="L22">22</a>
+<a href="#L23" id="L23">23</a>
+<a href="#L24" id="L24">24</a>
+<a href="#L25" id="L25">25</a>
+<a href="#L26" id="L26">26</a></td><td class="code"><span class="tK">DECLARE</span>
+    <span class="tI">qcol</span> <span class="tK">CONSTANT</span> <span class="tD">text</span> <span class="tK">:=</span> quote_ident($1) || <span class="tS">'.'</span> || quote_ident($2);
+    <span class="tI">c_desc</span> <span class="tK">CONSTANT</span> <span class="tD">text</span> <span class="tK">:=</span> coalesce(
+        $3,
+        <span class="tS">'Column '</span> || qcol || <span class="tS">' should '</span>
+            || CASE WHEN $4 THEN <span class="tS">'be NOT'</span> ELSE <span class="tS">'allow'</span> END || <span class="tS">' NULL'</span>
+    );
+<span class="tK">BEGIN</span>
+    <span class="c0" id="T4660afc7cf927a23" title="never evaluated"><span class="tK">IF</span> <span class="b00" id="Tc2550dbc563423c5" title="never evaluated">NOT _cexists( $1, $2 ) </span><span class="tK">THEN</span>
+        <span class="c0" id="T58eb8b46b9337d23" title="never evaluated"><span class="c0" id="Te1f641c31cac9b92" title="never evaluated"><span class="tK">RETURN</span> fail( c_desc ) || E<span class="tS">'\n'</span>
+            || diag (<span class="tS">'    Column '</span> || qcol || <span class="tS">' does not exist'</span> )</span>;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+    <span class="c0" id="T7845e3b89c4bbfe3" title="never evaluated"><span class="tK">RETURN</span> ok(
+        EXISTS(
+            SELECT true
+              FROM pg_catalog.pg_class c
+              JOIN pg_catalog.pg_attribute a ON c.oid = a.attrelid
+             WHERE pg_catalog.pg_table_is_visible(c.oid)
+               AND c.relname = $1
+               AND a.attnum &gt; 0
+               AND NOT a.attisdropped
+               AND a.attname    = $2
+               AND a.attnotnull = $4
+        ), c_desc
+    )</span>;
+</span><span class="tK">END</span>;</td></tr></table></div><div class="toc"><strong>Notes</strong><ol><li class="block"><a href="#T4660afc7cf927a23" onMouseOver="highlight('T4660afc7cf927a23')">never evaluated</a></li><li class="branch"><a href="#Tc2550dbc563423c5" onMouseOver="highlight('Tc2550dbc563423c5')">never evaluated</a></li><li class="block"><a href="#T58eb8b46b9337d23" onMouseOver="highlight('T58eb8b46b9337d23')">never evaluated</a></li><li class="block"><a href="#Te1f641c31cac9b92" onMouseOver="highlight('Te1f641c31cac9b92')">never evaluated</a></li><li class="block"><a href="#T7845e3b89c4bbfe3" onMouseOver="highlight('T7845e3b89c4bbfe3')">never evaluated</a></li></ol></div></div><div class="timestamp">Generated by piggly 2.3.1 at September 24, 2025 13:36 UTC</div><a href="index.html" class="return">Return to index</a></body></html>

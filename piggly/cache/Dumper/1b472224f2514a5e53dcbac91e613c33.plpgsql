@@ -1,0 +1,9 @@
+DECLARE
+    pgversion INTEGER := pg_version_num();
+BEGIN
+    IF pgversion < 80200 THEN
+        RETURN ARRAY['CREATE', 'TEMPORARY'];
+    ELSE
+        RETURN ARRAY['CREATE', 'CONNECT', 'TEMPORARY'];
+    END IF;
+END;

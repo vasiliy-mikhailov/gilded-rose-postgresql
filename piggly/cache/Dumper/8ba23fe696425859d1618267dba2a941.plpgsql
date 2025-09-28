@@ -1,0 +1,14 @@
+DECLARE
+    pgversion INTEGER := pg_version_num();
+BEGIN
+    IF pgversion < 80200 THEN RETURN ARRAY[
+        'DELETE', 'INSERT', 'REFERENCES', 'RULE', 'SELECT', 'TRIGGER', 'UPDATE'
+    ];
+    ELSIF pgversion < 80400 THEN RETURN ARRAY[
+        'DELETE', 'INSERT', 'REFERENCES', 'SELECT', 'TRIGGER', 'UPDATE'
+    ];
+    ELSE RETURN ARRAY[
+        'DELETE', 'INSERT', 'REFERENCES', 'SELECT', 'TRIGGER', 'TRUNCATE', 'UPDATE'
+    ];
+    END IF;
+END;

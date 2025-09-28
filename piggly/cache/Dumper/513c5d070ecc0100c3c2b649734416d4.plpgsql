@@ -1,0 +1,16 @@
+DECLARE
+     index_cols name[];
+BEGIN
+    index_cols := _ikeys($1, $2 );
+
+    IF index_cols IS NULL OR index_cols = '{}'::name[] THEN
+        RETURN ok( false, $4 ) || E'\n'
+            || diag( 'Index ' || quote_ident($2) || ' ON ' || quote_ident($1) || ' not found');
+    END IF;
+
+    RETURN is(
+        quote_ident($2) || ' ON ' || quote_ident($1) || '(' || array_to_string( index_cols, ', ' ) || ')',
+        quote_ident($2) || ' ON ' || quote_ident($1) || '(' || array_to_string( $3, ', ' ) || ')',
+        $4
+    );
+END;

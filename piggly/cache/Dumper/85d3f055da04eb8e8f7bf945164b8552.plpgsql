@@ -1,0 +1,5 @@
+BEGIN
+    RETURN currval('__tresults___numb_seq');
+EXCEPTION
+    WHEN object_not_in_prerequisite_state THEN RETURN 0;
+END;

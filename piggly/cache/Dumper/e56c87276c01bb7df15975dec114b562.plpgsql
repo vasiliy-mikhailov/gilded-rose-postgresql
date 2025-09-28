@@ -1,0 +1,7 @@
+BEGIN
+    IF NOT _cexists( $1, $2 ) THEN
+        RETURN fail( $3 ) || E'\n'
+            || diag ('    Column ' || quote_ident($1) || '.' || quote_ident($2) || ' does not exist' );
+    END IF;
+    RETURN ok( _has_def( $1, $2 ), $3 );
+END;

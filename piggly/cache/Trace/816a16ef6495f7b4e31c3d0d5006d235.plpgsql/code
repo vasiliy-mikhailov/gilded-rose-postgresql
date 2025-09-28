@@ -1,0 +1,8 @@
+BEGIN
+    perform public.piggly_branch($PIGGLY$1dd02e029be5dfed$PIGGLY$);
+    EXECUTE _query($1);
+    perform public.piggly_branch($PIGGLY$6d81eb42aeaf4934$PIGGLY$);RETURN ok( FALSE, $3 ) || E'\n' || diag( '    no exception thrown' );
+EXCEPTION WHEN OTHERS THEN
+    perform public.piggly_branch($PIGGLY$94b1f5d4c9e9ce2f$PIGGLY$);
+    perform public.piggly_branch($PIGGLY$6ab90c4b20d1e2fd$PIGGLY$);return _tlike( SQLERRM ~~ $2, SQLERRM, $2, $3 );
+END;

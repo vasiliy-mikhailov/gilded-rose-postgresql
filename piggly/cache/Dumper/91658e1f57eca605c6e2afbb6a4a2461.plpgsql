@@ -1,0 +1,20 @@
+DECLARE
+    cmd text;
+BEGIN
+    SELECT
+      CASE pp.polcmd WHEN 'r' THEN 'SELECT'
+                     WHEN 'a' THEN 'INSERT'
+                     WHEN 'w' THEN 'UPDATE'
+                     WHEN 'd' THEN 'DELETE'
+                     ELSE 'ALL'
+       END
+      FROM pg_catalog.pg_policy AS pp
+      JOIN pg_catalog.pg_class AS pc ON pc.oid = pp.polrelid
+      JOIN pg_catalog.pg_namespace AS pn ON pn.oid = pc.relnamespace
+     WHERE pn.nspname = $1
+       AND pc.relname = $2
+       AND pp.polname = $3
+      INTO cmd;
+
+    RETURN is( cmd, upper($4), $5 );
+END;

@@ -1,0 +1,10 @@
+BEGIN
+    perform public.piggly_branch($PIGGLY$ef55cba0e24b3bed$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$473100a1a8a8f093$PIGGLY$, (octet_length($2) = 5)) THEN
+        perform public.piggly_branch($PIGGLY$1290be87c5e10894$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$608f09b57be5ce81$PIGGLY$);RETURN throws_ok( $1, $2::char(5), NULL, NULL );
+    ELSE
+        perform public.piggly_branch($PIGGLY$1ede3a5d84f09b53$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$d9fca2da86541113$PIGGLY$);RETURN throws_ok( $1, NULL, $2, NULL );
+    END IF;
+END;

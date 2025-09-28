@@ -1,0 +1,14 @@
+DECLARE
+    pname text;
+BEGIN
+    SELECT p.proname
+      FROM pg_catalog.pg_trigger t
+      JOIN pg_catalog.pg_class ct ON ct.oid = t.tgrelid
+      JOIN pg_catalog.pg_proc p   ON p.oid = t.tgfoid
+     WHERE ct.relname = $1
+       AND t.tgname   = $2
+       AND pg_catalog.pg_table_is_visible(ct.oid)
+      INTO pname;
+
+    RETURN is( pname, $3::text, $4 );
+END;

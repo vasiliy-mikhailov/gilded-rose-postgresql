@@ -1,0 +1,6 @@
+DECLARE
+    todos integer;
+BEGIN
+    todos := _get('todo');
+    RETURN CASE WHEN todos IS NULL THEN FALSE ELSE TRUE END;
+END;

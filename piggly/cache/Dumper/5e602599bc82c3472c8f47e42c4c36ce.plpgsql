@@ -1,0 +1,16 @@
+DECLARE
+    query     TEXT := _query($1);
+    max_time  ALIAS FOR $2;
+    descr     ALIAS FOR $3;
+    starts_at TEXT;
+    act_time  NUMERIC;
+BEGIN
+    starts_at := timeofday();
+    EXECUTE query;
+    act_time := extract( millisecond from timeofday()::timestamptz - starts_at::timestamptz);
+    IF act_time < max_time THEN RETURN ok(TRUE, descr); END IF;
+    RETURN ok( FALSE, descr ) || E'\n' || diag(
+           '      runtime: ' || act_time || ' ms' ||
+        E'\n      exceeds: ' || max_time || ' ms'
+    );
+END;

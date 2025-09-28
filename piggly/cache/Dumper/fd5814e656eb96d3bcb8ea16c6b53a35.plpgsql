@@ -1,0 +1,4 @@
+BEGIN
+    PERFORM _add('todo', COALESCE(how_many, 1), '');
+    RETURN;
+END;

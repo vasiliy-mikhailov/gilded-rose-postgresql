@@ -1,0 +1,12 @@
+DECLARE
+    owner NAME := _get_schema_owner($1);
+BEGIN
+    -- Make sure the schema exists.
+    IF owner IS NULL THEN
+        RETURN ok(FALSE, $3) || E'\n' || diag(
+            E'    Schema ' || quote_ident($1) || ' does not exist'
+        );
+    END IF;
+
+    RETURN is(owner, $2, $3);
+END;

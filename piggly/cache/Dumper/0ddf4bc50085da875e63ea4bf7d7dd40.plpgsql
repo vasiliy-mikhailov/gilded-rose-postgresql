@@ -1,0 +1,27 @@
+DECLARE
+    names text[];
+BEGIN
+    IF _fkexists($1, $2) THEN
+        RETURN pass( $3 );
+    END IF;
+
+    -- Try to show the columns.
+    SELECT ARRAY(
+        SELECT _ident_array_to_string(fk_columns, ', ')
+          FROM pg_all_foreign_keys
+         WHERE fk_table_name  = $1
+         ORDER BY fk_columns
+    ) INTO names;
+
+    IF NAMES[1] IS NOT NULL THEN
+        RETURN fail($3) || E'\n' || diag(
+            '    Table ' || quote_ident($1) || E' has foreign key constraints on these columns:\n        '
+            || array_to_string( names, E'\n        ' )
+        );
+    END IF;
+
+    -- No FKs in this table.
+    RETURN fail($3) || E'\n' || diag(
+        '    Table ' || quote_ident($1) || ' has no foreign key columns'
+    );
+END;

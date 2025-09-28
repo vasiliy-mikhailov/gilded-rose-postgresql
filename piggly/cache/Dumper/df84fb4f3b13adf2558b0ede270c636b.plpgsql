@@ -1,0 +1,21 @@
+DECLARE
+    privs  TEXT[] := _db_privs();
+    grants TEXT[] := '{}';
+BEGIN
+    FOR i IN 1..array_upper(privs, 1) LOOP
+        BEGIN
+            IF pg_catalog.has_database_privilege($1, $2, privs[i]) THEN
+                grants := grants || privs[i];
+            END IF;
+        EXCEPTION WHEN invalid_catalog_name THEN
+            -- Not a valid db name.
+            RETURN '{invalid_catalog_name}';
+        WHEN undefined_object THEN
+            -- Not a valid role.
+            RETURN '{undefined_role}';
+        WHEN invalid_parameter_value THEN
+            -- Not a valid permission on this version of PostgreSQL; ignore;
+        END;
+    END LOOP;
+    RETURN grants;
+END;

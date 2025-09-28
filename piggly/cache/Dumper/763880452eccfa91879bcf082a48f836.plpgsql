@@ -1,0 +1,7 @@
+BEGIN
+    IF octet_length($2) = 5 THEN
+        RETURN throws_ok( $1, $2::char(5), $3, NULL );
+    ELSE
+        RETURN throws_ok( $1, NULL, $2, $3 );
+    END IF;
+END;

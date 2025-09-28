@@ -1,0 +1,8 @@
+DECLARE
+    is_super boolean := _is_super($1);
+BEGIN
+    IF is_super IS NULL THEN
+        RETURN fail( $2 ) || E'\n' || diag( '    User ' || quote_ident($1) || ' does not exist') ;
+    END IF;
+    RETURN ok( NOT is_super, $2 );
+END;

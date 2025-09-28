@@ -1,0 +1,13 @@
+DECLARE
+    owner NAME := _get_index_owner($1, $2, $3);
+BEGIN
+    -- Make sure the index exists.
+    IF owner IS NULL THEN
+        RETURN ok(FALSE, $5) || E'\n' || diag(
+            E'    Index ' || quote_ident($3) || ' ON '
+            || quote_ident($1) || '.' || quote_ident($2) || ' not found'
+        );
+    END IF;
+
+    RETURN is(owner, $4, $5);
+END;

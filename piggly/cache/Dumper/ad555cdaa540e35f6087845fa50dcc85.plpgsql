@@ -1,0 +1,18 @@
+DECLARE
+    grants TEXT[] := _get_col_privs( $3, quote_ident($1), $2 );
+BEGIN
+    IF grants[1] = 'undefined_column' THEN
+        RETURN ok(FALSE, $5) || E'\n' || diag(
+            '    Column ' || quote_ident($1) || '.' || quote_ident($2) || ' does not exist'
+        );
+    ELSIF grants[1] = 'undefined_table' THEN
+        RETURN ok(FALSE, $5) || E'\n' || diag(
+            '    Table ' || quote_ident($1) || ' does not exist'
+        );
+    ELSIF grants[1] = 'undefined_role' THEN
+        RETURN ok(FALSE, $5) || E'\n' || diag(
+            '    Role ' || quote_ident($3) || ' does not exist'
+        );
+    END IF;
+    RETURN _assets_are('privileges', grants, $4, $5);
+END;

@@ -1,0 +1,18 @@
+DECLARE
+     index_cols name[];
+BEGIN
+    perform public.piggly_branch($PIGGLY$77dc59f8d12b99b5$PIGGLY$);
+    index_cols := _ikeys($1, $2, $3 );
+
+    IF public.piggly_cond($PIGGLY$bcb9ba51c308e535$PIGGLY$, (index_cols IS NULL OR index_cols = '{}'::name[])) THEN
+        perform public.piggly_branch($PIGGLY$c958aab049c85895$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$475cd156fd8b8f57$PIGGLY$);RETURN ok( false, $5 ) || E'\n'
+            || diag( 'Index ' || quote_ident($3) || ' ON ' || quote_ident($1) || '.' || quote_ident($2) || ' not found');
+    END IF;
+
+    perform public.piggly_branch($PIGGLY$69b5ab1be3798a87$PIGGLY$);RETURN is(
+        quote_ident($3) || ' ON ' || quote_ident($1) || '.' || quote_ident($2) || '(' || array_to_string( index_cols, ', ' ) || ')',
+        quote_ident($3) || ' ON ' || quote_ident($1) || '.' || quote_ident($2) || '(' || array_to_string( $4, ', ' ) || ')',
+        $5
+    );
+END;

@@ -1,0 +1,20 @@
+DECLARE
+    have   ALIAS FOR $1;
+    op     ALIAS FOR $2;
+    want   ALIAS FOR $3;
+    descr  ALIAS FOR $4;
+    result BOOLEAN;
+    output TEXT;
+BEGIN
+    EXECUTE 'SELECT ' ||
+            COALESCE(quote_literal( have ), 'NULL') || '::' || pg_typeof(have) || ' '
+            || op || ' ' ||
+            COALESCE(quote_literal( want ), 'NULL') || '::' || pg_typeof(want)
+       INTO result;
+    output := ok( COALESCE(result, FALSE), descr );
+    RETURN output || CASE result WHEN TRUE THEN '' ELSE E'\n' || diag(
+           '    ' || COALESCE( quote_literal(have), 'NULL' ) ||
+           E'\n        ' || op ||
+           E'\n    ' || COALESCE( quote_literal(want), 'NULL' )
+    ) END;
+END;

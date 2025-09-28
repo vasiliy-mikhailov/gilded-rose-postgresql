@@ -1,0 +1,12 @@
+DECLARE
+    res  BOOLEAN := FALSE;
+    rec  RECORD;
+BEGIN
+    -- Find extra records.
+    FOR rec in EXECUTE _query($1) LOOP
+        res := TRUE;
+        EXIT;
+    END LOOP;
+
+    RETURN ok(res, $2);
+END;

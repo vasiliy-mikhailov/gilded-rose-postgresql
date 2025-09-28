@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Code Coverage: public.format_type_string</title><meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="piggly.css"/><script type="text/javascript" src="highlight.js"><!-- --></script></head><body><div class="header"><p class="summary">public.format_type_string</p><table class="summary sortable"><tr><th>Blocks</th><th>Loops</th><th>Branches</th><th>Block Coverage</th><th>Loop Coverage</th><th>Branch Coverage</th></tr><tr class="even"><td class="count">11</td><td class="count">0</td><td class="count">3</td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><span style="display:none">-1</span></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td></tr></table></div><div class="container"><div class="listing"><table><tr><td class="signature">&nbsp;</td><td class="signature"><span class='tK'>CREATE FUNCTION</span> <b><span class='tI'>public.format_type_string</span></b> ( <span class='tK'>IN</span> <span class='tD'>text</span> )
+<span class='tK'>RETURNS</span> <span class='tD'>text</span>
+  <span class='tK'>STABLE</span></td></tr><tr><td class="lines"><a href="#L1" id="L1">1</a>
+<a href="#L2" id="L2">2</a>
+<a href="#L3" id="L3">3</a>
+<a href="#L4" id="L4">4</a>
+<a href="#L5" id="L5">5</a>
+<a href="#L6" id="L6">6</a>
+<a href="#L7" id="L7">7</a>
+<a href="#L8" id="L8">8</a>
+<a href="#L9" id="L9">9</a>
+<a href="#L10" id="L10">10</a>
+<a href="#L11" id="L11">11</a>
+<a href="#L12" id="L12">12</a>
+<a href="#L13" id="L13">13</a>
+<a href="#L14" id="L14">14</a>
+<a href="#L15" id="L15">15</a>
+<a href="#L16" id="L16">16</a>
+<a href="#L17" id="L17">17</a>
+<a href="#L18" id="L18">18</a>
+<a href="#L19" id="L19">19</a>
+<a href="#L20" id="L20">20</a>
+<a href="#L21" id="L21">21</a>
+<a href="#L22" id="L22">22</a>
+<a href="#L23" id="L23">23</a>
+<a href="#L24" id="L24">24</a>
+<a href="#L25" id="L25">25</a>
+<a href="#L26" id="L26">26</a>
+<a href="#L27" id="L27">27</a>
+<a href="#L28" id="L28">28</a>
+<a href="#L29" id="L29">29</a>
+<a href="#L30" id="L30">30</a>
+<a href="#L31" id="L31">31</a>
+<a href="#L32" id="L32">32</a>
+<a href="#L33" id="L33">33</a>
+<a href="#L34" id="L34">34</a>
+<a href="#L35" id="L35">35</a>
+<a href="#L36" id="L36">36</a>
+<a href="#L37" id="L37">37</a>
+<a href="#L38" id="L38">38</a>
+<a href="#L39" id="L39">39</a></td><td class="code"><span class="tK">DECLARE</span>
+    <span class="tI">want_type</span> <span class="tD">TEXT</span> <span class="tK">:=</span> $1;
+<span class="tK">BEGIN</span>
+    <span class="c0" id="Tc03b2e90cb74058a" title="never evaluated"><span class="tK">IF</span> <span class="b00" id="T2935ffc6b56144a8" title="never evaluated">pg_version_num() &gt;= 170000 </span><span class="tK">THEN</span>
+        <span class="tC">-- to_regtypemod() in 17 allows easy and corret normalization.
+</span>        <span class="c0" id="T13efbc1be8b5ecc8" title="never evaluated"><span class="c0" id="T9968b89168b842e6" title="never evaluated"><span class="tK">RETURN</span> format_type(to_regtype(want_type), to_regtypemod(want_type))</span>;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="tK">IF</span> <span class="b00" id="T0d49d518b8523a74" title="never evaluated">want_type::regtype = <span class="tS">'interval'</span>::regtype </span><span class="tK">THEN</span>
+        <span class="tC">-- We cannot normlize interval types without to_regtypemod(), So
+</span>        <span class="tC">-- just return it as is.
+</span>        <span class="c0" id="T636adca2167baa59" title="never evaluated"><span class="c0" id="T309736d3f887bcb8" title="never evaluated"><span class="tK">RETURN</span> want_type</span>;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="tC">-- Use the typmodin functions to correctly normalize types.
+</span>    <span class="tK">DECLARE</span>
+        <span class="tI">typmodin_arg</span> <span class="tD">cstring[]</span>;
+        <span class="tI">typmodin_func</span> <span class="tD">regproc</span>;
+        <span class="tI">typmod</span> <span class="tD">int</span>;
+    <span class="tK">BEGIN</span>
+        <span class="tC">-- Extract type modifier from type declaration and format as cstring[] literal.
+</span>        <span class="c0" id="T3edef6715b6662de" title="never evaluated"><span class="tI">typmodin_arg</span> <span class="tK">:=</span> translate(substring(want_type FROM <span class="tS">'[(][^&quot;)]+[)]'</span>), <span class="tS">'()'</span>, <span class="tS">'{}'</span>);
+
+        <span class="tC">-- Find typmodin function for want_type.
+</span>        <span class="tK">SELECT</span> typmodin INTO typmodin_func
+        FROM pg_catalog.pg_type
+        WHERE oid = want_type::regtype;
+
+        <span class="tK">IF</span> <span class="b00" id="Tb9aa2b905506deea" title="never evaluated">typmodin_func = 0 </span><span class="tK">THEN</span>
+            <span class="tC">-- Easy: types without typemods.
+</span>            <span class="c0" id="T6642d2cf313ff35f" title="never evaluated"><span class="c0" id="T84b6cd101368875f" title="never evaluated"><span class="tK">RETURN</span> format_type(want_type::regtype, null)</span>;
+        </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+        <span class="tC">-- Get typemod via type-specific typmodin function.
+</span>        <span class="tK">EXECUTE</span> format(<span class="tS">'SELECT %s(%L)'</span>, typmodin_func, typmodin_arg) INTO typmod;
+        <span class="c0" id="T2b79f415c17f32e0" title="never evaluated"><span class="tK">RETURN</span> format_type(want_type::regtype, typmod)</span>;
+    </span><span class="tK">END</span>;
+    </span><span class="tK">EXCEPTION</span> <span class="tK">WHEN</span> OTHERS <span class="tK">THEN</span> <span class="c0" id="T4c52a26fa06ab9ae" title="never evaluated"><span class="c0" id="T43c2c50d587023be" title="never evaluated"><span class="tK">RETURN</span> NULL</span>;
+</span><span class="tK">END</span>;</td></tr></table></div><div class="toc"><strong>Notes</strong><ol><li class="block"><a href="#Tc03b2e90cb74058a" onMouseOver="highlight('Tc03b2e90cb74058a')">never evaluated</a></li><li class="branch"><a href="#T2935ffc6b56144a8" onMouseOver="highlight('T2935ffc6b56144a8')">never evaluated</a></li><li class="block"><a href="#T13efbc1be8b5ecc8" onMouseOver="highlight('T13efbc1be8b5ecc8')">never evaluated</a></li><li class="block"><a href="#T9968b89168b842e6" onMouseOver="highlight('T9968b89168b842e6')">never evaluated</a></li><li class="branch"><a href="#T0d49d518b8523a74" onMouseOver="highlight('T0d49d518b8523a74')">never evaluated</a></li><li class="block"><a href="#T636adca2167baa59" onMouseOver="highlight('T636adca2167baa59')">never evaluated</a></li><li class="block"><a href="#T309736d3f887bcb8" onMouseOver="highlight('T309736d3f887bcb8')">never evaluated</a></li><li class="block"><a href="#T3edef6715b6662de" onMouseOver="highlight('T3edef6715b6662de')">never evaluated</a></li><li class="branch"><a href="#Tb9aa2b905506deea" onMouseOver="highlight('Tb9aa2b905506deea')">never evaluated</a></li><li class="block"><a href="#T6642d2cf313ff35f" onMouseOver="highlight('T6642d2cf313ff35f')">never evaluated</a></li><li class="block"><a href="#T84b6cd101368875f" onMouseOver="highlight('T84b6cd101368875f')">never evaluated</a></li><li class="block"><a href="#T2b79f415c17f32e0" onMouseOver="highlight('T2b79f415c17f32e0')">never evaluated</a></li><li class="block"><a href="#T4c52a26fa06ab9ae" onMouseOver="highlight('T4c52a26fa06ab9ae')">never evaluated</a></li><li class="block"><a href="#T43c2c50d587023be" onMouseOver="highlight('T43c2c50d587023be')">never evaluated</a></li></ol></div></div><div class="timestamp">Generated by piggly 2.3.1 at September 24, 2025 13:36 UTC</div><a href="index.html" class="return">Return to index</a></body></html>

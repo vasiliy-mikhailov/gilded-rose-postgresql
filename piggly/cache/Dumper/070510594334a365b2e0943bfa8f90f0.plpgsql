@@ -1,0 +1,13 @@
+DECLARE
+    have REFCURSOR;
+    want REFCURSOR;
+    res  TEXT;
+BEGIN
+    OPEN have FOR EXECUTE _query($1);
+    OPEN want FOR SELECT $2[i]
+    FROM generate_series(array_lower($2, 1), array_upper($2, 1)) s(i);
+    res := results_ne(have, want, $3);
+    CLOSE have;
+    CLOSE want;
+    RETURN res;
+END;

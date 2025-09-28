@@ -1,0 +1,5 @@
+BEGIN
+    perform public.piggly_branch($PIGGLY$c0aeb38571c905fa$PIGGLY$);
+    EXECUTE 'CREATE TEMP TABLE ' || $2 || ' AS ' || _query($1);
+    perform public.piggly_branch($PIGGLY$6ca985c4ac9c15dd$PIGGLY$);return $2;
+END;

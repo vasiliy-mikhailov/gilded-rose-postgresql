@@ -1,0 +1,32 @@
+DECLARE
+    privs  TEXT[] := ARRAY['INSERT', 'REFERENCES', 'SELECT', 'UPDATE'];
+    grants TEXT[] := '{}';
+BEGIN
+    perform public.piggly_branch($PIGGLY$b23eb30c3bb2bc42$PIGGLY$);
+    FOR i IN 1..array_upper(privs, 1) LOOP
+        perform public.piggly_cond($PIGGLY$aebb611b0b65b655$PIGGLY$, true);
+        perform public.piggly_branch($PIGGLY$34893879f4a47d3f$PIGGLY$);
+        BEGIN
+            perform public.piggly_branch($PIGGLY$9e44c4c2d450ecd0$PIGGLY$);
+            IF public.piggly_cond($PIGGLY$70e4d5ab63056b78$PIGGLY$, (pg_catalog.has_any_column_privilege($1, $2, privs[i]))) THEN
+                perform public.piggly_branch($PIGGLY$44a4fc6a5cf919ad$PIGGLY$);
+                grants := grants || privs[i];
+            END IF;
+        EXCEPTION WHEN undefined_table THEN
+            -- Not a valid table name.
+            perform public.piggly_branch($PIGGLY$52d2a487b71492a2$PIGGLY$);
+            perform public.piggly_branch($PIGGLY$3977b582a0b00001$PIGGLY$);RETURN '{undefined_table}';
+        WHEN undefined_object THEN
+            -- Not a valid role.
+            perform public.piggly_branch($PIGGLY$7f260773bc85d6ac$PIGGLY$);
+            perform public.piggly_branch($PIGGLY$577e599db261a73a$PIGGLY$);RETURN '{undefined_role}';
+        WHEN invalid_parameter_value THEN
+            -- Not a valid permission on this version of PostgreSQL; ignore;
+        perform public.piggly_branch($PIGGLY$bf786b0de0ab221c$PIGGLY$);
+        END;
+    
+        perform public.piggly_signal($PIGGLY$aebb611b0b65b655$PIGGLY$, $PIGGLY$@$PIGGLY$);
+    END LOOP;
+perform public.piggly_cond($PIGGLY$aebb611b0b65b655$PIGGLY$, false);
+    perform public.piggly_branch($PIGGLY$ce417954818b61ee$PIGGLY$);RETURN grants;
+END;

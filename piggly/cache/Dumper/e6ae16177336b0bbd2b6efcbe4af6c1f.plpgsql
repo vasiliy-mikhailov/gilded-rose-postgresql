@@ -1,0 +1,5 @@
+BEGIN
+    EXECUTE 'UPDATE __tcache__ SET value = ' || $2
+        || ' WHERE id = ' || $1;
+    RETURN $2;
+END;

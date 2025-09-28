@@ -1,0 +1,189 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Code Coverage: public.check_test</title><meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="piggly.css"/><script type="text/javascript" src="highlight.js"><!-- --></script></head><body><div class="header"><p class="summary">public.check_test</p><table class="summary sortable"><tr><th>Blocks</th><th>Loops</th><th>Branches</th><th>Block Coverage</th><th>Loop Coverage</th><th>Branch Coverage</th></tr><tr class="even"><td class="count">14</td><td class="count">0</td><td class="count">7</td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><span style="display:none">-1</span></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td></tr></table></div><div class="container"><div class="listing"><table><tr><td class="signature">&nbsp;</td><td class="signature"><span class='tK'>CREATE FUNCTION</span> <b><span class='tI'>public.check_test</span></b> ( <span class='tK'>IN</span> <span class='tD'>text</span>, <span class='tK'>IN</span> <span class='tD'>boolean</span>, <span class='tK'>IN</span> <span class='tD'>text</span>, <span class='tK'>IN</span> <span class='tD'>text</span>, <span class='tK'>IN</span> <span class='tD'>text</span>, <span class='tK'>IN</span> <span class='tD'>boolean</span> )
+<span class='tK'>RETURNS SETOF</span> <span class='tD'>text</span>
+  <span class='tK'>VOLATILE</span></td></tr><tr><td class="lines"><a href="#L1" id="L1">1</a>
+<a href="#L2" id="L2">2</a>
+<a href="#L3" id="L3">3</a>
+<a href="#L4" id="L4">4</a>
+<a href="#L5" id="L5">5</a>
+<a href="#L6" id="L6">6</a>
+<a href="#L7" id="L7">7</a>
+<a href="#L8" id="L8">8</a>
+<a href="#L9" id="L9">9</a>
+<a href="#L10" id="L10">10</a>
+<a href="#L11" id="L11">11</a>
+<a href="#L12" id="L12">12</a>
+<a href="#L13" id="L13">13</a>
+<a href="#L14" id="L14">14</a>
+<a href="#L15" id="L15">15</a>
+<a href="#L16" id="L16">16</a>
+<a href="#L17" id="L17">17</a>
+<a href="#L18" id="L18">18</a>
+<a href="#L19" id="L19">19</a>
+<a href="#L20" id="L20">20</a>
+<a href="#L21" id="L21">21</a>
+<a href="#L22" id="L22">22</a>
+<a href="#L23" id="L23">23</a>
+<a href="#L24" id="L24">24</a>
+<a href="#L25" id="L25">25</a>
+<a href="#L26" id="L26">26</a>
+<a href="#L27" id="L27">27</a>
+<a href="#L28" id="L28">28</a>
+<a href="#L29" id="L29">29</a>
+<a href="#L30" id="L30">30</a>
+<a href="#L31" id="L31">31</a>
+<a href="#L32" id="L32">32</a>
+<a href="#L33" id="L33">33</a>
+<a href="#L34" id="L34">34</a>
+<a href="#L35" id="L35">35</a>
+<a href="#L36" id="L36">36</a>
+<a href="#L37" id="L37">37</a>
+<a href="#L38" id="L38">38</a>
+<a href="#L39" id="L39">39</a>
+<a href="#L40" id="L40">40</a>
+<a href="#L41" id="L41">41</a>
+<a href="#L42" id="L42">42</a>
+<a href="#L43" id="L43">43</a>
+<a href="#L44" id="L44">44</a>
+<a href="#L45" id="L45">45</a>
+<a href="#L46" id="L46">46</a>
+<a href="#L47" id="L47">47</a>
+<a href="#L48" id="L48">48</a>
+<a href="#L49" id="L49">49</a>
+<a href="#L50" id="L50">50</a>
+<a href="#L51" id="L51">51</a>
+<a href="#L52" id="L52">52</a>
+<a href="#L53" id="L53">53</a>
+<a href="#L54" id="L54">54</a>
+<a href="#L55" id="L55">55</a>
+<a href="#L56" id="L56">56</a>
+<a href="#L57" id="L57">57</a>
+<a href="#L58" id="L58">58</a>
+<a href="#L59" id="L59">59</a>
+<a href="#L60" id="L60">60</a>
+<a href="#L61" id="L61">61</a>
+<a href="#L62" id="L62">62</a>
+<a href="#L63" id="L63">63</a>
+<a href="#L64" id="L64">64</a>
+<a href="#L65" id="L65">65</a>
+<a href="#L66" id="L66">66</a>
+<a href="#L67" id="L67">67</a>
+<a href="#L68" id="L68">68</a>
+<a href="#L69" id="L69">69</a>
+<a href="#L70" id="L70">70</a>
+<a href="#L71" id="L71">71</a>
+<a href="#L72" id="L72">72</a>
+<a href="#L73" id="L73">73</a>
+<a href="#L74" id="L74">74</a>
+<a href="#L75" id="L75">75</a>
+<a href="#L76" id="L76">76</a>
+<a href="#L77" id="L77">77</a>
+<a href="#L78" id="L78">78</a>
+<a href="#L79" id="L79">79</a>
+<a href="#L80" id="L80">80</a>
+<a href="#L81" id="L81">81</a>
+<a href="#L82" id="L82">82</a>
+<a href="#L83" id="L83">83</a>
+<a href="#L84" id="L84">84</a>
+<a href="#L85" id="L85">85</a>
+<a href="#L86" id="L86">86</a>
+<a href="#L87" id="L87">87</a>
+<a href="#L88" id="L88">88</a>
+<a href="#L89" id="L89">89</a>
+<a href="#L90" id="L90">90</a>
+<a href="#L91" id="L91">91</a>
+<a href="#L92" id="L92">92</a>
+<a href="#L93" id="L93">93</a>
+<a href="#L94" id="L94">94</a></td><td class="code"><span class="tK">DECLARE</span>
+    <span class="tI">tnumb</span>   <span class="tD">INTEGER</span>;
+    <span class="tI">aok</span>     <span class="tD">BOOLEAN</span>;
+    <span class="tI">adescr</span>  <span class="tD">TEXT</span>;
+    <span class="tI">res</span>     <span class="tD">BOOLEAN</span>;
+    <span class="tI">descr</span>   <span class="tD">TEXT</span>;
+    <span class="tI">adiag</span>   <span class="tD">TEXT</span>;
+    <span class="tI">have</span>    <span class="tD">ALIAS FOR $1</span>;
+    <span class="tI">eok</span>     <span class="tD">ALIAS FOR $2</span>;
+    <span class="tI">name</span>    <span class="tD">ALIAS FOR $3</span>;
+    <span class="tI">edescr</span>  <span class="tD">ALIAS FOR $4</span>;
+    <span class="tI">ediag</span>   <span class="tD">ALIAS FOR $5</span>;
+    <span class="tI">matchit</span> <span class="tD">ALIAS FOR $6</span>;
+<span class="tK">BEGIN</span>
+    <span class="tC">-- What test was it that just ran?
+</span>    <span class="c0" id="T575c7b4892319dc3" title="never evaluated"><span class="tI">tnumb</span> <span class="tK">:=</span> currval(<span class="tS">'__tresults___numb_seq'</span>);
+
+    <span class="tC">-- Fetch the results.
+</span>    <span class="tI">aok</span>    <span class="tK">:=</span> substring(have, 1, 2) = <span class="tS">'ok'</span>;
+    <span class="tI">adescr</span> <span class="tK">:=</span> COALESCE(substring(have FROM  E<span class="tS">'(?:not )?ok [[:digit:]]+ - ([^\n]+)'</span>), <span class="tS">''</span>);
+
+    <span class="tC">-- Now delete those results.
+</span>    <span class="tK">EXECUTE</span> <span class="tS">'ALTER SEQUENCE __tresults___numb_seq RESTART WITH '</span> || tnumb;
+    <span class="tK">IF</span> <span class="b00" id="T4b95b3d03358e73c" title="never evaluated">NOT aok </span><span class="tK">THEN</span> <span class="c0" id="Tc55a17b8ea3c2303" title="never evaluated"><span class="tK">PERFORM</span> _set(<span class="tS">'failed'</span>, _get(<span class="tS">'failed'</span>) - 1); </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="tC">-- Set up the description.
+</span>    <span class="tI">descr</span> <span class="tK">:=</span> coalesce( name || <span class="tS">' '</span>, <span class="tS">'Test '</span> ) || <span class="tS">'should '</span>;
+
+    <span class="tC">-- So, did the test pass?
+</span>    <span class="c0" id="Tfc3786865b45ca89" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> is(
+        aok,
+        eok,
+        descr || CASE eok WHEN true then <span class="tS">'pass'</span> ELSE <span class="tS">'fail'</span> END
+    )</span>;
+
+    <span class="tC">-- Was the description as expected?
+</span>    <span class="tK">IF</span> <span class="b00" id="T933437c214094e5a" title="never evaluated">edescr IS NOT NULL </span><span class="tK">THEN</span>
+        <span class="c0" id="T43b9456634d7b304" title="never evaluated"><span class="c0" id="Tb223071bfca9593b" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> is(
+            adescr,
+            edescr,
+            descr || <span class="tS">'have the proper description'</span>
+        )</span>;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="tC">-- Were the diagnostics as expected?
+</span>    <span class="tK">IF</span> <span class="b00" id="Td75d6639378b4dc5" title="never evaluated">ediag IS NOT NULL </span><span class="tK">THEN</span>
+        <span class="tC">-- Remove ok and the test number.
+</span>        <span class="c0" id="T837801e33c152efa" title="never evaluated"><span class="tI">adiag</span> <span class="tK">:=</span> substring(
+            have
+            FROM CASE WHEN aok THEN 4 ELSE 9 END + char_length(tnumb::text)
+        );
+
+        <span class="tC">-- Remove the description, if there is one.
+</span>        <span class="tK">IF</span> <span class="b00" id="T813b7f75b26018e8" title="never evaluated">adescr &lt;&gt; <span class="tS">''</span> </span><span class="tK">THEN</span>
+            <span class="c0" id="Tddd0d6643badf409" title="never evaluated"><span class="tI">adiag</span> <span class="tK">:=</span> substring(
+                adiag FROM 1 + char_length( <span class="tS">' - '</span> || substr(diag( adescr ), 3) )
+            );
+        </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+        <span class="tK">IF</span> <span class="b00" id="Tef38f27bb9d6c3f8" title="never evaluated">NOT aok </span><span class="tK">THEN</span>
+            <span class="tC">-- Remove failure message from ok().
+</span>            <span class="c0" id="T96a4fccb9b5ff471" title="never evaluated"><span class="tI">adiag</span> <span class="tK">:=</span> substring(adiag FROM 1 + char_length(diag(
+                <span class="tS">'Failed test '</span> || tnumb ||
+                CASE adescr WHEN <span class="tS">''</span> THEN <span class="tS">''</span> ELSE COALESCE(<span class="tS">': &quot;'</span> || adescr || <span class="tS">'&quot;'</span>, <span class="tS">''</span>) END
+            )));
+        </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+        <span class="tK">IF</span> <span class="b00" id="Tcc96648d7a2446f2" title="never evaluated">ediag &lt;&gt; <span class="tS">''</span> </span><span class="tK">THEN</span>
+           <span class="tC">-- Remove the space before the diagnostics.
+</span>           <span class="c0" id="Tf5e4424477915899" title="never evaluated"><span class="tI">adiag</span> <span class="tK">:=</span> substring(adiag FROM 2);
+        </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+        <span class="tC">-- Remove the #s.
+</span>        <span class="tI">adiag</span> <span class="tK">:=</span> replace( substring(adiag from 3), E<span class="tS">'\n# '</span>, E<span class="tS">'\n'</span> );
+
+        <span class="tC">-- Now compare the diagnostics.
+</span>        <span class="tK">IF</span> <span class="b00" id="T89cab209340fcbf8" title="never evaluated">matchit </span><span class="tK">THEN</span>
+            <span class="c0" id="Td2bca71f46af62a8" title="never evaluated"><span class="c0" id="T88ac99cb32e31565" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> matches(
+                adiag,
+                ediag,
+                descr || <span class="tS">'have the proper diagnostics'</span>
+            )</span>;
+        </span><span class="tK">ELSE</span>
+            <span class="c0" id="Te06c4de5bf1e0789" title="never evaluated"><span class="c0" id="Tbfb54dcb75903015" title="never evaluated"><span class="tK">RETURN</span> <span class="tK">NEXT</span> is(
+                adiag,
+                ediag,
+                descr || <span class="tS">'have the proper diagnostics'</span>
+            )</span>;
+        </span><span class="tK">END</span> <span class="tK">IF</span>;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="tC">-- And we're done
+</span>    <span class="c0" id="T01ef98a33f051750" title="never evaluated"><span class="tK">RETURN</span></span>;
+</span><span class="tK">END</span>;</td></tr></table></div><div class="toc"><strong>Notes</strong><ol><li class="block"><a href="#T575c7b4892319dc3" onMouseOver="highlight('T575c7b4892319dc3')">never evaluated</a></li><li class="branch"><a href="#T4b95b3d03358e73c" onMouseOver="highlight('T4b95b3d03358e73c')">never evaluated</a></li><li class="block"><a href="#Tc55a17b8ea3c2303" onMouseOver="highlight('Tc55a17b8ea3c2303')">never evaluated</a></li><li class="block"><a href="#Tfc3786865b45ca89" onMouseOver="highlight('Tfc3786865b45ca89')">never evaluated</a></li><li class="branch"><a href="#T933437c214094e5a" onMouseOver="highlight('T933437c214094e5a')">never evaluated</a></li><li class="block"><a href="#T43b9456634d7b304" onMouseOver="highlight('T43b9456634d7b304')">never evaluated</a></li><li class="block"><a href="#Tb223071bfca9593b" onMouseOver="highlight('Tb223071bfca9593b')">never evaluated</a></li><li class="branch"><a href="#Td75d6639378b4dc5" onMouseOver="highlight('Td75d6639378b4dc5')">never evaluated</a></li><li class="block"><a href="#T837801e33c152efa" onMouseOver="highlight('T837801e33c152efa')">never evaluated</a></li><li class="branch"><a href="#T813b7f75b26018e8" onMouseOver="highlight('T813b7f75b26018e8')">never evaluated</a></li><li class="block"><a href="#Tddd0d6643badf409" onMouseOver="highlight('Tddd0d6643badf409')">never evaluated</a></li><li class="branch"><a href="#Tef38f27bb9d6c3f8" onMouseOver="highlight('Tef38f27bb9d6c3f8')">never evaluated</a></li><li class="block"><a href="#T96a4fccb9b5ff471" onMouseOver="highlight('T96a4fccb9b5ff471')">never evaluated</a></li><li class="branch"><a href="#Tcc96648d7a2446f2" onMouseOver="highlight('Tcc96648d7a2446f2')">never evaluated</a></li><li class="block"><a href="#Tf5e4424477915899" onMouseOver="highlight('Tf5e4424477915899')">never evaluated</a></li><li class="branch"><a href="#T89cab209340fcbf8" onMouseOver="highlight('T89cab209340fcbf8')">never evaluated</a></li><li class="block"><a href="#Td2bca71f46af62a8" onMouseOver="highlight('Td2bca71f46af62a8')">never evaluated</a></li><li class="block"><a href="#T88ac99cb32e31565" onMouseOver="highlight('T88ac99cb32e31565')">never evaluated</a></li><li class="block"><a href="#Te06c4de5bf1e0789" onMouseOver="highlight('Te06c4de5bf1e0789')">never evaluated</a></li><li class="block"><a href="#Tbfb54dcb75903015" onMouseOver="highlight('Tbfb54dcb75903015')">never evaluated</a></li><li class="block"><a href="#T01ef98a33f051750" onMouseOver="highlight('T01ef98a33f051750')">never evaluated</a></li></ol></div></div><div class="timestamp">Generated by piggly 2.3.1 at September 24, 2025 13:36 UTC</div><a href="index.html" class="return">Return to index</a></body></html>

@@ -1,0 +1,13 @@
+DECLARE
+    owner NAME := _get_func_owner($1, $2, $3);
+BEGIN
+    -- Make sure the function exists.
+    IF owner IS NULL THEN
+        RETURN ok(FALSE, $5) || E'\n' || diag(
+            E'    Function ' || quote_ident($1) || '.' || quote_ident($2) || '(' ||
+                    array_to_string($3, ', ') || ') does not exist'
+        );
+    END IF;
+
+    RETURN is(owner, $4, $5);
+END;

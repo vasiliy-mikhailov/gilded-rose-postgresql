@@ -1,0 +1,20 @@
+DECLARE
+    akey NAME[];
+    keys TEXT[] := '{}';
+    have TEXT;
+BEGIN
+    FOR akey IN SELECT * FROM _keys($1, $2, $3) LOOP
+        IF akey = $4 THEN RETURN pass($5); END IF;
+        keys = keys || akey::text;
+    END LOOP;
+    IF array_upper(keys, 0) = 1 THEN
+        have := 'No ' || $6 || ' constraints';
+    ELSE
+        have := array_to_string(keys, E'\n              ');
+    END IF;
+
+    RETURN fail($5) || E'\n' || diag(
+             '        have: ' || have
+       || E'\n        want: ' || CASE WHEN $4 IS NULL THEN 'NULL' ELSE $4::text END
+    );
+END;

@@ -1,0 +1,12 @@
+DECLARE
+    output TEXT[];
+BEGIN
+    output := '{}';
+    FOR i IN 1..how_many LOOP
+        output = array_append(
+            output,
+            ok( TRUE ) || ' ' || diag( 'SKIP' || COALESCE( ' ' || why, '') )
+        );
+    END LOOP;
+    RETURN array_to_string(output, E'\n');
+END;

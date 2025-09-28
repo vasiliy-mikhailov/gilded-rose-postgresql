@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Code Coverage: public._get_col_privs</title><meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="piggly.css"/><script type="text/javascript" src="highlight.js"><!-- --></script></head><body><div class="header"><p class="summary">public._get_col_privs</p><table class="summary sortable"><tr><th>Blocks</th><th>Loops</th><th>Branches</th><th>Block Coverage</th><th>Loop Coverage</th><th>Branch Coverage</th></tr><tr class="even"><td class="count">10</td><td class="count">1</td><td class="count">1</td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td></tr></table></div><div class="container"><div class="listing"><table><tr><td class="signature">&nbsp;</td><td class="signature"><span class='tK'>CREATE FUNCTION</span> <b><span class='tI'>public._get_col_privs</span></b> ( <span class='tK'>IN</span> <span class='tD'>name</span>, <span class='tK'>IN</span> <span class='tD'>text</span>, <span class='tK'>IN</span> <span class='tD'>name</span> )
+<span class='tK'>RETURNS</span> <span class='tD'>text[]</span>
+  <span class='tK'>VOLATILE</span></td></tr><tr><td class="lines"><a href="#L1" id="L1">1</a>
+<a href="#L2" id="L2">2</a>
+<a href="#L3" id="L3">3</a>
+<a href="#L4" id="L4">4</a>
+<a href="#L5" id="L5">5</a>
+<a href="#L6" id="L6">6</a>
+<a href="#L7" id="L7">7</a>
+<a href="#L8" id="L8">8</a>
+<a href="#L9" id="L9">9</a>
+<a href="#L10" id="L10">10</a>
+<a href="#L11" id="L11">11</a>
+<a href="#L12" id="L12">12</a>
+<a href="#L13" id="L13">13</a>
+<a href="#L14" id="L14">14</a>
+<a href="#L15" id="L15">15</a>
+<a href="#L16" id="L16">16</a>
+<a href="#L17" id="L17">17</a>
+<a href="#L18" id="L18">18</a></td><td class="code"><span class="tK">DECLARE</span>
+    <span class="tI">privs</span>  <span class="tD">TEXT[]</span> <span class="tK">:=</span> ARRAY[<span class="tS">'INSERT'</span>, <span class="tS">'REFERENCES'</span>, <span class="tS">'SELECT'</span>, <span class="tS">'UPDATE'</span>];
+    <span class="tI">grants</span> <span class="tD">TEXT[]</span> <span class="tK">:=</span> <span class="tS">'{}'</span>;
+<span class="tK">BEGIN</span>
+    <span class="c0" id="T437c638ede073876" title="never evaluated"><span class="tK">FOR</span> <span class="tI">i</span> <span class="tK">IN</span> <span class="l[0, 0, 0, 0]" id="Tf9f9eb54fe12f0dd" title="never evaluated">1..array_upper(privs, 1) </span><span class="tK">LOOP</span>
+        <span class="c0" id="T35d6ea1111154fa3" title="never evaluated"><span class="tK">IF</span> <span class="b00" id="T51aa9e0eb522ec3e" title="never evaluated">pg_catalog.has_column_privilege($1, $2, $3, privs[i]) </span><span class="tK">THEN</span>
+            <span class="c0" id="T2698346fed5f9475" title="never evaluated"><span class="tI">grants</span> <span class="tK">:=</span> grants || privs[i];
+        </span><span class="tK">END</span> <span class="tK">IF</span>;
+    </span><span class="tK">END</span> <span class="tK">LOOP</span>;
+    <span class="c0" id="T5975521e8ac9f9b8" title="never evaluated"><span class="tK">RETURN</span> grants</span>;
+</span><span class="tK">EXCEPTION</span>
+    <span class="tC">-- Not a valid column name.
+</span>    <span class="tK">WHEN</span> undefined_column <span class="tK">THEN</span> <span class="c0" id="T73ffa2b884c6f041" title="never evaluated"><span class="c0" id="Tc6a3673e94ac381e" title="never evaluated"><span class="tK">RETURN</span> <span class="tS">'{undefined_column}'</span></span>;
+    <span class="tC">-- Not a valid table name.
+</span>    </span><span class="tK">WHEN</span> undefined_table <span class="tK">THEN</span> <span class="c0" id="T91dd3868801a1afa" title="never evaluated"><span class="c0" id="Tc76184d0d13ce832" title="never evaluated"><span class="tK">RETURN</span> <span class="tS">'{undefined_table}'</span></span>;
+    <span class="tC">-- Not a valid role.
+</span>    </span><span class="tK">WHEN</span> undefined_object <span class="tK">THEN</span> <span class="c0" id="T9894ae7e997feaca" title="never evaluated"><span class="c0" id="T3ca9efcce94cf087" title="never evaluated"><span class="tK">RETURN</span> <span class="tS">'{undefined_role}'</span></span>;
+</span><span class="tK">END</span>;</td></tr></table></div><div class="toc"><strong>Notes</strong><ol><li class="block"><a href="#T437c638ede073876" onMouseOver="highlight('T437c638ede073876')">never evaluated</a></li><li class="block"><a href="#T35d6ea1111154fa3" onMouseOver="highlight('T35d6ea1111154fa3')">never evaluated</a></li><li class="loop"><a href="#Tf9f9eb54fe12f0dd" onMouseOver="highlight('Tf9f9eb54fe12f0dd')">never evaluated</a></li><li class="branch"><a href="#T51aa9e0eb522ec3e" onMouseOver="highlight('T51aa9e0eb522ec3e')">never evaluated</a></li><li class="block"><a href="#T2698346fed5f9475" onMouseOver="highlight('T2698346fed5f9475')">never evaluated</a></li><li class="block"><a href="#T5975521e8ac9f9b8" onMouseOver="highlight('T5975521e8ac9f9b8')">never evaluated</a></li><li class="block"><a href="#T73ffa2b884c6f041" onMouseOver="highlight('T73ffa2b884c6f041')">never evaluated</a></li><li class="block"><a href="#Tc6a3673e94ac381e" onMouseOver="highlight('Tc6a3673e94ac381e')">never evaluated</a></li><li class="block"><a href="#T91dd3868801a1afa" onMouseOver="highlight('T91dd3868801a1afa')">never evaluated</a></li><li class="block"><a href="#Tc76184d0d13ce832" onMouseOver="highlight('Tc76184d0d13ce832')">never evaluated</a></li><li class="block"><a href="#T9894ae7e997feaca" onMouseOver="highlight('T9894ae7e997feaca')">never evaluated</a></li><li class="block"><a href="#T3ca9efcce94cf087" onMouseOver="highlight('T3ca9efcce94cf087')">never evaluated</a></li></ol></div></div><div class="timestamp">Generated by piggly 2.3.1 at September 24, 2025 13:36 UTC</div><a href="index.html" class="return">Return to index</a></body></html>

@@ -1,0 +1,7 @@
+DECLARE
+    ret text;
+BEGIN
+    perform public.piggly_branch($PIGGLY$57edec39a647a26c$PIGGLY$);
+    EXECUTE 'SELECT note FROM __tcache__ WHERE id = ' || $1 || ' LIMIT 1' INTO ret;
+    perform public.piggly_branch($PIGGLY$378b05d1177af4c1$PIGGLY$);RETURN ret;
+END;

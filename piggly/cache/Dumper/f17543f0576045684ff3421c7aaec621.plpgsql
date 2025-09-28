@@ -1,0 +1,14 @@
+BEGIN
+    IF pg_catalog.has_tablespace_privilege($1, $2, 'CREATE') THEN
+        RETURN '{CREATE}';
+    ELSE
+        RETURN '{}';
+    END IF;
+EXCEPTION WHEN undefined_object THEN
+    -- Same error code for unknown user or tablespace. So figure out which.
+    RETURN CASE WHEN SQLERRM LIKE '%' || $1 || '%' THEN
+        '{undefined_role}'
+    ELSE
+        '{undefined_tablespace}'
+    END;
+END;

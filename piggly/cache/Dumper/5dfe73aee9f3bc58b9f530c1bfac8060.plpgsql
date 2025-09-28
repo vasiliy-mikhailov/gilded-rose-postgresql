@@ -1,0 +1,14 @@
+DECLARE
+    query          TEXT := _query($1);
+    expected_avg   ALIAS FOR $2;
+    within         ALIAS FOR $3;
+    iterations     ALIAS FOR $4;
+    descr          ALIAS FOR $5;
+    avg_time       NUMERIC;
+BEGIN
+  SELECT avg(a_time) FROM _time_trials(query, iterations, 0.8) t1 INTO avg_time;
+  IF abs(avg_time - expected_avg) < within THEN RETURN ok(TRUE, descr); END IF;
+  RETURN ok(FALSE, descr) || E'\n' || diag(' average runtime: ' || avg_time || ' ms'
+     || E'\n desired average: ' || expected_avg || ' +/- ' || within || ' ms'
+    );
+END;

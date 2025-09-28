@@ -1,0 +1,21 @@
+DECLARE
+    privs  TEXT[] := ARRAY['SELECT', 'UPDATE', 'USAGE'];
+    grants TEXT[] := '{}';
+BEGIN
+    FOR i IN 1..array_upper(privs, 1) LOOP
+        BEGIN
+            IF pg_catalog.has_sequence_privilege($1, $2, privs[i]) THEN
+                grants := grants || privs[i];
+            END IF;
+        EXCEPTION WHEN undefined_table THEN
+            -- Not a valid sequence name.
+            RETURN '{undefined_table}';
+        WHEN undefined_object THEN
+            -- Not a valid role.
+            RETURN '{undefined_role}';
+        WHEN invalid_parameter_value THEN
+            -- Not a valid permission on this version of PostgreSQL; ignore;
+        END;
+    END LOOP;
+    RETURN grants;
+END;

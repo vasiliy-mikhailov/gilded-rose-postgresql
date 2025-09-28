@@ -1,0 +1,17 @@
+DECLARE
+    grants TEXT[] := _get_fdw_privs( $2, $1::TEXT );
+BEGIN
+    perform public.piggly_branch($PIGGLY$37f3f099e2e5fa3c$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$75eb32a9b9fc3277$PIGGLY$, (grants[1] = 'undefined_fdw')) THEN
+        perform public.piggly_branch($PIGGLY$364f41cb5548e46f$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$db366f1042c378a3$PIGGLY$);RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    FDW ' || quote_ident($1) || ' does not exist'
+        );
+    ELSIF public.piggly_cond($PIGGLY$18ca20f1008c0f04$PIGGLY$, (grants[1] = 'undefined_role')) THEN
+        perform public.piggly_branch($PIGGLY$762035d6e25fe1b4$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$73c726e6dfb1da12$PIGGLY$);RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Role ' || quote_ident($2) || ' does not exist'
+        );
+    END IF;
+    perform public.piggly_branch($PIGGLY$69d3da96ed13880c$PIGGLY$);RETURN _assets_are('privileges', grants, $3, $4);
+END;

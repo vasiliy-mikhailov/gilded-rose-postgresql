@@ -1,0 +1,15 @@
+DECLARE
+    want char = substring(LOWER($3) FROM 1 FOR 1);
+    have char := _get_context($1, $2);
+BEGIN
+    perform public.piggly_branch($PIGGLY$9733188f1c6bb6ca$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$50805ae1e31bc904$PIGGLY$, (have IS NOT NULL)) THEN
+        perform public.piggly_branch($PIGGLY$23914a36b361f8f1$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$80279fbd073e70d5$PIGGLY$);RETURN is( _expand_context(have), _expand_context(want), $4 );
+    END IF;
+
+    perform public.piggly_branch($PIGGLY$8e5a7aee4533c808$PIGGLY$);RETURN ok( false, $4 ) || E'\n' || diag(
+       '    Cast (' || quote_ident($1) || ' AS ' || quote_ident($2)
+      || ') does not exist'
+    );
+END;

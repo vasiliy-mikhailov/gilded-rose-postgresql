@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Code Coverage: public.is_member_of</title><meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="piggly.css"/><script type="text/javascript" src="highlight.js"><!-- --></script></head><body><div class="header"><p class="summary">public.is_member_of</p><table class="summary sortable"><tr><th>Blocks</th><th>Loops</th><th>Branches</th><th>Block Coverage</th><th>Loop Coverage</th><th>Branch Coverage</th></tr><tr class="even"><td class="count">6</td><td class="count">0</td><td class="count">2</td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td><td class="pct"><span style="display:none">-1</span></td><td class="pct"><table align="center"><tr><td class="num">0.00%&nbsp;</td><td class="graph"><table align="right" class="graph low"><tr><td class="covered" width="0"/><td class="uncovered" width="50"/></tr></table></td></tr></table></td></tr></table></div><div class="container"><div class="listing"><table><tr><td class="signature">&nbsp;</td><td class="signature"><span class='tK'>CREATE FUNCTION</span> <b><span class='tI'>public.is_member_of</span></b> ( <span class='tK'>IN</span> <span class='tD'>name</span>, <span class='tK'>IN</span> <span class='tD'>name[]</span>, <span class='tK'>IN</span> <span class='tD'>text</span> )
+<span class='tK'>RETURNS</span> <span class='tD'>text</span>
+  <span class='tK'>VOLATILE</span></td></tr><tr><td class="lines"><a href="#L1" id="L1">1</a>
+<a href="#L2" id="L2">2</a>
+<a href="#L3" id="L3">3</a>
+<a href="#L4" id="L4">4</a>
+<a href="#L5" id="L5">5</a>
+<a href="#L6" id="L6">6</a>
+<a href="#L7" id="L7">7</a>
+<a href="#L8" id="L8">8</a>
+<a href="#L9" id="L9">9</a>
+<a href="#L10" id="L10">10</a>
+<a href="#L11" id="L11">11</a>
+<a href="#L12" id="L12">12</a>
+<a href="#L13" id="L13">13</a>
+<a href="#L14" id="L14">14</a>
+<a href="#L15" id="L15">15</a>
+<a href="#L16" id="L16">16</a>
+<a href="#L17" id="L17">17</a>
+<a href="#L18" id="L18">18</a>
+<a href="#L19" id="L19">19</a>
+<a href="#L20" id="L20">20</a>
+<a href="#L21" id="L21">21</a>
+<a href="#L22" id="L22">22</a>
+<a href="#L23" id="L23">23</a>
+<a href="#L24" id="L24">24</a>
+<a href="#L25" id="L25">25</a></td><td class="code"><span class="tK">DECLARE</span>
+    <span class="tI">missing</span> <span class="tD">text[]</span>;
+<span class="tK">BEGIN</span>
+    <span class="c0" id="Tba3d3e64b70e771f" title="never evaluated"><span class="tK">IF</span> <span class="b00" id="Te2dc5582e049ef34" title="never evaluated">NOT _has_role($1) </span><span class="tK">THEN</span>
+        <span class="c0" id="Tbf88909b83058405" title="never evaluated"><span class="c0" id="T466821686f47def5" title="never evaluated"><span class="tK">RETURN</span> fail( $3 ) || E<span class="tS">'\n'</span> || diag (
+            <span class="tS">'    Role '</span> || quote_ident($1) || <span class="tS">' does not exist'</span>
+        )</span>;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+
+    <span class="tK">SELECT</span> ARRAY(
+        SELECT quote_ident($2[i])
+          FROM generate_series(1, array_upper($2, 1)) s(i)
+          LEFT JOIN pg_catalog.pg_roles r ON rolname = $2[i]
+         WHERE r.oid IS NULL
+            OR NOT r.oid = ANY ( _grolist($1) )
+         ORDER BY s.i
+    ) INTO missing;
+    <span class="tK">IF</span> <span class="b00" id="Tb84aaf809102ddee" title="never evaluated">missing[1] IS NULL </span><span class="tK">THEN</span>
+        <span class="c0" id="T1e36f4fb8c208518" title="never evaluated"><span class="c0" id="T6486b6b3ba1f8904" title="never evaluated"><span class="tK">RETURN</span> ok( true, $3 )</span>;
+    </span><span class="tK">END</span> <span class="tK">IF</span>;
+    <span class="c0" id="Tf4a8532a3945a90a" title="never evaluated"><span class="tK">RETURN</span> ok( false, $3 ) || E<span class="tS">'\n'</span> || diag(
+        <span class="tS">'    Members missing from the '</span> || quote_ident($1) || E<span class="tS">' role:\n        '</span> ||
+        array_to_string( missing, E<span class="tS">'\n        '</span>)
+    )</span>;
+</span><span class="tK">END</span>;</td></tr></table></div><div class="toc"><strong>Notes</strong><ol><li class="block"><a href="#Tba3d3e64b70e771f" onMouseOver="highlight('Tba3d3e64b70e771f')">never evaluated</a></li><li class="branch"><a href="#Te2dc5582e049ef34" onMouseOver="highlight('Te2dc5582e049ef34')">never evaluated</a></li><li class="block"><a href="#Tbf88909b83058405" onMouseOver="highlight('Tbf88909b83058405')">never evaluated</a></li><li class="block"><a href="#T466821686f47def5" onMouseOver="highlight('T466821686f47def5')">never evaluated</a></li><li class="branch"><a href="#Tb84aaf809102ddee" onMouseOver="highlight('Tb84aaf809102ddee')">never evaluated</a></li><li class="block"><a href="#T1e36f4fb8c208518" onMouseOver="highlight('T1e36f4fb8c208518')">never evaluated</a></li><li class="block"><a href="#T6486b6b3ba1f8904" onMouseOver="highlight('T6486b6b3ba1f8904')">never evaluated</a></li><li class="block"><a href="#Tf4a8532a3945a90a" onMouseOver="highlight('Tf4a8532a3945a90a')">never evaluated</a></li></ol></div></div><div class="timestamp">Generated by piggly 2.3.1 at September 24, 2025 13:36 UTC</div><a href="index.html" class="return">Return to index</a></body></html>

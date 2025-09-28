@@ -1,0 +1,12 @@
+DECLARE
+    ret integer[];
+BEGIN
+    perform public.piggly_branch($PIGGLY$dbeee402e2a43ddf$PIGGLY$);
+    EXECUTE 'SELECT ARRAY[id, value] FROM __tcache__ WHERE label = ' ||
+    quote_literal($1) || ' AND id = (SELECT MAX(id) FROM __tcache__ WHERE label = ' ||
+    quote_literal($1) || ') LIMIT 1' INTO ret;
+    perform public.piggly_branch($PIGGLY$be333307a7257baf$PIGGLY$);RETURN ret;
+EXCEPTION WHEN undefined_table THEN
+   perform public.piggly_branch($PIGGLY$c3142daa33810d62$PIGGLY$);
+   perform public.piggly_branch($PIGGLY$d8459ce11a25a902$PIGGLY$);RAISE EXCEPTION 'You tried to run a test without a plan! Gotta have a plan';
+END;

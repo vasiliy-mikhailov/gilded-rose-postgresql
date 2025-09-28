@@ -1,0 +1,38 @@
+DECLARE
+    have    ALIAS FOR $1;
+    want    ALIAS FOR $2;
+    extras  TEXT[]  := '{}';
+    missing TEXT[]  := '{}';
+    res     BOOLEAN := TRUE;
+    msg     TEXT    := '';
+BEGIN
+    perform public.piggly_branch($PIGGLY$0e37d448494dd834$PIGGLY$);
+    BEGIN
+        -- Find extra records.
+        perform public.piggly_branch($PIGGLY$86979526b1b25f3e$PIGGLY$);
+        EXECUTE 'SELECT EXISTS ( '
+             || '( SELECT * FROM ' || have || ' EXCEPT ' || $4
+             || '  SELECT * FROM ' || want
+             || ' ) UNION ( '
+             || '  SELECT * FROM ' || want || ' EXCEPT ' || $4
+             || '  SELECT * FROM ' || have
+             || ' ) LIMIT 1 )' INTO res;
+
+        -- Drop the temporary tables.
+        EXECUTE 'DROP TABLE ' || have;
+        EXECUTE 'DROP TABLE ' || want;
+    EXCEPTION WHEN syntax_error OR datatype_mismatch THEN
+        perform public.piggly_branch($PIGGLY$2481ffae3bc32f3b$PIGGLY$);
+        msg := E'\n' || diag(
+            E'    Columns differ between queries:\n'
+            || '        have: (' || _temptypes(have) || E')\n'
+            || '        want: (' || _temptypes(want) || ')'
+        );
+        EXECUTE 'DROP TABLE ' || have;
+        EXECUTE 'DROP TABLE ' || want;
+        perform public.piggly_branch($PIGGLY$bce4ef8033cd8bb5$PIGGLY$);RETURN ok(FALSE, $3) || msg;
+    END;
+
+    -- Return the value from the query.
+    perform public.piggly_branch($PIGGLY$da87e142926e0e24$PIGGLY$);RETURN ok(res, $3);
+END;

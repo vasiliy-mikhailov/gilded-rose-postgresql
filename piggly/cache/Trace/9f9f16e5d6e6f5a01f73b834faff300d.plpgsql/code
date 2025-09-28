@@ -1,0 +1,17 @@
+DECLARE
+    grants TEXT[] := _get_sequence_privs( $2, quote_ident($1) );
+BEGIN
+    perform public.piggly_branch($PIGGLY$6a218288cd0a40a3$PIGGLY$);
+    IF public.piggly_cond($PIGGLY$6e58205213fd2720$PIGGLY$, (grants[1] = 'undefined_table')) THEN
+        perform public.piggly_branch($PIGGLY$379a94cf8cbe6090$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$ba26b13fff22f3c6$PIGGLY$);RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Sequence ' || quote_ident($1) || '.' || quote_ident($2) || ' does not exist'
+        );
+    ELSIF public.piggly_cond($PIGGLY$234a7a7cd01ffbcc$PIGGLY$, (grants[1] = 'undefined_role')) THEN
+        perform public.piggly_branch($PIGGLY$44a71adc972ea702$PIGGLY$);
+        perform public.piggly_branch($PIGGLY$709db9dd8a6bab0d$PIGGLY$);RETURN ok(FALSE, $4) || E'\n' || diag(
+            '    Role ' || quote_ident($2) || ' does not exist'
+        );
+    END IF;
+    perform public.piggly_branch($PIGGLY$0854e7f2663a917f$PIGGLY$);RETURN _assets_are('privileges', grants, $3, $4);
+END;

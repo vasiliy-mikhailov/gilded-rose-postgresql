@@ -1,0 +1,10 @@
+DECLARE
+    id integer;
+BEGIN
+    id := _get_latest( 'todo', -1 );
+    IF id IS NULL THEN
+        RAISE EXCEPTION 'todo_end() called without todo_start()';
+    END IF;
+    EXECUTE 'DELETE FROM __tcache__ WHERE id = ' || id;
+    RETURN;
+END;
