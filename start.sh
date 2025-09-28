@@ -1,2 +1,3 @@
-docker compose up
-docker exec -it $(docker ps -q -f name=gildedrose-db) bash
+docker compose up -d
+docker exec -it gildedrose-db bash
+docker compose down

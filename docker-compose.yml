@@ -1,8 +1,11 @@
 version: '3.8'
 
 services:
-  db:
-    build: .
+  gildedrose-db:
+    container_name: gildedrose-db
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
       POSTGRES_USER: gilded
       POSTGRES_PASSWORD: secret
