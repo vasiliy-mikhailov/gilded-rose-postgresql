@@ -1,15 +1,19 @@
-# Gilded Rose на PostgreSQL
+```markdown
+# Gilded Rose с PostgreSQL
 
 ## Описание
 
-Реализация задачи [Gilded Rose](https://github.com/emilybache/GildedRose-Refactoring-Kata) с использованием PostgreSQL. Проект демонстрирует рефакторинг кода и управление товарами с особыми правилами обновления качества (Aged Brie, Backstage passes, Sulfuras и др.).
+Эта реализация [Gilded Rose Refactoring Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata) переносит логику управления товарами в PostgreSQL. Исходный код хранимой процедуры `update_quality` был адаптирован для совместимости с анализом покрытия кода в `piggly`. Проект включает поддержку Docker и PostgreSQL 17, а также юнит-тесты на `pgTAP` для проверки логики.
+
+Репозиторий: [vasiliy-mikhailov/gilded-rose-postgresql](https://github.com/vasiliy-mikhailov/gilded-rose-postgresql).  
+Оригинальный проект: [emilybache/GildedRose-Refactoring-Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata).
 
 ## Требования
 
 - Docker и Docker Compose.
-- Bash-терминал.
+- Bash-терминал (на Windows используйте WSL или Git Bash).
 
-## Запуск
+## Установка и запуск
 
 1. Клонируйте репозиторий:
    ```bash
@@ -19,53 +23,65 @@
 
 2. Запустите проект:
    ```bash
-   bash start.sh
+   ./start.sh
    ```
-   Откроется терминал контейнера с PostgreSQL.
+   Скрипт запускает Docker-контейнер с PostgreSQL (имя: `gildedrose-db`) и открывает его терминал.
 
 3. Выполните тесты:
    ```bash
    /tests/run_tests.sh
    ```
-   Тесты, написанные с использованием `pgTAP`, проверяют хранимую процедуру `update_quality`. В консоли отобразится результат тестов и информация о покрытии кода (с использованием `piggly`).
+   Тесты на `pgTAP` проверяют процедуру `update_quality`. В консоли отобразятся результаты и покрытие кода от `piggly`.
 
 4. Просмотрите отчет о покрытии:
-   Откройте в браузере:
+   Откройте HTML-отчет:
    ```bash
    open ./piggly/reports/index.html
    ```
-   (На Linux используйте `xdg-open` или откройте файл вручную.)
+   На Linux используйте `xdg-open`. На Windows или если команда не работает, откройте файл `./piggly/reports/index.html` в браузере.
 
-## Что вы увидите
+## Ожидаемые результаты
 
-### Результат тестов
-После запуска `/tests/run_tests.sh` в консоли отобразится вывод `pgTAP` с результатами юнит-тестов. Пример:
-
+### Вывод тестов
+После запуска `/tests/run_tests.sh` вы увидите результаты тестов `pgTAP`. Пример:
 ```
 Running all pgTAP tests...
-/tests/test_when_update_quality_for_aged_brie_then_quality_increases.sql ..................... ok
-/tests/test_when_update_quality_for_any_item_then_quality_never_exceeds_50.sql ............... ok
-/tests/test_when_update_quality_for_any_item_then_quality_never_negative.sql ................. ok
-/tests/test_when_update_quality_for_backstage_then_quality_drops_to_0_after_concert.sql ...... ok
-/tests/test_when_update_quality_for_backstage_then_quality_increases_by_2_if_10_or_less.sql .. ok
-/tests/test_when_update_quality_for_backstage_then_quality_increases_by_3_if_5_or_less.sql ... ok
-/tests/test_when_update_quality_for_expired_item_then_quality_decreases_twice.sql ............ ok
-/tests/test_when_update_quality_for_normal_item_then_quality_decreases.sql ................... ok
-/tests/test_when_update_quality_for_sulfuras_then_quality_never_changes.sql .................. ok
+/tests/test_when_update_quality_for_aged_brie_then_quality_increases.sql ... ok
+/tests/test_when_update_quality_for_any_item_then_quality_never_exceeds_50.sql ... ok
+[...]
 All tests successful.
 Files=9, Tests=9,  0 wallclock secs
 Result: PASS
 ```
+Это подтверждает, что 9 тестов для процедуры `update_quality` прошли успешно.
 
 ### Отчет о покрытии
-В `./piggly/reports/index.html` будет HTML-отчет о покрытии кода процедуры `update_quality`, сгенерированный `piggly`. Пример данных:
-- **Block Coverage**: 90.48% (19 из 21 блока покрыты).
-- **Loop Coverage**: 50.00% (1 цикл, частично покрыт).
-- **Branch Coverage**: 75.00% (12 из 16 веток покрыты).
+В `./piggly/reports/index.html` отображается анализ покрытия кода от `piggly`. Пример:
+- Покрытие блоков: ~90% (большинство кода протестировано).
+- Покрытие веток: ~75% (некоторые условия, например, для Aged Brie с отрицательным `sell_in`, не покрыты).
+- Покрытие циклов: ~50% (цикл частично протестирован).
 
-Отчет показывает код процедуры с выделением протестированных и непротестированных участков, а также заметки о ветках, которые никогда не выполнялись (например, некоторые условия для Aged Brie при отрицательном `sell_in`).
+Отчет выделяет протестированные (зеленые) и непротестированные (красные) участки кода.
 
-## Тестирование
+## Особенности
 
-- **pgTAP**: Юнит-тесты для процедуры `update_quality`, проверяющие правила обновления качества товаров.
-- **piggly**: Генерирует отчет о покрытии кода в HTML, показывая процент покрытия и неподлежащие тестированию участки.
+- **Адаптация для `piggly`**: Код процедуры `update_quality` переработан для совместимости с анализом покрытия в `piggly`.
+- **Docker и PostgreSQL 17**: Логика Gilded Rose реализована в хранимой процедуре с использованием PostgreSQL, запущенного в Docker.
+- **pgTAP**: Юнит-тесты проверяют правила обновления качества товаров (Aged Brie, Backstage passes, Sulfuras и др.).
+
+## Устранение неполадок
+
+- **Контейнер не запускается**: Убедитесь, что Docker установлен, и выполните:
+  ```bash
+  docker-compose down && docker-compose up -d
+  ```
+- **Терминал не открывается**: Войдите вручную:
+  ```bash
+  docker exec -it gildedrose-db bash
+  ```
+- **Ошибки тестов**: Проверьте, что файлы в `/src` и `/tests` корректно скопированы (см. `Dockerfile`).
+
+## Вклад в проект
+
+Хотите улучшить тесты или код? Создайте pull request или сообщите об ошибке в [issues](https://github.com/vasiliy-mikhailov/gilded-rose-postgresql/issues).
+```
