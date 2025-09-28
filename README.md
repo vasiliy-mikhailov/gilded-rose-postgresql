@@ -22,7 +22,7 @@
 - Не изменяйте `Item` или сигнатуру `update_quality`.
 - В коде не реализованы **Conjured** (зачарованные) товары. Их нужно реализовать, не сломав остальную логику.
 
-[Оригинальные требования] (https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/GildedRoseRequirements_ru.md)
+[Оригинальные требования](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/GildedRoseRequirements_ru.md)
 
 ## Установка и запуск
 
