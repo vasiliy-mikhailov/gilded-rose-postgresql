@@ -227,3 +227,7 @@ ROLLBACK;
 ## Вклад в проект
 
 Хотите улучшить тесты или код? Создайте pull request или сообщите об ошибке в [issues](https://github.com/vasiliy-mikhailov/gilded-rose-postgresql/issues).
+
+## Решение
+
+Решение задачи размещено по ссылке [https://github.com/vasiliy-mikhailov/gilded-rose-postgresql-solution](https://github.com/vasiliy-mikhailov/gilded-rose-postgresql-solution)
